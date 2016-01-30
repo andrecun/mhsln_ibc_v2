@@ -1,0 +1,174 @@
+/**
+*
+* Project	: Website DIKTI Mahasiswa Luar Negeri;
+* File Name	: taufan.css;
+* Author	: Andreas Hadiyono & Taufan Erfiyanto;
+*
+**/
+
+body {
+  padding: 30px;
+  background: #CCCCCC url('../images/squared_metal.png') repeat;
+}
+
+/* Reset the container */
+.container {
+  max-width: 1024px;/*960px*/
+  padding-right: 0;
+  padding-left: 0;
+}
+
+.page-header {
+	margin: 0;
+	border-bottom: none;
+	padding-bottom: 0;
+	background-color: #FFFFFF;
+}
+
+.page-header img {
+  	-webkit-border-radius: 5px 5px 0px 0px;
+	-moz-border-radius: 5px 5px 0px 0px;
+	border-radius: 5px 5px 0px 0px;
+}
+
+.te-container {
+	margin-right: 0;
+	margin-left: 0;
+	background-color: #FFFFFF;
+}
+
+.te-menubar {
+	background-color: #E7F5FB;
+	padding: 10px;
+}
+
+.te-content {
+	background-color: #FFFFFF;
+	padding: 10px;
+}
+
+.te-menu-title {
+	font-weight: bold;
+	text-transform: uppercase; 
+}
+
+.footer {
+	background-color: #0277A3;
+	text-align: center;
+	padding: 10px;
+  	-webkit-border-radius: 0px 0px 5px 5px;
+	-moz-border-radius: 0px 0px 5px 5px;
+	border-radius: 0px 0px 5px 5px;
+}
+
+.footer p {
+	margin: 0;
+	color: #FFFFFF;
+}
+
+.te-panel-heading {
+	font-weight: bold;
+}
+
+.te-panel-heading p {
+	display: inline;
+}
+
+.te-pull-right {
+	float: right;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+
+.te-table-content {
+	margin: 10px;
+}
+
+.te-col-title {
+	font-weight: bold;
+}
+
+.te-avatar {
+	border: 5px solid #DDDDDD;
+}
+
+.table.te-table {
+	background-color: transparent;
+}
+
+.pagination {
+	margin: 0;
+}
+
+.panel-default {
+	margin-bottom: 10px;
+}
+
+.te-navigation-label {
+	padding-bottom: 5px;
+	padding-top: 5px
+}
+
+.jumbotron {
+	padding: 10px;
+}
+
+.jumbotron h1 {
+	font-size: 16px;
+	margin: 0;
+	font-weight: bold;
+}
+
+.jumbotron hr {
+	margin: 10px 0;
+	border-radius: 
+}
+.te-form-filter {
+	margin: 0;
+	padding: 0;
+}
+
+@media screen and (min-width: 768px){
+	.container .jumbotron {
+	 padding: 10px;
+	}
+}
+
+.te-no-margin {
+	margin: 0;
+}
+
+.nav li a {
+	padding: 10px 5px;
+}
+
+ul.nav.nav-tabs {
+	margin-bottom: 10px;
+}
+
+.te-no-padding {
+	padding: 0;
+}
+
+.te-regular-font {
+	font-weight: normal;
+}
+
+.te-container-login {
+	float: none;
+	margin: 100px auto;
+}
+
+.te-align-left {
+	text-align: left;
+	margin: 0;
+	padding: 0;
+}
+
+.te-btn {
+	margin: 5px;
+}
+
+.te-padding-top {
+	padding-top: 10px;
+}

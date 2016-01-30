@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+  <?php
+  include "view/default/head.php";
+  ?>
+  <body>
+      <div class="container fill">
+          <?php
+  include "view/default/img_header.php";
+  ?>
+
+        <div class="row te-container te-row">
+          <?php
+  include "view/default/right_menu.php";
+  ?>
+             
+              <script>
+$(document).ready(function() { $("#inputStatus").select2(); });
+$(document).ready(function() { $("#inputMajor").select2(); });
+$(document).ready(function() { $("#inputUniversity").select2(); });
+$(document).ready(function() { $("#inputFaculty").select2(); });
+</script>
+          <div class="col-md-9 te-content te-col-md-9">
+              <div class="jumbotron">
+                <h1>Filter Results</h1>
+                <hr />
+                <form role="form te-form-filter">
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-md-4 te-padding-top">
+                        <input type="text" class="form-control" id="inputKeyword" name="keyword" placeholder="Type Keyword">
+                      </div>
+
+                      <div class="col-md-4 te-padding-top">
+                        <select class="form-control" id="inputStatus" name="status">
+                             <option value="">Select Status</option>
+                          <?php
+                                                                                $qry = $DB->query("select idstatus,namastatus from status");
+                                                                                while ($row = $DB->fetch_object($qry)) {
+                                                                                     $idstatus= $row->idstatus;
+                                                                                     $namastatus= $row->namastatus;
+                                                                                          echo "<option value=\"$idstatus\" >$namastatus</option>";
+                                                                                }
+                                                                                ?>
+                        </select>
+                      </div>
+<div class="col-md-4 te-padding-top">
+                        <select class="form-control" id="inputMajor" name="major">
+                          <option value="">Select Major</option>
+                        <?php
+                                                                                $qry = $DB->query("select idjurusan,namajurusan from jurusan");
+                                                                                while ($row = $DB->fetch_object($qry)) {
+                                                                                     $idjurusan= $row->idjurusan;
+                                                                                     $namajurusan = $row->namajurusan;
+                                                                                          echo "<option value=\"$idjurusan\" >$namajurusan</option>";
+                                                                                }
+                                                                                ?>                        </select>
+                      </div>
+                      <!--<div class="col-md-4 te-padding-top">
+                        <select class="form-control" id="inputExpired" name="expired">
+                          <option>Select Period</option>
+                          <option>Active</option>
+                          <option>Expired</option>
+                        </select>
+                      </div>-->
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <div class="row">
+                      <!--<div class="col-md-4 te-padding-top">
+                        <select class="form-control" id="inputType" name="type">
+                          <option>Select Type</option>
+                          <option>Private</option>
+                          <option>State</option>
+                        </select>
+                      </div>-->
+
+                      <div class="col-md-4 te-padding-top">
+                        <select class="form-control" id="inputUniversity" name="university">
+                          <option value="">Select University</option>
+                          <?php
+                                                                                $qry = $DB->query("select iduniversitas,namauniversitas from universitas");
+                                                                                while ($row = $DB->fetch_object($qry)) {
+                                                                                     $id_universitas = $row->iduniversitas;
+                                                                                     $nama_universitas = $row->namauniversitas;
+                                                                                     if ($id_universitas== $universitas)
+                                                                                          echo "<option value=\"$id_universitas\" selected>$nama_universitas</option>";
+                                                                                     else
+                                                                                          echo "<option value=\"$id_universitas\" >$nama_universitas</option>";
+                                                                                }
+                                                                                ?>
+                        </select>
+                      </div>
+
+                      <div class="col-md-4 te-padding-top">
+                        <select class="form-control" id="inputFaculty" name="faculty">
+                             <option value="">Select Faculty</option>
+                          <?php
+                                                                                $qry = $DB->query("select idfakultas,namafakultas from fakultas");
+                                                                                while ($row = $DB->fetch_object($qry)) {
+                                                                                     $idfakultas= $row->idfakultas;
+                                                                                     $namafakultas = $row->namafakultas;
+                                                                                          echo "<option value=\"$idfakultas\" >$namafakultas</option>";
+                                                                                }
+                                                                                ?>
+                        </select>
+                      </div>
+
+                    </div>
+                  </div>
+
+                
+
+
+                  <div class="form-group te-no-margin">
+                    <div class="col-md-12 te-form-filter">
+                      <button type="submit" name="btnSubmit" class="btn col-md-2 btn-primary btn-sm te-pull-right">Search</button>
+                    </div>
+                    <div class="clearfix"></div>
+                  </div>
+                  
+                </form>
+              </div>
+
+              <div class="panel panel-default">
+                <!-- Default panel contents -->
+                <div class="panel-heading te-panel-heading"><i class="glyphicon glyphicon-th-list"></i> <p>List of All Students</p>
+                      <a href="<?= $url_rewrite ?>content/student/add" class="btn btn-primary btn-xs te-pull-right">New Applicants</a>
+
+                      <a href="<?= $url_rewrite ?>content/student/add " class="btn btn-primary btn-xs  te-pull-right">Study Permit Extension</a>
+                </div>
+
+                <div class="clearfix"></div>
+
+                <div class="panel-body">
+                <!-- Table -->
+                <table class="table table-striped table-bordered">
+                  <thead>
+                    <tr>
+                      <th>Photo</th>
+                      <th>Description</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- start of item list -->
+                    <tr>
+                      <td>
+                        <img src="styles/images/avatar.jpg" class="te-avatar" width="150" height="154" /> 
+                      </td>
+                      <td>
+                        <table class="table te-table">
+                          <tbody>
+                            <tr>
+                              <td class="te-col-title">Name</td>
+                              <td>Yoko Ono</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Home Address</td>
+                              <td>Shibuya No. 50 Tokyo, Japan</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Phone/Mobile Number</td>
+                              <td>+6212345678</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Place/Date of Birth</td>
+                              <td>Hiroshima, 20 Nopember 1988</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Period of Study</td>
+                              <td>08-09-2014</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Study Program</td>
+                              <td>S2, Magister Manajemen Sistem Informasi</td>
+                            </tr>
+                            <tr>
+                              <td><span class="label label-success">Terdaftar</span></td>
+                              <td>
+                                <a href="#" class="btn btn-default btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- end of item list -->
+
+                    <!-- start of item list -->
+                    <tr>
+                      <td>
+                        <img src="styles/images/avatar.jpg" class="te-avatar" width="150" height="154" /> 
+                      </td>
+                      <td>
+                        <table class="table  te-table">
+                          <tbody>
+                            <tr>
+                              <td class="te-col-title">Name</td>
+                              <td>Yoko Ono</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Home Address</td>
+                              <td>Shibuya No. 50 Tokyo, Japan</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Phone/Mobile Number</td>
+                              <td>+6212345678</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Place/Date of Birth</td>
+                              <td>Hiroshima, 20 Nopember 1988</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Period of Study</td>
+                              <td>08-09-2014</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Study Program</td>
+                              <td>S2, Magister Manajemen Sistem Informasi</td>
+                            </tr>
+                            <tr>
+                              <td><span class="label label-danger">Denied</span></td>
+                              <td>
+                                <a href="#" class="btn btn-default btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- end of item list -->
+
+                    <!-- start of item list -->
+                    <tr>
+                      <td>
+                        <img src="styles/images/avatar.jpg" class="te-avatar" width="150" height="154" /> 
+                      </td>
+                      <td>
+                        <table class="table  te-table">
+                          <tbody>
+                            <tr>
+                              <td class="te-col-title">Name</td>
+                              <td>Yoko Ono</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Home Address</td>
+                              <td>Shibuya No. 50 Tokyo, Japan</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Phone/Mobile Number</td>
+                              <td>+6212345678</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Place/Date of Birth</td>
+                              <td>Hiroshima, 20 Nopember 1988</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Period of Study</td>
+                              <td>08-09-2014</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Study Program</td>
+                              <td>S2, Magister Manajemen Sistem Informasi</td>
+                            </tr>
+                            <tr>
+                              <td><span class="label label-warning">Processed by BKPLN</span></td>
+                              <td>
+                                <a href="#" class="btn btn-default btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- end of item list -->
+
+                    <!-- start of item list -->
+                    <tr>
+                      <td>
+                        <img src="styles/images/avatar.jpg" class="te-avatar" width="150" height="154" /> 
+                      </td>
+                      <td>
+                        <table class="table  te-table">
+                          <tbody>
+                            <tr>
+                              <td class="te-col-title">Name</td>
+                              <td>Yoko Ono</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Home Address</td>
+                              <td>Shibuya No. 50 Tokyo, Japan</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Phone/Mobile Number</td>
+                              <td>+6212345678</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Place/Date of Birth</td>
+                              <td>Hiroshima, 20 Nopember 1988</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Period of Study</td>
+                              <td>08-09-2014</td>
+                            </tr>
+                            <tr>
+                              <td class="te-col-title">Study Program</td>
+                              <td>S2, Magister Manajemen Sistem Informasi</td>
+                            </tr>
+                            <tr>
+                              <td><span class="label label-success">Terdaftar</span></td>
+                              <td>
+                                <a href="#" class="btn btn-default btn-sm">Edit</a>
+                                <a href="#" class="btn btn-danger btn-sm">Delete</a>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </td>
+                    </tr>
+                    <!-- end of item list -->
+
+                  </tbody>
+                </table>
+              </div>
+              <!-- end of panel body -->
+
+              </div>
+
+              <div class="row">
+                <div class="col-md-4 te-navigation-label">
+                  <p>Showing 1 to 4 of 20 entries</p>
+                </div>
+                <div class="col-md-8">
+                  <ul class="pagination te-pull-right">
+                    <li><a href="#">&laquo;</a></li>
+                    <li><a href="#">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">4</a></li>
+                    <li><a href="#">5</a></li>
+                    <li><a href="#">&raquo;</a></li>
+                  </ul>
+                </div>
+              </div>
+          </div>
+        </div>
+
+
+          <?php
+  include "view/default/footer.php";
+  ?>
+    </div> <!-- /container -->
+  </body>
+</html>
