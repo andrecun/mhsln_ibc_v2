@@ -338,31 +338,38 @@ class utilityCode extends config {
           $c = $_FILES[$file]['type'];
           // echo("Masuk $c");
           $filename = $_FILES[$file]['name'];
-          if (in_array($_FILES[$file]['type'], $allowed)) {
-               //echo("Masuk 112");
-               //Where the file must be uploaded to
-               if ($folder)
-                    $folder .= '/'; //Add a '/' at the end of the folder
-               $uploadfile = $folder . $filesave;
-               //$result = "$uploadfile  ..";
-               //Move the file from the stored location to the new location
-               if (move_uploaded_file($_FILES[$file]['tmp_name'], $uploadfile)) {
-                    chmod("$uploadfile", 0777);
+          if($_FILES[$file]['size']<=$this->sizeFile)
+          {       
+                if (in_array($_FILES[$file]['type'], $allowed)) {
+                 //echo("Masuk 112");
+                 //Where the file must be uploaded to
+                 if ($folder)
+                      $folder .= '/'; //Add a '/' at the end of the folder
+                 $uploadfile = $folder . $filesave;
+                 //$result = "$uploadfile  ..";
+                 //Move the file from the stored location to the new location
+                 if (move_uploaded_file($_FILES[$file]['tmp_name'], $uploadfile)) {
+                      chmod("$uploadfile", 0777);
 
-                    $file1 = $_FILES[$file]['name'];
-                    /* if ($type != 2)
-                      resize("$file1", 300, 300, $folder_resize, "");
-                     */
-                    $result .= "harusnya masuk $uploadfile ....";
-               } else {
-                    if (!$_FILES[$file_id]['size']) { //Check if the file is made
-                         unlink($uploadfile); //Delete the Empty file
-                         $file_name = '';
-                         $result .= "Empty file found - please use a valid file."; //Show the error message
-                    } else {
-                         chmod($uploadfile, 0777); //Make it universally writable.
-                    }
+                      $file1 = $_FILES[$file]['name'];
+                      /* if ($type != 2)
+                        resize("$file1", 300, 300, $folder_resize, "");
+                       */
+                      $result .= "harusnya masuk $uploadfile ....";
+                 } else {
+                      if (!$_FILES[$file_id]['size']) { //Check if the file is made
+                           unlink($uploadfile); //Delete the Empty file
+                           $file_name = '';
+                           $result .= "Empty file found - please use a valid file."; //Show the error message
+                      } else {
+                           chmod($uploadfile, 0777); //Make it universally writable.
+                      }
+                 }
+               }else{
+                 echo "<script>alert('File $filename tidak sesuai format');</script>";  
                }
+          } else {
+              echo "<script>alert('File $filename tidak dapat dimasukkan karena melebihi ukuran.Maximum 512kb');</script>";
           }
           return $result;
      }

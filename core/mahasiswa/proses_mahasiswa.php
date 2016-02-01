@@ -113,7 +113,7 @@ switch ($mode) {
           //$pernyataan1=$purifier->purify($_POST["pernyataan1"]);
           //$kesehatan=$purifier->purify($_POST["kesehatan"]);
           //$loa=$purifier->purify($_POST["loa"]);
-          $ijazah= upload_for_mahasiswa("ijazah", $kode, 3, $path_upload);
+          //$ijazah= upload_for_mahasiswa("ijazah", $kode, 3, $path_upload);
           
           $passport1 = upload_for_mahasiswa("passport1", $kode, 3, $path_upload);
           ;

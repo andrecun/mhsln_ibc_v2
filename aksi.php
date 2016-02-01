@@ -119,12 +119,15 @@ else {
                          exit;
                          break;
                      case "rsrtrek":
-                         $kode = $purifier->purify($data[3]);
+                         $kode = urldecode($purifier->purify($data[3]));
+                         $tmp=explode("-",$kode);
+                         $kode_hapus=end($tmp);
                          $file = $purifier->purify($data[4]);
-                         $file_upload_foto = "$path_upload" . "$kode" . "/$file";
-                         unlink($file_upload_foto);
+                         $file_upload_foto = "$path_upload" . "$kode_hapus" . "/$file";
                          $DB->query("update mahasiswa set srtrek='' where idmahasiswa='$kode'");
                          $DB->query("update ijin set file='' where mahasiswa_idmahasiswa='$kode'");
+                         //echo "$file_upload_foto";
+                         //exit();
                          $UTILITY->location_goto("content/student/permit/$kode");
                          exit;
                          break;

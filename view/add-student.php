@@ -385,7 +385,7 @@ if ($cek_eksist == 0) {
                               <form method="post" action="<?= $url_rewrite ?>content/student/add/">
                                    <div class="panel panel-default">
 
-                                        <div class="panel-heading te-panel-heading">
+                                        <!--<div class="panel-heading te-panel-heading">
                                              <i class="glyphicon glyphicon-search"></i> <p>No Register</p>
                                              <div class="panel-body">
 
@@ -399,7 +399,7 @@ if ($cek_eksist == 0) {
                                                        </div>
                                                   </div>
                                              </div>
-                                        </div>
+                                        </div>-->
 
                                    </div></form>
                               <!-- personal_info -->
@@ -708,7 +708,6 @@ if ($cek_eksist == 0) {
 }
 function showDiv(){
      var program= document.getElementById("jenjangstudi_idjenjangstudi").value;
-alert(program);
      if(program<=7){
           document.getElementById('prodi-div').style.display = 'block';
           document.getElementById('jurusan-div').style.display = 'block';

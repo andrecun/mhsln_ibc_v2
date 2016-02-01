@@ -229,6 +229,7 @@ echo "<html><head></head><body><table border=1  width='2000px'>"
                       <th width=\"300px\">Alamat Asal</th>
                       <th width=\"300px\">Alamat di Indonesia</th>
                       <th width=\"200px\">Institusi</th>
+                      <th width=\"200px\">Jurusan</th>
                         <th width=\"200px\">Program/Jenjang Studi</th>
                       <th width=\"100px\">Jenis Ijin (Baru/ Perpanjang)</th>
                       <th width=\"200px\">Lama Ijin</th> 
@@ -334,7 +335,7 @@ $universitas=$data['namauniversitas'];
                                <td>$alamat</td>
                                      <td>$alamatind</td>
                       <td>$universitas</td>
-                           <td>$jenjangstudi_idjenjangstudi</td>
+                           <td>$jurusan_idjurusan</td>
                       <td>$status_doc</td>
                        <td>$lamaijin</td>
                      
