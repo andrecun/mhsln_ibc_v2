@@ -1441,11 +1441,11 @@ function showDiv(){
 
                               <!-- verification -->
                               <div class="tab-pane fade" id="verification">
-<!--                                   <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="<?= $url_rewrite ?>proses/ekstension/">
+                                  <form class="form-horizontal" role="form" enctype="multipart/form-data" method="post" action="<?= $url_rewrite ?>proses/ekstension/">
 
-                                         panel account information 
+                                         <!--panel account information--> 
                                         <div class="panel panel-default">
-                                              Default panel contents 
+                                              <!--Default panel contents--> 
                                              <div class="panel-heading te-panel-heading">
                                                   <i class="glyphicon glyphicon-th-large"></i> <p>Account Information</p>
                                              </div>
@@ -1472,9 +1472,9 @@ function showDiv(){
 
 
                                              </div>
-                                              end of panel body 
+                                              <!--end of panel body--> 
                                         </div>
-                                         end of panel period of study info 
+                                         <!--end of panel period of study info--> 
 
 
 
@@ -1484,7 +1484,7 @@ function showDiv(){
                                                   <button type="submit" name="btnStudy" class="btn btn-primary">Save and Finish</button>
                                              </div>
                                         </div>
-                                   </form>-->
+                                   </form>
                                    
                                                <div class="panel panel-default">
                                              <!-- Default panel contents -->
