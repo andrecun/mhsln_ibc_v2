@@ -32,7 +32,9 @@ class modelmahasiswa extends mysql_db {
              $telp2 = $data["telp2"];
           $foto=$data["foto"];
           $ekstension=$data["ekstension"];
-          
+          $pt_asal=addslashes($data['pt_asal']);
+          $jml_kitas=$data['jml_kitas'];
+          $dok_mou=$data['dok_mou'];
           $level=$_SESSION["level{$this->ID}"];
           $universitas_session=trim($_SESSION['unversitas']);
          if($level==2)
@@ -85,6 +87,9 @@ class modelmahasiswa extends mysql_db {
           $telp = $data["telp"];
              $telp2 = $data["telp2"];
           $foto=$data["foto"];
+          $pt_asal=  addslashes($data['pt_asal']);
+          $jml_kitas=$data['jml_kitas'];
+          $dok_mou=$data['dok_mou'];
           $query_mode1 = "update mahasiswa set
                          namamahasiswa='$namamahasiswa',
                          namamahasiswa2='$namamahasiswa2',
@@ -121,6 +126,7 @@ class modelmahasiswa extends mysql_db {
                     jurusan_idjurusan='$jurusan_idjurusan',
                     jenjangstudi_idjenjangstudi='$jenjangstudi_idjenjangstudi',
                     mulaibelajar='$mulaibelajar',
+                          pt_asal='$pt_asal',
                     periode_belajar_awal='$periode_belajar_start',
                     periode_belajar_akhir='$periode_belajar_end',tgl_update='$tgl_update' ,
                          LamaIjin='$lamaijin' , ket_program='$ket_program' ,penyelenggara_program='$penyelenggara_program' 
@@ -158,10 +164,11 @@ class modelmahasiswa extends mysql_db {
           keuangan='$keuangan',
           pernyataan1='$pernyataan1',
           kesehatan='$kesehatan',
+                jml_kitas='$jml_kitas',
           loa='$loa' ,"
                   . "kitas='$kitas',"
                   . "tglkitas='$tgl_kitas',"
-                  . "skld='$skld',"
+                  . "skld='$skld',      dok_mou='$dok_mou',"
                   . "tglskld='$tgl_skld',tgl_update='$tgl_update' ,"
                        . "no_kitas='$no_kitas', no_skld='$no_skld', tgl_kitas_akhir='$tgl_kitas_akhir', ijazah='$ijazah' "
                   . "where kode='$kode' ";

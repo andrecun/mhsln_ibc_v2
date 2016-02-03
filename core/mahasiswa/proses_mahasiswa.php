@@ -51,7 +51,8 @@ switch ($mode) {
           $postalind = $purifier->purify($_POST["postalind"]);
           $telp = $purifier->purify($_POST["telp"]);
           $telp2 = $purifier->purify($_POST["telp2"]);
-
+          $pt_asal = $purifier->purify($_POST["pt_asal"]);
+           
           $foto = upload_for_mahasiswa("foto", $kode, 1, $path_upload);
        
           $data = array(
@@ -73,7 +74,8 @@ switch ($mode) {
               "telp" => "$telp",
               "telp2" => "$telp2",
               "foto" => "$foto",
-              "kode" => "$kode"
+              "kode" => "$kode",
+              "pt_asal"=>"$pt_asal",
           );
           break;
      case 2:
@@ -87,6 +89,7 @@ switch ($mode) {
           $ket_program=$_POST["ket_program"];
           $penyelenggara_program=$_POST["penyelenggara_program"];
           $lamaijin=$_POST["lamaijin"];
+           $pt_asal = $purifier->purify($_POST["pt_asal"]);
           $data = array(
               "universitas_iduniversitas" => "$universitas_iduniversitas",
               "fakultas_idfakultas" => "$fakultas_idfakultas",
@@ -98,7 +101,8 @@ switch ($mode) {
               "kode" => "$kode",
               "lamaijin"=>"$lamaijin",
               "ket_program"=>"$ket_program",
-              "penyelenggara_program"=>"$penyelenggara_program"
+              "penyelenggara_program"=>"$penyelenggara_program",
+               "pt_asal"=>"$pt_asal",
           );
           break;
      case 3:
@@ -122,7 +126,8 @@ switch ($mode) {
           $kesehatan = upload_for_mahasiswa("kesehatan", $kode, 3, $path_upload);
           ;
           $loa = upload_for_mahasiswa("loa", $kode, 1, $path_upload);
-          ;
+           $jml_kitas = $purifier->purify($_POST["jml_kitas"]);
+          $dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
 
           $data = array(
               "nmrpaspor" => "$nmrpaspor",
@@ -136,7 +141,9 @@ switch ($mode) {
               "kesehatan" => "$kesehatan",
               "loa" => "$loa",
               "ijazah"=>"$ijazah",
-              "kode" => "$kode"
+              "kode" => "$kode",
+              "dok_mou"=>"$dok_mou",
+              "jml_kitas"=>"$jml_kitas"
           );
           break;
 }
@@ -243,6 +250,8 @@ if ($kondisi == "tambah") {
      $UTILITY->location_goto("content/student/edit/$id_next/$next");
 } else if ($kondisi == "edit") {
      $next = $mode + 1;
+     //$UTILITY->show_data($data);
+     //exit;
      $MHS->updateMahasiswa($data, $mode);
      $UTILITY->location_goto("content/student/edit/$kode/$next");
 }

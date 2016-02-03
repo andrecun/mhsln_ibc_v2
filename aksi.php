@@ -118,6 +118,15 @@ else {
                          $UTILITY->location_goto("content/student/edit/$kode/3");
                          exit;
                          break;
+                     case "rmou":
+                         $kode = $purifier->purify($data[3]);
+                         $file = $purifier->purify($data[4]);
+                         $file_upload_foto = "$path_upload" . "$kode" . "/$file";
+                         unlink($file_upload_foto);
+                         $DB->query("update mahasiswa set dok_mou='' where kode='$kode'");
+                         $UTILITY->location_goto("content/student/edit/$kode/3");
+                         exit;
+                         break;
                      case "rsrtrek":
                          $kode = urldecode($purifier->purify($data[3]));
                          $tmp=explode("-",$kode);

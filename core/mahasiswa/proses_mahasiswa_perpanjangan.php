@@ -51,7 +51,8 @@ switch ($mode) {
           $postalind = $purifier->purify($_POST["postalind"]);
           $telp = $purifier->purify($_POST["telp"]);
           $telp2 = $purifier->purify($_POST["telp2"]);
-
+  $pt_asal = $purifier->purify($_POST["pt_asal"]);
+        
           $foto = upload_for_mahasiswa("foto", $kode, 1, $path_upload);
        
           $data = array(
@@ -75,6 +76,7 @@ switch ($mode) {
               "foto" => "$foto",
               "kode" => "$kode",
               "ekstension"=>"1",
+                "pt_asal"=>"$pt_asal",
           );
           break;
      case 2:
@@ -88,6 +90,7 @@ switch ($mode) {
         $ket_program=$_POST["ket_program"];
         $penyelenggara_program=$_POST["penyelenggara_program"];
           $lamaijin=$_POST["lamaijin"];
+            $pt_asal = $purifier->purify($_POST["pt_asal"]);
           $data = array(
               "universitas_iduniversitas" => "$universitas_iduniversitas",
               "fakultas_idfakultas" => "$fakultas_idfakultas",
@@ -99,7 +102,8 @@ switch ($mode) {
               "kode" => "$kode",
                 "lamaijin"=>"$lamaijin",
               "ket_program"=>"$ket_program",
-              "penyelenggara_program"=>"$penyelenggara_program"
+              "penyelenggara_program"=>"$penyelenggara_program",
+               "pt_asal"=>"$pt_asal",
           );
           break;
      case 3:
@@ -135,6 +139,8 @@ switch ($mode) {
             $tgl_kitas_akhir= $UTILITY->format_tanggal_db($_POST["tgl_kitas_akhir"]);
              $no_kitas = $purifier->purify($_POST["no_kitas"]);
               $no_skld = $purifier->purify($_POST["no_skld"]);
+               $dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
+                  $jml_kitas = $purifier->purify($_POST["jml_kitas"]);
           $data = array(
               "nmrpaspor" => "$nmrpaspor",
               "mulaipassport" => "$mulaipassport",
@@ -154,7 +160,9 @@ switch ($mode) {
               "no_kitas"=>"$no_kitas",
               "no_skld"=>"$no_skld",
                  "ijazah"=>"$ijazah",
-              "tgl_kitas_akhir"=>"$tgl_kitas_akhir"
+              "tgl_kitas_akhir"=>"$tgl_kitas_akhir",
+               "dok_mou"=>"$dok_mou",
+              "jml_kitas"=>"$jml_kitas",
               
           );
           break;

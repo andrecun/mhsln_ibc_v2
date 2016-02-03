@@ -51,6 +51,9 @@
                          $telp2 = $data["telp2"];
                          $foto = $data["foto"];
                          //mode 2
+                         $pt_asal=$data["pt_asal"];
+                         $jml_kitas=$data['jml_kitas'];
+                         $dok_mou=$data['dok_mou'];
                          $universitas_iduniversitas = $data["universitas_iduniversitas"];
                          $fakultas_idfakultas = $data["prodi_idprodi"];
                         
@@ -104,6 +107,7 @@
                               
                          $cek_eksist = 1;
                     } else {
+                       
                          $ijazah="";
                          $ket_program="";
                          $penyelenggara_program="";
@@ -148,6 +152,9 @@
                          $pernyataan1 = "";
                          $kesehatan = "";
                          $loa = "";
+                          $jml_kitas="";
+                        $dok_mou="";
+                        $pt_asal="";
                     }
                     
                      $kunci= $data["kunci"];      
@@ -708,12 +715,16 @@ if ($cek_eksist == 0) {
 }
 function showDiv(){
      var program= document.getElementById("jenjangstudi_idjenjangstudi").value;
-     if(program<=7){
+     //alert(program);
+        if(program<=7){
           document.getElementById('prodi-div').style.display = 'block';
           document.getElementById('jurusan-div').style.display = 'block';
+          document.getElementById('pt_asal_div').style.display = 'block';
+          document.getElementById('content_tambahan').style.display = 'none';
      }else{
           document.getElementById('prodi-div').style.display = 'none';
           document.getElementById('jurusan-div').style.display = 'none';
+           document.getElementById('pt_asal_div').style.display = 'none';
           document.getElementById('content_tambahan').style.display = 'block';
      }
 }
@@ -825,6 +836,22 @@ function showDiv(){
                                                        </div>
                                                        
                                                   </div>
+                                                 
+                                                 <div id="pt_asal_div" style="display:block">
+                                                  <div class="form-group">
+                                                       <label for="inputPostalCode" class="col-md-3 control-label">PT. Asal</label>
+                                                       <div class="col-md-9">
+                                                            <input type="text" class="form-control" id="pt_asal" value="<?= $pt_asal?>" name="pt_asal" placeholder="">
+                                                       </div>
+                                                  </div>
+                                                  <!--<div class="form-group">
+                                                       <label for="inputPostalCode" class="col-md-3 control-label">Lokasi/Keterangan Program</label>
+                                                       <div class="col-md-9">
+                                                            <input type="text" class="form-control" id="ket_program" value="<?= $ket_program?>" name="ket_program" placeholder="">
+                                                       </div>
+                                                  </div>-->
+                                                  </div>
+                                                 
                                                   <div id="content_tambahan" style="display:<?php if($jenjangstudi_idjenjangstudi<=7) echo "none"; else echo "block"?>">
                                                   <div class="form-group">
                                                        <label for="inputPostalCode" class="col-md-3 control-label">Penyelenggara Program </label>
@@ -1217,6 +1244,24 @@ function showDiv(){
                                                             } else {
                                                                  ?>
                                                                  <input type="file" class="form-control" id="loa" name="loa">
+                                                                 <?php
+                                                            }
+                                                            ?>
+                                                       </div>
+                                                  </div>
+                                                  <div class="form-group">
+                                                       <label for="inputMOU" class="col-md-3 control-label">Dokumen Kerjasama(MOU/MOA)</label>
+                                                       <div class="col-md-9">
+                                                            <?php
+                                                            if ($dok_mou != "") {
+                                                                 echo "<a href ='$url_rewrite/data/$id/$dok_mou' >$dok_mou</a>&nbsp;&nbsp;&nbsp;";
+                                                                 echo "<button type=\"button\" class=\"btn btn-warning btn-sm\"  
+                                                                 onclick=\"javascript:location.href='$url_rewrite" . "proses/student/rmou/$id/$dok_mou'\"
+                                                                 >Remove File</button>";
+                                                                 echo "<input type='hidden' value='$dok_mou' name='text_dok_mou'/>";
+                                                            } else {
+                                                                 ?>
+                                                                 <input type="file" class="form-control" id="dok_mou" name="dok_mou">
                                                                  <?php
                                                             }
                                                             ?>
