@@ -238,7 +238,9 @@ while ($aRow = $DB->fetch_array($rResult)) {
      $download = "<a href=\"$url_rewrite" . "zip/download/$id \" class=\"btn btn-success btn-xs\" title=\"Download\">Download Berkas</a>";
 
      $ekstension = "<a href=\"$url_rewrite" . "content/ekstension/edit/$id \" class=\"btn btn-danger btn-xs\" title=\"Edit\">Ekstension</a>";
+   if($id_status!=0)
      $permit = "<a href=\"$url_rewrite" . "content/student/permit/$idmhs \" class=\"btn btn-info btn-xs\" title=\"Verifcation\">LOR</a>";
+     else $permit="";   
      $verification = "<a href=\"$url_rewrite" . "content/permit/$id \" class=\"btn btn-warning btn-xs\" title=\"Verifcation\">Verification</a>";
 
      $report = "<a  href=\"$url_rewrite" . "content/report/report/$id\" class=\"btn btn-primary btn-xs\" title=\"Report\">Report</a>";

@@ -106,7 +106,7 @@ placeholder: "Pilih Prodi",
                                                                                 ?>
                         </select>
                       </div>
-<div class="col-md-4 te-padding-top">
+<!--<div class="col-md-4 te-padding-top">
                         <select class="form-control" id="inputMajor" name="major">
                           <option value="">Select Major</option>
                         <?php
@@ -120,9 +120,8 @@ placeholder: "Pilih Prodi",
                                                                                           echo "<option value=\"$idjurusan\" >$namajurusan</option>";
                                                                                 }
                                                                                 ?>                        </select>
-                      </div>
-                    </div>
-                  </div>
+                      </div>-->
+                                                                                <?php if($_SESSION["level$ID"]!="2"){?>
 
                   <div class="form-group">
                     <div class="row">
@@ -138,8 +137,10 @@ placeholder: "Pilih Prodi",
 
                     </div>
                   </div>
-
-                
+<?php }?>            
+                    </div>
+                  </div>
+    
 
 
                   <div class="form-group te-no-margin">
@@ -156,9 +157,9 @@ placeholder: "Pilih Prodi",
               <div class="panel panel-default">
                 <!-- Default panel contents -->
                 <div class="panel-heading te-panel-heading"><i class="glyphicon glyphicon-th-list"></i> <p>Daftar Perizinan</p>
-                      <a href="<?= $url_rewrite ?>content/student/add" class="btn btn-primary btn-xs te-pull-right">New Applicants</a>
+                      <a href="<?= $url_rewrite ?>content/student/add" class="btn btn-primary btn-xs te-pull-right">Ijin Baru</a>
 
-                   <a href="<?= $url_rewrite ?>content/ekstension/add " class="btn btn-primary btn-xs  te-pull-right">Study Permit Extension</a>
+                   <a href="<?= $url_rewrite ?>content/ekstension/add " class="btn btn-info btn-xs  te-pull-right">Perpanjangan Ijin</a>
                 </div>
 
                 <div class="clearfix"></div>

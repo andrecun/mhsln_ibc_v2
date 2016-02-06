@@ -890,7 +890,7 @@ function showDiv(){
                                                             
                                                        </div>
                                                   </div>
-                                                 <div id="pt_asal_div" style="display:block">
+                                                 <div id="pt_asal_div" style="display:<?=$display_prodi?>">
                                                   <div class="form-group">
                                                        <label for="inputPostalCode" class="col-md-3 control-label">Perguruan Tinggi Asal</label>
                                                        <div class="col-md-9">

@@ -220,23 +220,39 @@
 
                                         <div class="panel-body">
                                              <div class="form-group ">
+                                                  <div class="col-md-9"></div>
+                                            <div class="col-md-3"><center><b>(Tandai Bila Benar)</b></center></div>
+                                             </div> 
+                                            <div class="form-group ">
                                                   <label for="inputFirstName" class="col-md-3 control-label">Nama Depan</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input type="text" readonly="1" class="form-control" value="<?= $namamahasiswa ?>" id="namamahasiswa" name="namamahasiswa" placeholder="First Name">
-                                                  </div>
+                                                  </div>    
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['namamahasiswa_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="namamahasiswa_ket" name="namamahasiswa_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputLastName" class="col-md-3 control-label">Nama Belakang</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input type="text" readonly="1" class="form-control" value="<?= $namamahasiswa2 ?>" id="namamahasiswa2" name="namamahasiswa2" placeholder="Last Name">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['namamahasiswa2_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="namamahasiswa2_ket" name="namamahasiswa2_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputPlaceDateBirth" class="col-md-3 control-label">TTL</label>
-                                                  <div class="col-md-9">
-                                                       <div class="col-md-5 te-no-padding">
+                                                  <div class="col-md-6">
+                                                       <div class="col-md-4 te-no-padding">
                                                             <input type="text" readonly="1" class="form-control" id="tempatlahir" value="<?= $tempatlahir ?>" name="tempatlahir" placeholder="Place">
                                                        </div>
                                                        <div class="col-md-1">
@@ -250,11 +266,17 @@
                                                             </div>
                                                        </div>
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['tanggallahir_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="tanggallahir_ket" name="tanggallahir_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputGender" class="col-md-3 control-label">Jenis Kelamin</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <select readonly="1" class="form-control" id="sex" name="sex">
                                                             <option value="">Select Gender</option>
                                                             <?php
@@ -270,11 +292,17 @@
                                                             ?>
                                                        </select>
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['sex_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="sex_ket" name="sex_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputNationality" class="col-md-3 control-label">Kebangsaan</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <select readonly="1" class="form-control" name="nationality_idnationality" id="nationality_idnationality">
                                                             <option value="">Select nationality</option>
                                                             <?php
@@ -290,6 +318,12 @@
                                                             ?>
                                                        </select>
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['nationality_idnationality_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="sex_ket" name="nationality_idnationality_ket" >
+                                                       </div>
                                              </div>
 
                                         </div>
@@ -309,37 +343,67 @@
                                         <div class="panel-body">
                                              <div class="form-group ">
                                                   <label for="inputHomeAddress" class="col-md-3 control-label">Alamat Rumah</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1" type="text" class="form-control" id="alamat" value="<?= $alamat ?>"name="alamat" placeholder="Home Address">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['alamat_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="sex_ket" name="alamat_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputCity" class="col-md-3 control-label">Kota</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input  readonly="1" type="text" class="form-control" id="city" name="city" value="<?= $city ?>" placeholder="City">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['city_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="city_ket" name="city_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputProvince" class="col-md-3 control-label">Provinsi</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1" type="text" class="form-control" id="province" name="province" value="<?= $province ?>"placeholder="Province/State">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['province_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="province_ket" name="province_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputCountry" class="col-md-3 control-label">Negara</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1" type="text" class="form-control" id="country" name="country" value="<?= $country ?>" placeholder="Country">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['country_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="country_ket" name="country_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputPostalCode" class="col-md-3 control-label">Kode Pos</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1" type="text" class="form-control" id="postal" value="<?= $postal ?>" name="postal" placeholder="Postal Code">
                                                   </div>
+                                                   <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['postal_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="postal_ket" name="postal_ket" >
+                                                       </div>
                                              </div>
 
                                         </div>
@@ -359,36 +423,60 @@
                                         <div class="panel-body">
                                              <div class="form-group ">
                                                   <label for="inputCurrentAddress" class="col-md-3 control-label">Alamat Terkini</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1" type="text" class="form-control" id="alamatind" value="<?= $alamatind ?>"name="alamatind" placeholder="Current Address">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['alamatind_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="alamatind_ket" name="alamatind_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputCity" class="col-md-3 control-label">Kota</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1" type="text" class="form-control" id="cityind" value="<?= $cityind ?>" name="cityind" placeholder="City">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['cityind_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="cityind_ket" name="cityind_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputProvince" class="col-md-3 control-label">Provinsi</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1"type="text" class="form-control" id="provinceid" value="<?= $provinceid ?>" name="provinceid" placeholder="Province/State">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['provinceid_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="provinceid_ket" name="provinceid_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputPostalCode" class="col-md-3 control-label">Kode Pos</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <input readonly="1" type="text" class="form-control" id="postalind" value="<?= $postalind ?>" name="postalind" placeholder="Postal Code">
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['postalind_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="postalind_ket" name="postalind_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputPhone" class="col-md-3 control-label">Telp/Handphone</label>
-                                                  <div class="col-md-9">
-                                                       <div class="col-md-5 te-no-padding">
+                                                  <div class="col-md-6">
+                                                       <div class="col-md-4 te-no-padding">
                                                             <input readonly="1" type="text" class="form-control" id="telp" name="telp" value="<?= $telp ?>" placeholder="Phone">
                                                        </div>
                                                        <div class="col-md-1">
@@ -398,11 +486,17 @@
                                                             <input readonly="1" type="text" class="form-control" id="telp2" name="telp2" value="<?= $telp2 ?>" placeholder="Mobile Phone">
                                                        </div>
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['telp2_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="telp2_ket" name="telp2_ket" >
+                                                       </div>
                                              </div>
 
                                              <div class="form-group">
                                                   <label for="inputPhoto" class="col-md-3 control-label">Foto  (jpg/png)</label>
-                                                  <div class="col-md-9">
+                                                  <div class="col-md-6">
                                                        <?php
                                                        if ($foto != "") {
                                                             echo "<img src='$url_rewrite/data/$id/$foto' style='width:50%'>&nbsp;&nbsp;&nbsp;";
@@ -414,6 +508,12 @@
                                                        }
                                                        ?>
                                                   </div>
+                                                  <div class="col-md-3">
+                                                            <input  type="checkbox" <?php
+                                   if ($keterangan_field['foto_ket'] !="1")
+                                        echo "checked";
+                                   ?> value="1" class="form-control" id="foto_ket" name="foto_ket" >
+                                                       </div>
                                              </div>
 
                                         </div>
