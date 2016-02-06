@@ -551,7 +551,7 @@
 
                         <!-- study_info -->
                         <div class="tab-pane fade" id="study_info">
-                            <form class="form-horizontal" role="form"  id="frmMode2" name="frmMode2" enctype="multipart/form-data" method="post" action="<?= $url_rewrite ?>proses/student/">
+                            <div class="form-horizontal" role="form"  id="frmMode2" >
 
                                 <!-- panel study info -->
                                 <div class="panel panel-default">
@@ -866,7 +866,7 @@
 
                                 echo"<input type=\"hidden\"  name=\"kode\" value=\"$id\">";
                                 ?>
-                            </form>
+                            </div>
                         </div>
                         <!-- end of study_info -->
 
