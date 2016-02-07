@@ -11,10 +11,10 @@ $UTILITY->show_data($elements);
 switch ($data[1]) {             // Pop off first item and switch
      case 'download':
           $zip = $data[2];
-          $archive_name = "$zip.zip"; // name of zip file
+          $archive_name = "berkas/$zip.zip"; // name of zip file
           $archive_folder = "data/$zip"; // the folder which you archivate
-
-          $UTILITY->recurse_zip($archive_name, $archive_folder);
+          $UTILITY->exec_zip($archive_name, $archive_folder);
+          //$UTILITY->recurse_zip($archive_name, $archive_folder);
           break;
 }
         header("Location: $url_rewrite$archive_name ");

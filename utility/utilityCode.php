@@ -392,6 +392,10 @@ class utilityCode extends config {
           return true;
      }
 
+     public function exec_zip($archive_name , $archive_folder ){
+          $hasil=exec("zip -jr $archive_name $archive_folder");
+          return $hasil;
+     }
      public function recurse_zip($archive_name , $archive_folder ) {
 
           $zip = new ZipArchive;
