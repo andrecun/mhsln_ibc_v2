@@ -108,8 +108,12 @@ if ( $jData > 0 ) {
     $idijin = $data_ijin['idijin'];
 
     $keterangan_mahasiswa = get_object_vars( json_decode( $data_ijin['keterangan_datadiri'] ) );
-
+    $keterangan_studi = get_object_vars( json_decode( $data_ijin['keterangan_studi'] ) );
     $keterangan_field = get_object_vars( json_decode( $data_ijin['keterangan_field'] ) );
+    if($keterangan_mahasiswa==""&&$keterangan_studi==""&&$keterangan_field==""){
+        $keterangan="";
+    }
+    $kunci = $data["kunci"];
     //$UTILITY->show_data($keterangan_mahasiswa);
     $idijin = $data_ijin['idijin'];
     $cek_eksist = 1;
@@ -544,7 +548,7 @@ else
 
 echo"<input type=\"hidden\"  name=\"kode\" value=\"$id\">";
 ?>
-<input type="hidden" value="<?= $idmhs ?>" name="mahasiswa_idmahasiswa"/>
+<input type="hidden" value="<?php echo $idmhs ?>" name="mahasiswa_idmahasiswa"/>
 
 </form>
                         </div>
@@ -597,7 +601,7 @@ while ( $row = $DB->fetch_object( $qry ) ) {
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-if ( $keterangan_field['universitas_iduniversitas_ket'] != "1" )
+if ( $keterangan_studi['universitas_iduniversitas_ket'] != "1" )
     echo "checked";
 ?> value="1" class="form-control" id="universitas_iduniversitas_ket" name="universitas_iduniversitas_ket" >
                                         </div>
@@ -623,7 +627,7 @@ while ( $row = $DB->fetch_object( $qry ) ) {
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-if ( $keterangan_field['jenjangstudi_idjenjangstudi_ket'] != "1" )
+if ( $keterangan_studi['jenjangstudi_idjenjangstudi_ket'] != "1" )
     echo "checked";
 ?> value="1" class="form-control" id="jenjangstudi_idjenjangstudi_ket" name="jenjangstudi_idjenjangstudi_ket" >
                                         </div>
@@ -653,7 +657,7 @@ if ( $fakultas_idfakultas != "" || $universitas_iduniversitas != "" ) {
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-if ( $keterangan_field['fakultas_idfakultas_ket'] != "1" )
+if ( $keterangan_studi['fakultas_idfakultas_ket'] != "1" )
     echo "checked";
 ?> value="1" class="form-control" id="fakultas_idfakultas_ket" name="fakultas_idfakultas_ket" >
                                         </div>
@@ -685,7 +689,7 @@ if ( $jurusan_idjurusan != "" ) {
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-if ( $keterangan_field['jurusan_idjurusan_ket'] != "1" )
+if ( $keterangan_studi['jurusan_idjurusan_ket'] != "1" )
     echo "checked";
 ?> value="1" class="form-control" id="jurusan_idjurusan_ket" name="jurusan_idjurusan_ket" >
                                         </div>
@@ -700,7 +704,7 @@ if ( $keterangan_field['jurusan_idjurusan_ket'] != "1" )
                                                 </div>
                                                 <div class="col-md-3">
                                             <input  type="checkbox" <?php
-if ( $keterangan_field['pt_asal_ket'] != "1" )
+if ( $keterangan_studi['pt_asal_ket'] != "1" )
     echo "checked";
 ?> value="1" class="form-control" id="pt_asal_ket" name="pt_asal_ket" >
                                         </div>
@@ -722,7 +726,7 @@ else echo "block" ?>">
                                                 </div>
                                                 <div class="col-md-3">
                                             <input  type="checkbox" <?php
-    if ( $keterangan_field['penyelenggara_program_ket'] != "1" )
+    if ( $keterangan_studi['penyelenggara_program_ket'] != "1" )
         echo "checked";
     ?> value="1" class="form-control" id="penyelenggara_program_ket" name="penyelenggara_program_ket" >
                                         </div>
@@ -734,7 +738,7 @@ else echo "block" ?>">
                                                 </div>
                                                 <div class="col-md-3">
                                             <input  type="checkbox" <?php
-    if ( $keterangan_field['ket_program_ket'] != "1" )
+    if ( $keterangan_studi['ket_program_ket'] != "1" )
         echo "checked";
     ?> value="1" class="form-control" id="ket_program_ket" name="ket_program_ket" >
                                         </div>
@@ -768,7 +772,7 @@ else echo "block" ?>">
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-    if ( $keterangan_field['mulaibelajar_ket'] != "1" )
+    if ( $keterangan_studi['mulaibelajar_ket'] != "1" )
         echo "checked";
     ?> value="1" class="form-control" id="mulaibelajar_ket" name="mulaibelajar_ket" >
                                         </div>
@@ -811,7 +815,7 @@ else echo "block" ?>">
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-    if ( $keterangan_field['lamaijin_ket'] != "1" )
+    if ( $keterangan_studi['lamaijin_ket'] != "1" )
         echo "checked";
     ?> value="1" class="form-control" id="lamaijin_ket" name="lamaijin_ket" >
                                         </div>
@@ -827,7 +831,7 @@ else echo "block" ?>">
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-    if ( $keterangan_field['periode_belajar_start_ket'] != "1" )
+    if ( $keterangan_studi['periode_belajar_start_ket'] != "1" )
         echo "checked";
     ?> value="1" class="form-control" id="periode_belajar_start_ket" name="periode_belajar_start_ket" >
                                         </div>
@@ -843,7 +847,7 @@ else echo "block" ?>">
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
-    if ( $keterangan_field['periode_belajar_end_ket'] != "1" )
+    if ( $keterangan_studi['periode_belajar_end_ket'] != "1" )
         echo "checked";
     ?> value="1" class="form-control" id="periode_belajar_end_ket" name="periode_belajar_end_ket" >
                                         </div>
@@ -871,7 +875,7 @@ else echo "block" ?>">
 
     echo"<input type=\"hidden\"  name=\"kode\" value=\"$id\">";
 ?>
-<input type="hidden" value="<?= $idmhs ?>" name="mahasiswa_idmahasiswa"/>
+<input type="hidden" value="<?php echo $idmhs ?>" name="mahasiswa_idmahasiswa"/>
 
                             </form>
                         </div>
@@ -1289,7 +1293,7 @@ while ( $row = $DB->fetch_object( $qry ) ) {
                                                 <input type="hidden" value="<?php echo $periode_belajar_end ?>" name="batasperiode"/>
 
                                                 <input type="hidden" value="verification" name="kondisi"/>
-                                                <textarea  rows="10" cols="50" type="keterangan"  class="form-control" id="keterangan" value="<?php echo $keterangan ?>" name="keterangan" placeholder="Information"><?php echo $keterangan ?></textarea>
+                                                <textarea  rows="10" cols="50" type="keterangan"  class="form-control" id="keterangan" value="<?php echo trim( $keterangan ) ?>" name="keterangan" placeholder="Information"><?php echo $keterangan ?></textarea>
                                             </div>
                                         </div>
 
@@ -1312,6 +1316,8 @@ while ( $row = $DB->fetch_object( $qry ) ) {
 
                                 <div class="form-group">
                                     <div class="col-md-offset-3 col-md-9">
+                                        <input type="hidden" value="<?php echo $idmhs ?>" name="mahasiswa_idmahasiswa"/>
+
                                         <button type="submit" name="btnStudy" class="btn btn-primary">Save and Finish</button>
                                     </div>
                                 </div>

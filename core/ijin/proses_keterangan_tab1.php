@@ -116,21 +116,24 @@ proses untuk memisahkan keterangan untuk 3 tab adalah dengan menggunakan
 delimter--> |
  */
 $temp_keterangan=explode("|",$keterangan_db);
-$keterangan_mahasiswa=$text;
-$keterangan_studi=$temp_keterangan[1];
-$keterangan_dokumen=$temp_keterangan[2];
+$keterangan_mahasiswa=trim($text);
+$keterangan_studi=trim($temp_keterangan[1]);
+$keterangan_dokumen=trim($temp_keterangan[2]);
 
-$keterangan_full="$keterangan_mahasiswa | $keterangan_studi | $keterangan_dokumen";
+
+$keterangan_full="$keterangan_mahasiswa \n |\n $keterangan_studi \n|\n $keterangan_dokumen";
 //$UTILITY->show_data( $keterangan_full );
 
+$query_ijin=array( "mahasiswa_idmahasiswa"=>$mahasiswa_idmahasiswa );
+$hasil_ijin=$IJIN->readIjin( $query_ijin );
 
 if ( $text!="" ) {
   $kunci=0;
   $status=6;
-}else {
-  $status=2;
-  $kunci=1;
+}else{
+  $status=$hasil_ijin['status_idstatus'];
 }
+
 if ( $kondisi == "keterangan" ) {
   $query="update ijin set tgl_update='$tgl_update', status_idstatus='$status', 
           keterangan='$keterangan_full',keterangan_datadiri='$keterangan_mahasiswa_json' 
@@ -141,7 +144,7 @@ if ( $kondisi == "keterangan" ) {
   $DB->query( "update mahasiswa set kunci='$kunci' where idmahasiswa='$mahasiswa_idmahasiswa' " );
   $UTILITY->popup_message( "Verifikasi data diri (cv) telah dilakukan" );
 }
-$UTILITY->location_goto( "content/permit/$kode" );
+$UTILITY->location_goto( "content/permit/$kode/2" );
 
 
 ?>
