@@ -11,7 +11,11 @@
 
 require_once './config/application.php';
 $path = ltrim($_SERVER['REQUEST_URI'], '/');    // Trim leading slash(es)
-
+/**
+ * [$temp_path description]
+ * untuk mengabil resource dari url
+ * @var [dari UR]
+ */
 $temp_path = explode($PROSES_REQUEST, $path);
 
 
@@ -159,9 +163,17 @@ else {
                           include "./core/ijin/proses_status.php";
                          break;
                     
-                      case 'keterangan':
+               case 'keterangan':
                          $idmahasiswa=$purifier->purify($data[3]);
                           include "./core/ijin/proses_keterangan.php";
+                         break;
+                case 'keterangan1':
+                         $idmahasiswa=$purifier->purify($data[3]);
+                          include "./core/ijin/proses_keterangan_tab1.php";
+                         break;
+                case 'keterangan2':
+                         $idmahasiswa=$purifier->purify($data[3]);
+                          include "./core/ijin/proses_keterangan_tab2.php";
                          break;
            case 'ekstension':
                switch ($data[2]) {

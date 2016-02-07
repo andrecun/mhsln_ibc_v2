@@ -9,7 +9,7 @@
 #Andreas Hadiyono (andre.hadiyono@gmail.com)
 #Gunadarma University
 
-require_once './config/application.php';
+require_once './config/application.php'; 
 $path = ltrim($_SERVER['REQUEST_URI'], '/');    // Trim leading slash(es)
 $temp_path = explode($REQUEST, $path);
 
