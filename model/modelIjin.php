@@ -94,10 +94,10 @@ require_once __DIR__ . "/../utility/database/mysql_db.php";
           }
           $query = "select * from ijin $paramater";
           //Execute query
-          $result = $this->query($query);
+          //$result = $this->query($query);
         //  echo $result;
           //Wrap Output Query
-          $data=$this->fetch_object($result);
+          $data=$this->_fetch_array($query,1);
           
           return $data;
      }
