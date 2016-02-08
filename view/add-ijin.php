@@ -29,6 +29,7 @@
                     if ($jData > 0) {
                          //mode 1
                          $idijin = $data['idijin'];
+                         $status=$data['status_idstatus'];
                          $nomor = $data['nomor'];
                          $tglijin = $UTILITY->format_tanggal($data['tglijin']);
                          $jumlahijin = $data['jumlahijin'];
@@ -203,6 +204,7 @@
                                                   <?php
                                                   if ($srtrek != "") {
                                                        echo "<a href ='$url_rewrite" . "data/$idmhs/$srtrek' >$srtrek</a>&nbsp;&nbsp;&nbsp;";
+                                                       if($status==0 || $status=="6")
                                                        echo "<button type=\"button\" class=\"btn btn-warning btn-sm\"  
                                                                  onclick=\"javascript:location.href='$url_rewrite" . "proses/student/rsrtrek/$id/$srtrek'\"
                                                                  >Remove File</button>";
@@ -335,8 +337,9 @@
                                                             }
                                                             ?>
                                                        </select>
-
+                                                      <?php   if($status==0 || $status=="6") {?>
                                                        <input type="button" class="btn btn-info" onclick="showStudent();" name="Add Student" value="Add Student"/>
+                                                      <?php }?>
                                                   </div>
                                              </div>
                                         </div>
@@ -347,12 +350,14 @@
                                    </div>
                                    <!-- Untuk tambahan mahasiswa-->
                               </div>
+                             <?php  if($status==0 || $status=="6") {?>
                               <div class="form-group">
                                    <div class="col-md-offset-3 col-md-9">
                                         <button type="submit" class="btn btn-primary">Save</button>
                                    </div>
                               </div>
                               <?php
+                             }
                               if ($idijin != "")
                                    echo"<input type=\"hidden\"  name=\"kondisi\" value=\"edit\">";
                               else
