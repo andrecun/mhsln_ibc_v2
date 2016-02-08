@@ -125,7 +125,7 @@ $text_biaya=$data[jenispembiayaan]." : (".$data[sumber_pembiayaan].")";
 }
 $document->setValue('biaya', $text_biaya);
 $document->setValue('kedutaan', 'Kedutaan'. ' '.$data[country]);
-$document->setValue('imigrasi', 'Kanim Wilayah Jakarta');
+$document->setValue('imigrasi', 'Kanim Wilayah '.$data_univ['nama_wilayah']);
 
 //echo "<pre>";
 //print_r($document);
