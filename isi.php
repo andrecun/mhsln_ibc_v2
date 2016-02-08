@@ -36,7 +36,7 @@ else
                     include "./view/cv_pdf.php";
                } else if ($data[2] == "final") {
                     $KODE = $purifier->purify($data[3]);
-                    include "./view/laporan_final.php";
+                     include "./view/laporan_final_doc.php";
                } else if ($data[2] == "dashboard_report") {
                     $keyword = $purifier->purify($data[3]);
                     $status = $purifier->purify($data[4]);
