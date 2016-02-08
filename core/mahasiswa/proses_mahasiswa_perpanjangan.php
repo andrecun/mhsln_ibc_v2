@@ -186,6 +186,7 @@ if ($kondisi == "account") {
      /*      $DB->query("update user set password='$password',"
                    . "level_idlevel=3,universitas_iduniversitas='$universitas_iduniversitas' where userlogin='$username'  ");
           */
+            echo "asdsa";
            $qWhere = array("idmahasiswa" => $username);
            $data = $MHS->readMahasiswa($qWhere);
             $nationality_idnationality = $data["nationality_idnationality"];

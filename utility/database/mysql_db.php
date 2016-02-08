@@ -23,23 +23,10 @@ class mysql_db extends config {
           $this->connect = $this->open_connection();
      }
 
-     public function where($data) {
-           $parameter = "";
-           $count     = 0;
-           foreach ($data as $key => $value) {
-             if ($count == 0) {
-               $paramater = "WHERE $key='$value'";
-               $count++;
-             }
-             else {
-               $paramater.=" AND $key='$value'";
-               $count++;
-             }
-           }
-           return $paramater;
-     }
      public function query($data) {
-         $this->query = mysqli_query($this->connect,$data) or $this->error();
+ //echo "$data<br/>";
+          $this->query = mysqli_query($this->connect,$data) or $this->error();
+ 
           return $this->query;
      }
 
@@ -90,6 +77,11 @@ class mysql_db extends config {
           $this->result = $data;
           return mysqli_fetch_array($this->result);
      }
+      
+     public function fetch_assoc($data) {
+          $this->result = $data;
+          return mysqli_fetch_assoc($this->result);
+     }
 
      public function fetch_field($data) {
           $this->result = $data;
@@ -118,8 +110,7 @@ class mysql_db extends config {
      public function error() {
           switch ($this->debug) {
                case 1:
-                    //$message = die(mysqli_error($this->connect));
-                    $message=die("Kesalahan penginputan data");
+                    $message = die(mysqli_error($this->connect));
                     break;
                case 2:
                     $message = die("Ada Kesalahan Query");
@@ -134,7 +125,16 @@ class mysql_db extends config {
      public function clear_var($data) {
           return $$data = '';
      }
+public function get_auto_increment($tablename){
+    
+    $next_increment = 0;
+    $qShowStatus = "SHOW TABLE STATUS LIKE '$tablename'";
+    $qShowStatusResult = $this->query($qShowStatus);
+    $row = $this->fetch_assoc($qShowStatusResult);
+    $next_increment = $row['Auto_increment'];
 
+    return $next_increment;
+}
 }
 
 ?>
