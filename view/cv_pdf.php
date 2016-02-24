@@ -31,7 +31,7 @@ $sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je
                left join status S on S.idstatus=I.status_idstatus 
                left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
                left join prodi F on F.idprodi=M.prodi_idprodi 
-                left join Jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
+                left join jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
                where M.kode='$KODE' ";
 
 $html = '<html>

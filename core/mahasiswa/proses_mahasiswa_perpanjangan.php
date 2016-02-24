@@ -126,7 +126,7 @@ switch ($mode) {
           $pernyataan1 = upload_for_mahasiswa("pernyataan1", $kode, 3, $path_upload);
           $kesehatan = upload_for_mahasiswa("kesehatan", $kode, 3, $path_upload);
           ;
-          $loa = upload_for_mahasiswa("loa", $kode, 1, $path_upload);
+          $loa = upload_for_mahasiswa("loa", $kode, 3, $path_upload);
           ;
           
            $kitas= upload_for_mahasiswa("kitas", "$kode", 1, $path_upload);
@@ -139,7 +139,7 @@ switch ($mode) {
             $tgl_kitas_akhir= $UTILITY->format_tanggal_db($_POST["tgl_kitas_akhir"]);
              $no_kitas = $purifier->purify($_POST["no_kitas"]);
               $no_skld = $purifier->purify($_POST["no_skld"]);
-               $dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
+               //$dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
                   $jml_kitas = $purifier->purify($_POST["jml_kitas"]);
           $data = array(
               "nmrpaspor" => "$nmrpaspor",

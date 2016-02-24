@@ -273,8 +273,8 @@ if ($cek_eksist == 0) {
                                                   {
                                                        rules: {
                                                             universitas_iduniversitas:"required",
-                                                                 //   fakultas_idfakultas:"required",
-                                                                  //  jurusan_idjurusan:"required",
+                                                                    fakultas_idfakultas:"required",
+                                                                    jurusan_idjurusan:"required",
                                                                     jenjangstudi_idjenjangstudi:"required",
                                                                     mulaibelajar:"required",
                                                                     periode_belajar_start:"required",
@@ -1249,7 +1249,7 @@ function showDiv(){
                                                             ?>
                                                        </div>
                                                   </div>
-                                                  <div class="form-group">
+                                                <!--  <div class="form-group">
                                                        <label for="inputMOU" class="col-md-3 control-label">Dokumen Kerjasama(MOU/MOA)</label>
                                                        <div class="col-md-9">
                                                             <?php
@@ -1266,7 +1266,7 @@ function showDiv(){
                                                             }
                                                             ?>
                                                        </div>
-                                                  </div>
+                                                  </div>-->
 
                                              </div>
                                              <!-- end of panel body -->

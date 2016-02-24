@@ -1303,7 +1303,7 @@ function showDiv(){
                                                             ?>
                                                        </div>
                                                   </div>
-                                                                                                    <div class="form-group">
+                                                                    <!--                                <div class="form-group">
                                                        <label for="inputMOU" class="col-md-3 control-label">Dokumen Kerjasama (MOU/MOA)</label>
                                                        <div class="col-md-9">
                                                             <?php
@@ -1320,7 +1320,7 @@ function showDiv(){
                                                             }
                                                             ?>
                                                        </div>
-                                                  </div>
+                                                  </div>-->
                                                   
                                                    <div class="form-group ">
                                                        <label for="inputNumber" class="col-md-3 control-label">Nomor Kitas</label>

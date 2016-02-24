@@ -125,9 +125,9 @@ switch ($mode) {
           $pernyataan1 = upload_for_mahasiswa("pernyataan1", $kode, 3, $path_upload);
           $kesehatan = upload_for_mahasiswa("kesehatan", $kode, 3, $path_upload);
           ;
-          $loa = upload_for_mahasiswa("loa", $kode, 1, $path_upload);
+          $loa = upload_for_mahasiswa("loa", $kode, 3, $path_upload);
            $jml_kitas = $purifier->purify($_POST["jml_kitas"]);
-          $dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
+       //   $dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
 
           $data = array(
               "nmrpaspor" => "$nmrpaspor",

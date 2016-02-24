@@ -21,7 +21,7 @@ class modelJurusan extends mysql_db {
           $query = "Insert into jurusan
                          set namajurusan='$namajurusan',"
                   . "   fakultas_idfakultas='$fakultas_idfakultas',"
-                  . "Jenjangstudi_idjenjangstudi='$jenjangstudi_idjenjangstudi' ";
+                  . "jenjangstudi_idjenjangstudi='$jenjangstudi_idjenjangstudi' ";
 
           //Execute query
           $result = $this->query($query);
@@ -38,7 +38,7 @@ class modelJurusan extends mysql_db {
           $query = "update jurusan
                          set  namajurusan='$namajurusan',"
                   . "   fakultas_idfakultas='$fakultas_idfakultas',"
-                  . "Jenjangstudi_idjenjangstudi='$jenjangstudi_idjenjangstudi' "
+                  . "jenjangstudi_idjenjangstudi='$jenjangstudi_idjenjangstudi' "
                   . "where idjurusan='$idjurusan' ";
 
 

@@ -6,6 +6,8 @@
 #This code provided by:
 #Andreas Hadiyono (andre.hadiyono@gmail.com)
 #Gunadarma University
+//define ("__DIR__","/srv/www/htdocs/core");
+
 require_once __DIR__ .'/../config/config.php';
 require_once __DIR__ .'/../utility/database/mysql_db.php';
 require_once __DIR__ .'/../utility/utilityCode.php';

@@ -52,7 +52,7 @@ if ( $jenjangstudi_idjenjangstudi!="1" ) {
 if ( $status==1 ) {
 	if ( $fakultas_idfakultas!="1" ) {
 		$text.="Fakultas tidak lengkap atau   salah\n";
-		$keterangan_studi['fakultas_idfakultas_ket']=1;
+		$keterangan_studi['jenjangstudi_idjenjangstudi_ket']=1;
 	}
 	if ( $jurusan_idjurusan!="1" ) {
 		$text.="Jurusan tidak lengkap atau salah\n";
@@ -137,4 +137,3 @@ $UTILITY->location_goto( "content/permit/$kode/3" );
 
 
 ?>
-
