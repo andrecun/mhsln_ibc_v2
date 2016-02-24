@@ -1,0 +1,3 @@
+
+UPDATE `jenjangstudi` SET `namajenjangstudi` = 'Student-Exchange' WHERE `jenjangstudi`.`idjenjangstudi` = 1;
+UPDATE `jenjangstudi` SET `namajenjangstudi` = 'Short-cource' WHERE `jenjangstudi`.`idjenjangstudi` = 8;

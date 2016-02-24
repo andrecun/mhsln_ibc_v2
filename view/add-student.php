@@ -273,8 +273,8 @@ if ($cek_eksist == 0) {
                                                   {
                                                        rules: {
                                                             universitas_iduniversitas:"required",
-                                                                    fakultas_idfakultas:"required",
-                                                                    jurusan_idjurusan:"required",
+                                                                 //   fakultas_idfakultas:"required",
+                                                                  //  jurusan_idjurusan:"required",
                                                                     jenjangstudi_idjenjangstudi:"required",
                                                                     mulaibelajar:"required",
                                                                     periode_belajar_start:"required",

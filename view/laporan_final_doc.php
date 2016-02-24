@@ -89,7 +89,7 @@ if ($jData > 0) {
                left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
                left join prodi F on F.idprodi=M.prodi_idprodi 
                left join nationality N on N.idnationality=M.nationality_idnationality 
-                left join Jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
+                left join jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
                where M.kode='$KODE' and I.status_idstatus=4 limit 1 ";
 //echo $sql;
         $qry = $DB->query($sql);

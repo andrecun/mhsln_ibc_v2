@@ -324,7 +324,7 @@ class utilityCode extends config {
                mkdir($folder, 0777);
           }
 
-          if ($type == 1) {
+          /*if ($type == 1) {
                $allowed = array('image/pjpeg', 'image/jpeg', 'image/jpeg',
                    'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png',
                    'image/x-png');
@@ -334,7 +334,11 @@ class utilityCode extends config {
                $allowed = array('application/msword', 'application/pdf', 'image/pjpeg', 'image/jpeg', 'image/jpeg',
                    'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png',
                    'image/x-png');
-          }
+          }*/
+          $allowed=array('application/msword', 'application/pdf', 'image/pjpeg', 'image/jpeg', 'image/jpeg',
+                   'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png',
+                   'image/x-png');
+          
           $c = $_FILES[$file]['type'];
           // echo("Masuk $c");
           $filename = $_FILES[$file]['name'];
@@ -394,6 +398,7 @@ class utilityCode extends config {
 
      public function exec_zip($archive_name , $archive_folder ){
           $hasil=exec("zip -jr $archive_name $archive_folder");
+          echo "zip -jr $archive_name $archive_folder";
           return $hasil;
      }
      public function recurse_zip($archive_name , $archive_folder ) {
