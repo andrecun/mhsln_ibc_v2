@@ -26,15 +26,17 @@ $sql = "SELECT mahasiswa.*,pembiayaan.*,user.*,jenjangstudi.*,jurusan.*,prodi.*,
 	and mahasiswa.pembiayaan_idpembiayaan=pembiayaan.idpembiayaan
 	and mahasiswa.kode='" . $KODE . "'";*/
 $sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je.* ,F.*,
-                U.namaUniversitas as namaPT, F.namaProdi as nProdi
+                U.namaUniversitas as namaPT, F.namaProdi as nProdi,N.namanegara as namanegara,M.email as EM 
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
                left join universitas U on U.kodeUniversitas=M.universitas_iduniversitas
                left join status S on S.idstatus=I.status_idstatus 
                left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
-               left join prodi F on F.kodeProdi=M.prodi_idprodi 
+               left join prodi F on F.kodeProdi=M.prodi_idprodi and  F.kodeUniversitas=M.universitas_iduniversitas 
+               left join nationality N on N.idnationality=M.nationality_idnationality
+               
                 left join jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
                where M.kode='$KODE' ";
-//echo $sql;
+echo $sql;
 //exit;
 
 $html = '<html>
@@ -49,11 +51,11 @@ while ($data = $DB->fetch_array($result)) {
      $filename="{$data['kode']}-{$data['idmahasiswa']}.pdf";
      
      $html.="
-     <table align=\"center\" border=\"0\"><tr>
+     <table align=\"center\" border=\"1\"><tr>
                <td colspan=\"4\"><b><u>Informasi Pengajuan</u></b></td>
           </tr>
           <tr>
-               <td width=\"140\"><strong>Nomor Registrasi</strong></td>
+               <td width=\"200\"><strong>Nomor Registrasi</strong></td>
                <td>:</td>
                <td>{$data['kode']} / {$data['idmahasiswa']}</td>
                <td rowspan=\"5\" valign=\"top\">";
@@ -123,7 +125,7 @@ while ($data = $DB->fetch_array($result)) {
           </tr><tr>
                <td><strong>Email</strong></td>
                <td>:</td>
-               <td>{$data['email']}</td>
+               <td>{$data['EM']}</td>
                <td>&nbsp;</td>
           </tr><tr>
                <td colspan=\"4\"><strong><u>Informasi Studi</u></strong></td>
@@ -310,8 +312,8 @@ $html.="</td>
 $html.="<div></div>";
 $html.="</body>
 </html>";
-//echo $html;
-//exit;
+echo $html;
+exit;
 define("_JPGRAPH_PATH", "$PATH/library/mpdf/jpgraph/src/"); // must define this before including mpdf.php file
 $JpgUseSVGFormat = true;
 define('_MPDF_URI',"$url_rewrite/library/mpdf/"); 

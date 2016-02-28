@@ -35,6 +35,7 @@ switch ($mode) {
      case 1:
           //mode 1;
           $namamahasiswa = $purifier->purify($_POST["namamahasiswa"]);
+          $email = $purifier->purify($_POST["email"]);
           $namamahasiswa2 = $purifier->purify($_POST["namamahasiswa2"]);
           $tempatlahir = $purifier->purify($_POST["tempatlahir"]);
           $tanggallahir = $UTILITY->format_tanggal_db($_POST["tanggallahir"]);
@@ -74,6 +75,7 @@ switch ($mode) {
               "telp" => "$telp",
               "telp2" => "$telp2",
               "foto" => "$foto",
+              "email" => "$email",
               "kode" => "$kode",
               "pt_asal"=>"$pt_asal",
           );
@@ -90,6 +92,14 @@ switch ($mode) {
           $penyelenggara_program=$_POST["penyelenggara_program"];
           $lamaijin=$_POST["lamaijin"];
            $pt_asal = $purifier->purify($_POST["pt_asal"]);
+           
+           
+          $qWhere = array("idjenjangstudi" => $jenjangstudi_idjenjangstudi );     
+          $data_jenjang = $JENJANG_STUDI->readJenjangStudi($qWhere);
+          if($data_jenjang["show_mou"]==1){
+            $dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
+          }
+          
           $data = array(
               "universitas_iduniversitas" => "$universitas_iduniversitas",
               "fakultas_idfakultas" => "$fakultas_idfakultas",
@@ -101,6 +111,7 @@ switch ($mode) {
               "kode" => "$kode",
               "lamaijin"=>"$lamaijin",
               "ket_program"=>"$ket_program",
+                 "dok_mou"=>"$dok_mou",
               "penyelenggara_program"=>"$penyelenggara_program",
                "pt_asal"=>"$pt_asal",
           );
@@ -117,7 +128,8 @@ switch ($mode) {
           //$pernyataan1=$purifier->purify($_POST["pernyataan1"]);
           //$kesehatan=$purifier->purify($_POST["kesehatan"]);
           //$loa=$purifier->purify($_POST["loa"]);
-          //$ijazah= upload_for_mahasiswa("ijazah", $kode, 3, $path_upload);
+          $jabatan_penjamin = $purifier->purify($_POST["jabatan_penjamin"]);
+          $ijazah= upload_for_mahasiswa("ijazah", $kode, 3, $path_upload);
           
           $passport1 = upload_for_mahasiswa("passport1", $kode, 3, $path_upload);
           ;
@@ -127,7 +139,7 @@ switch ($mode) {
           ;
           $loa = upload_for_mahasiswa("loa", $kode, 3, $path_upload);
            $jml_kitas = $purifier->purify($_POST["jml_kitas"]);
-       //   $dok_mou = upload_for_mahasiswa("dok_mou", $kode, 3, $path_upload);
+      
 
           $data = array(
               "nmrpaspor" => "$nmrpaspor",
@@ -142,7 +154,7 @@ switch ($mode) {
               "loa" => "$loa",
               "ijazah"=>"$ijazah",
               "kode" => "$kode",
-              "dok_mou"=>"$dok_mou",
+              "jabatan_penjamin"=>"$jabatan_penjamin",
               "jml_kitas"=>"$jml_kitas"
           );
           break;

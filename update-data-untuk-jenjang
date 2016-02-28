@@ -1,3 +1,12 @@
 
 UPDATE `jenjangstudi` SET `namajenjangstudi` = 'Student-Exchange' WHERE `jenjangstudi`.`idjenjangstudi` = 1;
 UPDATE `jenjangstudi` SET `namajenjangstudi` = 'Short-cource' WHERE `jenjangstudi`.`idjenjangstudi` = 8;
+
+
+ALTER TABLE `jenjangstudi` ADD `tipe` VARCHAR(255) NULL AFTER `lama_ijin`;
+ALTER TABLE `jenjangstudi` ADD `show_mou` INT NULL AFTER `tipe`;
+ALTER TABLE `jenjangstudi` ADD `show_pt_asal` INT NULL AFTER `show_mou`;
+ALTER TABLE `jenjangstudi` ADD `urutan` INT NULL AFTER `show_pt_asal`;
+
+ALTER TABLE `mahasiswa` ADD `jabatan_penjamin` TEXT NULL AFTER `dok_mou`, ADD `dok_jaminan` TEXT NULL AFTER `jabtan_penjamin`;
+UPDATE `dikti_final`.`sex` SET `namasex` = 'Pria' WHERE `sex`.`idsex` = 1;

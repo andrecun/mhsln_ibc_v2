@@ -34,6 +34,7 @@ class modelmahasiswa extends mysql_db {
           $ekstension=$data["ekstension"];
           $pt_asal=addslashes($data['pt_asal']);
           $jml_kitas=$data['jml_kitas'];
+          $email=$data['email'];
           $dok_mou=$data['dok_mou'];
           $level=$_SESSION["level{$this->ID}"];
           $universitas_session=trim($_SESSION['unversitas']);
@@ -54,6 +55,7 @@ class modelmahasiswa extends mysql_db {
                          alamatind='$alamatind',
                          cityind='$cityind',
                          provinceind='$provinceid',
+                             email='$email',
                          postalind='$postalind', $universitas
                          foto='$foto',
                          telp='$telp',"
@@ -89,6 +91,7 @@ class modelmahasiswa extends mysql_db {
           $foto=$data["foto"];
           $pt_asal=  addslashes($data['pt_asal']);
           $jml_kitas=$data['jml_kitas'];
+           $email=$data['email'];
           $dok_mou=$data['dok_mou'];
           $query_mode1 = "update mahasiswa set
                          namamahasiswa='$namamahasiswa',
@@ -107,6 +110,7 @@ class modelmahasiswa extends mysql_db {
                          provinceind='$provinceid',
                          postalind='$postalind',
                          foto='$foto',
+                             email='$email',
                          telp='$telp' , telp2='$telp2',tgl_update='$tgl_update' where kode='$kode' " ;
           
           //MODE 2
@@ -129,11 +133,12 @@ class modelmahasiswa extends mysql_db {
                           pt_asal='$pt_asal',
                     periode_belajar_awal='$periode_belajar_start',
                     periode_belajar_akhir='$periode_belajar_end',tgl_update='$tgl_update' ,
-                         LamaIjin='$lamaijin' , ket_program='$ket_program' ,penyelenggara_program='$penyelenggara_program' 
+                      dok_mou='$dok_mou',   LamaIjin='$lamaijin' , ket_program='$ket_program' ,penyelenggara_program='$penyelenggara_program' 
                       where kode='$kode' ";
           
           
           //Mode 3
+         $jabatan_penjamin=  addslashes($data['jabatan_penjamin']);
           $nmrpaspor=$data["nmrpaspor"];
           $mulaipassport=$data["mulaipassport"];
           $akhirpassport=$data["akhirpassport"];
@@ -168,8 +173,8 @@ class modelmahasiswa extends mysql_db {
           loa='$loa' ,"
                   . "kitas='$kitas',"
                   . "tglkitas='$tgl_kitas',"
-                  . "skld='$skld',      dok_mou='$dok_mou',"
-                  . "tglskld='$tgl_skld',tgl_update='$tgl_update' ,"
+                  . "skld='$skld',      "
+                  . "tglskld='$tgl_skld',tgl_update='$tgl_update' ,jabatan_penjamin='$jabatan_penjamin',"
                        . "no_kitas='$no_kitas', no_skld='$no_skld', tgl_kitas_akhir='$tgl_kitas_akhir', ijazah='$ijazah' "
                   . "where kode='$kode' ";
           

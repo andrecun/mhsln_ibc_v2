@@ -339,8 +339,11 @@ class utilityCode extends config {
                    'image/JPG', 'image/X-PNG', 'image/PNG', 'image/png',
                    'image/x-png');
 
+          $temp_info=  explode("-", $filesave);
+          $fileinfo=$temp_info[0];
           $c = $_FILES[$file]['type'];
           // echo("Masuk $c");
+          $filesizeInfo=$this->sizeFile_text;
           $filename = $_FILES[$file]['name'];
           if($_FILES[$file]['size']<=$this->sizeFile)
           {       
@@ -370,10 +373,10 @@ class utilityCode extends config {
                       }
                  }
                }else{
-                 echo "<script>alert('File $filename tidak sesuai format');</script>";  
+                 echo "<script>alert('File $filename tidak sesuai format atau file $fileinfo belum di upload');</script>";  
                }
           } else {
-              echo "<script>alert('File $filename tidak dapat dimasukkan karena melebihi ukuran.Maximum 512kb');</script>";
+              echo "<script>alert('File $filename tidak dapat dimasukkan karena melebihi ukuran.Maximum $filesizeInfo');</script>";
           }
           return $result;
      }

@@ -50,6 +50,7 @@
                          $telp = $data["telp"];
                          $telp2 = $data["telp2"];
                          $foto = $data["foto"];
+                         $email = $data["email"];
                          //mode 2
                          $pt_asal=$data["pt_asal"];
                          $jml_kitas=$data['jml_kitas'];
@@ -57,26 +58,31 @@
                          $universitas_iduniversitas = $data["universitas_iduniversitas"];
                          $fakultas_idfakultas = $data["prodi_idprodi"];
                         
-                         if($fakultas_idfakultas !=""||$fakultas_idfakultas!="0"){
-                              $display_prodi="block";
-                         }
-                         
                          $jurusan_idjurusan = $data["jurusan_idjurusan"];
-                         if($jurusan_idjurusan!=""||$jurusan_idjurusan!="0"){
-                              $display_jurusan="block";
-                         }
                          
                          $ket_program=$data["ket_program"];
                          $penyelenggara_program=$data["penyelenggara_program"];
+                         
                          $jenjangstudi_idjenjangstudi = $data["jenjangstudi_idjenjangstudi"];
-                         if(abs($jenjangstudi_idjenjangstudi)<=7){
-                              $display_prodi="block";
-                              $display_jurusan="block";
-                         }
-                         else{
-                                $display_prodi="none";
-                              $display_jurusan="none";
-                         }
+                         
+                         $qWhere = array("idjenjangstudi" => $jenjangstudi_idjenjangstudi );     
+                         $data_jenjang = $JENJANG_STUDI->readJenjangStudi($qWhere);
+                         if($data_jenjang['show_prodi']==1){
+                             $display_prodi="block";
+                         }else $display_prodi="none";
+                         
+                         if($data_jenjang["show_mou"]==1){
+                             $status_display_mou="block";
+                         }else $status_display_mou="none";
+                         
+                         if($data_jenjang["show_pt_asal"]==1){
+                             $status_display_pt_asal="block";
+                         }else $status_display_pt_asal="none";
+                         
+                           if($data_jenjang["show_ket"]==1){
+                             $status_display_ket="block";
+                         }else $status_display_ket="none";
+                    
                          $ijazah=$data['ijazah'];
                          $mulaibelajar = $UTILITY->format_tanggal($data["mulaibelajar"]);
                          $periode_belajar_start = $UTILITY->format_tanggal($data["periode_belajar_awal"]);
@@ -94,7 +100,7 @@
                          $pernyataan1 = $data["pernyataan1"];
                          $kesehatan = $data["kesehatan"];
                          $loa = $data["loa"];
-                         
+                         $jabatan_penjamin=$data['jabatan_penjamin'];
                          $tanggal=  str_replace("-", "", $data["tanggallahir"]);
                          
                          $login_mahasiswa=$tanggal."-".$universitas_iduniversitas."".$fakultas_idfakultas."".$jurusan_idjurusan."".$jenjangstudi_idjenjangstudi."-".$id;
@@ -107,7 +113,7 @@
                               
                          $cek_eksist = 1;
                     } else {
-                       
+                       $jabatan_penjamin="";
                          $ijazah="";
                          $ket_program="";
                          $penyelenggara_program="";
@@ -133,6 +139,10 @@
                          $telp2 = "";
                          $foto = "";
                          //mode 2
+                           $display_prodi="none";
+                             $status_display_ket="none";
+                             $status_display_ket="none";
+                             $status_display_pt_asal="none";
                          $universitas_iduniversitas = "";
                          $fakultas_idfakultas = "";
                          $jurusan_idjurusan = "";
@@ -192,6 +202,7 @@ if ($cek_eksist == 0) {
                                  tanggallahir: "required",
                                  sex:"required",
                                  nationality_idnationality:"required",
+                                 
                                  alamat:"required",
                                //  city:"required",
                                 // province:"required",
@@ -366,7 +377,7 @@ if ($cek_eksist == 0) {
                          <ul class="nav nav-tabs" id="teTab" role="tablist">
                               <li class="active">
                                    <a href="#personal_info" role="tab" data-toggle="tab" >
-                                        <span class="badge">1</span> Informasi Identitas<i class="glyphicon glyphicon-chevron-right"></i>
+                                        <span class="badge">1</span> Informasi Identitas <i class="glyphicon glyphicon-chevron-right"></i>
                                    </a>
                               </li>
                               <li>
@@ -421,30 +432,30 @@ if ($cek_eksist == 0) {
 
 
                                              <div class="panel-heading te-panel-heading">
-                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Indentitas</p>
+                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Indentitas (*: wajib)</p>
                                              </div>
 
                                              <div class="clearfix"></div>
 
                                              <div class="panel-body">
                                                   <div class="form-group ">
-                                                       <label for="inputFirstName" class="col-md-3 control-label">Nama Depan</label>
+                                                       <label for="inputFirstName" class="col-md-3 control-label">Nama Lengkap *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" value="<?= $namamahasiswa ?>" id="namamahasiswa" name="namamahasiswa" placeholder="First Name">
+                                                            <input type="text" class="form-control" value="<?= $namamahasiswa ?>" id="namamahasiswa" name="namamahasiswa" placeholder="">
                                                        </div>
                                                   </div>                                                         
-                                                  <div class="form-group">
+                                                 <!-- <div class="form-group">
                                                        <label for="inputLastName" class="col-md-3 control-label">Nama Belakang</label>
                                                        <div class="col-md-9">
                                                             <input type="text" class="form-control" value="<?= $namamahasiswa2 ?>" id="namamahasiswa2" name="namamahasiswa2" placeholder="Last Name">
                                                        </div>
-                                                  </div>
+                                                  </div>-->
 
                                                   <div class="form-group">
-                                                       <label for="inputPlaceDateBirth" class="col-md-3 control-label">Tempat/Tanggal Lahir</label>
+                                                       <label for="inputPlaceDateBirth" class="col-md-3 control-label">Tempat/Tanggal Lahir *</label>
                                                        <div class="col-md-9">
                                                             <div class="col-md-5 te-no-padding">
-                                                                 <input type="text" class="form-control" id="tempatlahir" value="<?= $tempatlahir ?>" name="tempatlahir" placeholder="Place">
+                                                                 <input type="text" class="form-control" id="tempatlahir" value="<?= $tempatlahir ?>" name="tempatlahir" placeholder="">
                                                             </div>
                                                             <div class="col-md-1">
                                                                  <label for="inputPlaceDateBirth" class="col-md-3 control-label te-no-padding">/</label>
@@ -461,7 +472,7 @@ if ($cek_eksist == 0) {
                                                                               });
                                                                               });</script>         
                                                                  <div class="input-group">
-                                                                      <input type="text" readonly="1"class="form-control" id="tanggallahir" value="<?= $tanggallahir ?>"name="tanggallahir" placeholder="Date of Birth">
+                                                                      <input type="text" readonly="1"class="form-control" id="tanggallahir" value="<?= $tanggallahir ?>"name="tanggallahir" placeholder="">
                                                                       <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                                                  </div>
                                                             </div>
@@ -469,10 +480,10 @@ if ($cek_eksist == 0) {
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputGender" class="col-md-3 control-label">Jenis Kelamin</label>
+                                                       <label for="inputGender" class="col-md-3 control-label">Jenis Kelamin *</label>
                                                        <div class="col-md-9">
                                                             <select class="form-control" id="sex" name="sex">
-                                                                 <option value="">Select Gender</option>
+                                                                 <option value="">Pilih Jenis Kelamin</option>
                                                                  <?php
                                                                  $qry = $DB->query("select idsex,namasex from sex");
                                                                  while ($row = $DB->fetch_object($qry)) {
@@ -489,10 +500,10 @@ if ($cek_eksist == 0) {
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputNationality" class="col-md-3 control-label">Kebangsaan</label>
+                                                       <label for="inputNationality" class="col-md-3 control-label">Kebangsaan *</label>
                                                        <div class="col-md-9">
                                                             <select class="form-control" name="nationality_idnationality" id="nationality_idnationality">
-                                                                 <option value="">Select nationality</option>
+                                                                 <option value="">Pilih Kebangsaan</option>
                                                                  <?php
                                                                  $qry = $DB->query("select idnationality,namanegara from nationality");
                                                                  while ($row = $DB->fetch_object($qry)) {
@@ -517,35 +528,35 @@ if ($cek_eksist == 0) {
                                         <div class="panel panel-default">
                                              <!-- Default panel contents -->
                                              <div class="panel-heading te-panel-heading">
-                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Tempat Tinggal</p>
+                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Tempat Tinggal (*: wajib)</p>
                                              </div>
 
                                              <div class="clearfix"></div>
 
                                              <div class="panel-body">
                                                   <div class="form-group ">
-                                                       <label for="inputHomeAddress" class="col-md-3 control-label">Alamat rumah</label>
+                                                       <label for="inputHomeAddress" class="col-md-3 control-label">Alamat rumah *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="alamat" value="<?= $alamat ?>"name="alamat" placeholder="Home Address">
+                                                            <input type="text" class="form-control" id="alamat" value="<?= $alamat ?>"name="alamat" placeholder="">
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
                                                        <label for="inputCity" class="col-md-3 control-label">Kota</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="city" name="city" value="<?= $city ?>" placeholder="City">
+                                                            <input type="text" class="form-control" id="city" name="city" value="<?= $city ?>" placeholder="">
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputProvince" class="col-md-3 control-label">Provinisi/Negara Bagian</label>
+                                                       <label for="inputProvince" class="col-md-3 control-label">Provinisi/Negara Bagian *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="province" name="province" value="<?= $province ?>"placeholder="Province/State">
+                                                            <input type="text" class="form-control" id="province" name="province" value="<?= $province ?>"placeholder="">
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputCountry" class="col-md-3 control-label">Negara</label>
+                                                       <label for="inputCountry" class="col-md-3 control-label">Negara *</label>
                                                        <div class="col-md-9">
                                                             <select class="form-control" name="country" id="country">
                                                                  <option value="">Pilih Negara </option>
@@ -566,9 +577,9 @@ if ($cek_eksist == 0) {
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputPostalCode" class="col-md-3 control-label">Kode Pos</label>
+                                                       <label for="inputPostalCode" class="col-md-3 control-label">Kode Pos *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="postal" value="<?= $postal ?>" name="postal" placeholder="Postal Code">
+                                                            <input type="text" class="form-control" id="postal" value="<?= $postal ?>" name="postal" placeholder="">
                                                        </div>
                                                   </div>
 
@@ -581,57 +592,63 @@ if ($cek_eksist == 0) {
                                         <div class="panel panel-default">
                                              <!-- Default panel contents -->
                                              <div class="panel-heading te-panel-heading">
-                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Tempat Tinggal di Indonesia</p>
+                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Tempat Tinggal di Indonesia (*: wajib)</p>
                                              </div>
 
                                              <div class="clearfix"></div>
 
                                              <div class="panel-body">
                                                   <div class="form-group ">
-                                                       <label for="inputCurrentAddress" class="col-md-3 control-label">Alamat Terkini</label>
+                                                       <label for="inputCurrentAddress" class="col-md-3 control-label">Alamat Terkini *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="alamatind" value="<?= $alamatind ?>"name="alamatind" placeholder="Current Address">
+                                                            <input type="text" class="form-control" id="alamatind" value="<?= $alamatind ?>"name="alamatind" placeholder="">
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputCity" class="col-md-3 control-label">Kota</label>
+                                                       <label for="inputCity" class="col-md-3 control-label">Kota *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="cityind" value="<?= $cityind ?>" name="cityind" placeholder="City">
+                                                            <input type="text" class="form-control" id="cityind" value="<?= $cityind ?>" name="cityind" placeholder="">
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputProvince" class="col-md-3 control-label">Provinsi/Negara Bagian</label>
+                                                       <label for="inputProvince" class="col-md-3 control-label">Provinsi/Negara Bagian *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="provinceid" value="<?= $provinceid ?>" name="provinceid" placeholder="Province/State">
+                                                            <input type="text" class="form-control" id="provinceid" value="<?= $provinceid ?>" name="provinceid" placeholder="">
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputPostalCode" class="col-md-3 control-label">Kode Pos</label>
+                                                       <label for="inputPostalCode" class="col-md-3 control-label">Kode Pos *</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" class="form-control" id="postalind" value="<?= $postalind ?>" name="postalind" placeholder="Postal Code">
+                                                            <input type="text" class="form-control" id="postalind" value="<?= $postalind ?>" name="postalind" placeholder="">
+                                                       </div>
+                                                  </div>
+                                                 <div class="form-group">
+                                                       <label for="inputPostalCode" class="col-md-3 control-label">Email </label>
+                                                       <div class="col-md-9">
+                                                            <input type="text" class="form-control" id="email" value="<?=$email ?>" name="email" placeholder="">
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputPhone" class="col-md-3 control-label">Telp/Handphone</label>
+                                                       <label for="inputPhone" class="col-md-3 control-label">Telp/Handphone *</label>
                                                        <div class="col-md-9">
                                                             <div class="col-md-5 te-no-padding">
-                                                                 <input type="text" class="form-control" id="telp" name="telp" value="<?= $telp ?>" placeholder="Phone">
+                                                                 <input type="text" class="form-control" id="telp" name="telp" value="<?= $telp ?>" placeholder="">
                                                             </div>
                                                             <div class="col-md-1">
                                                                  <label for="inputPhone" class="col-md-3 control-label te-no-padding">/</label>
                                                             </div>
                                                             <div class="col-md-6 te-no-padding">
-                                                                 <input type="text" class="form-control" id="telp2" name="telp2" value="<?= $telp2 ?>" placeholder="Mobile Phone">
+                                                                 <input type="text" class="form-control" id="telp2" name="telp2" value="<?= $telp2 ?>" placeholder="">
                                                             </div>
                                                        </div>
                                                   </div>
 
                                                   <div class="form-group">
-                                                       <label for="inputPhoto" class="col-md-3 control-label">Foto  (jpg/png)</label>
+                                                       <label for="inputPhoto" class="col-md-3 control-label">Foto  (jpg/png) *</label>
                                                        <div class="col-md-9">
                                                             <?php
                                                             if ($foto != "") {
@@ -642,7 +659,7 @@ if ($cek_eksist == 0) {
                                                                  echo "<input type='hidden' value='$foto' name='text_foto'/>";
                                                             } else {
                                                                  ?>
-                                                                 <input type="file" class="form-control" id="foto" name="foto">
+                                                           <input type="file" class="form-control" id="foto" name="foto"> <i>Max Size : <?=$CONFIG->sizeFile_text?></i>
                                                                  <?php
                                                             }
                                                             ?>
@@ -714,19 +731,51 @@ if ($cek_eksist == 0) {
 
 }
 function showDiv(){
-     var program= document.getElementById("jenjangstudi_idjenjangstudi").value;
-     //alert(program);
-        if(program<=7){
+     var jenjang= document.getElementById("jenjangstudi_idjenjangstudi").value;
+     var pilihan=document.getElementById("optionjenjang"+jenjang).value;
+     var kategori=pilihan.split("|");
+     var show_prodi=kategori[0];
+     var show_mou=kategori[1];
+     var show_pt_asal=kategori[2];
+     var show_ket=kategori[3];
+
+     if(show_prodi==1){
+         document.getElementById('prodi-div').style.display = 'block';
+     }
+     else{
+         document.getElementById('prodi-div').style.display = 'none';
+     }
+     if(show_mou==1){
+         document.getElementById('mou-div').style.display = 'block';
+     }
+     else{
+         document.getElementById('mou-div').style.display = 'none';
+     }
+     if(show_pt_asal==1){
+         document.getElementById('pt_asal-div').style.display = 'block';
+     }
+     else{
+         document.getElementById('pt_asal-div').style.display = 'none';
+     }
+      if(show_ket==1){
+         document.getElementById('content_keterangan').style.display = 'block';
+     }
+     else{
+         document.getElementById('content_keterangan').style.display = 'none';
+     }
+     
+        //alert(program);
+     /*   if(program<=7){
           document.getElementById('prodi-div').style.display = 'block';
           document.getElementById('jurusan-div').style.display = 'block';
           document.getElementById('pt_asal_div').style.display = 'block';
-          document.getElementById('content_tambahan').style.display = 'none';
+          document.getElementById('content_keterangan').style.display = 'none';
      }else{
           document.getElementById('prodi-div').style.display = 'none';
           document.getElementById('jurusan-div').style.display = 'none';
            document.getElementById('pt_asal_div').style.display = 'none';
-          document.getElementById('content_tambahan').style.display = 'block';
-     }
+          document.getElementById('content_keterangan').style.display = 'block';
+     }*/
 }
 
                                    </script>
@@ -767,21 +816,73 @@ function showDiv(){
                                                        </div>
                                                   </div>
 
+                                                    <?php
+                                                                 $qry = $DB->query("select idjenjangstudi,namajenjangstudi,tipe,urutan,"
+                                                                         . "show_mou,show_pt_asal,show_prodi,show_ket "
+                                                                         . "from jenjangstudi  order by idjenjangstudi asc");
+                                                                 while ($row = $DB->fetch_object($qry)) {
+                                                                      $idjenjangstudi = $row->idjenjangstudi;
+                                                                      $namajenjangstudi = $row->namajenjangstudi;
+                                                                        $tipe=$row->tipe;
+                                                                      $show_mou=$row->show_mou;
+                                                                      $show_pt_asal=$row->show_pt_asal;
+                                                                      $show_prodi=$row->show_prodi;
+                                                                      $show_ket=$row->show_ket;
+                                                                      $value="$show_prodi|$show_mou|$show_pt_asal|$show_ket";
+                                                                      echo "<input type='hidden' name=\"optionjenjang$idjenjangstudi\" id=\"optionjenjang$idjenjangstudi\" value=\"$value\">";
+                                                                 }
+                                                                 
+                                                                      ?>
                                                                   <div class="form-group">
+                                                                      
+                                                                    
                                                        <label for="inputPeriod" class="col-md-3 control-label">Program/Jenjang Studi</label>
                                                        <div class="col-md-9" >
                                                             <select onchange="showDiv();" class="form-control" name="jenjangstudi_idjenjangstudi" id="jenjangstudi_idjenjangstudi">
                                                                  <option value="">Pilih Jenjang Studi</option>
+                                                                 
                                                                  <?php
-                                                                 $qry = $DB->query("select idjenjangstudi,namajenjangstudi from jenjangstudi");
+                                                                 $qry = $DB->query("select idjenjangstudi,namajenjangstudi,tipe,urutan,"
+                                                                         . "show_mou,show_pt_asal,show_prodi "
+                                                                         . "from jenjangstudi where tipe='Non-Gelar' order by urutan");
+                                                                 echo "<optgroup label=\"Non-Gelar\">";
                                                                  while ($row = $DB->fetch_object($qry)) {
                                                                       $idjenjangstudi = $row->idjenjangstudi;
                                                                       $namajenjangstudi = $row->namajenjangstudi;
+                                                                        $tipe=$row->tipe;
+                                                                      $show_mou=$row->show_mou;
+                                                                      $show_pt_asal=$row->show_pt_asal;
+                                                                      $show_prodi=$row->show_prodi;
                                                                       if ($jenjangstudi_idjenjangstudi == $idjenjangstudi)
-                                                                           echo "<option value=\"$idjenjangstudi\" selected>$namajenjangstudi</option>";
+                                                                           echo "<option value=\"$idjenjangstudi\" selected "
+                                                                              . " show_prodi=\"$show_prodi\" show_mou=\"$show_mou\" show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
                                                                       else
-                                                                           echo "<option value=\"$idjenjangstudi\" >$namajenjangstudi</option>";
+                                                                           echo "<option value=\"$idjenjangstudi\" "
+                                                                              . "show_mou=\"$show_mou\" show_prodi=\"$show_prodi\" "
+                                                                              . "show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
                                                                  }
+                                                                 echo "</optgroup>";
+                                                                 ?>       
+                                                                   <?php
+                                                                 $qry = $DB->query("select idjenjangstudi,namajenjangstudi,tipe,urutan,"
+                                                                         . "show_mou,show_pt_asal,show_prodi "
+                                                                         . "from jenjangstudi where tipe='Gelar' order by urutan");
+                                                                 echo "<optgroup label=\"Gelar\">";
+                                                                 while ($row = $DB->fetch_object($qry)) {
+                                                                      $idjenjangstudi = $row->idjenjangstudi;
+                                                                      $namajenjangstudi = $row->namajenjangstudi;
+                                                                      $tipe=$row->tipe;
+                                                                      $show_mou=$row->show_mou;
+                                                                      $show_pt_asal=$row->show_pt_asal;
+                                                                      $show_prodi=$row->show_prodi;
+                                                                      if ($jenjangstudi_idjenjangstudi == $idjenjangstudi)
+                                                                           echo "<option value=\"$idjenjangstudi\" selected "
+                                                                              . "show_mou=\"$show_mou\" show_prodi=\"$show_prodi\" show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
+                                                                      else
+                                                                           echo "<option value=\"$idjenjangstudi\" "
+                                                                              . "show_mou=\"$show_mou\" show_prodi=\"$show_prodi\" show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
+                                                                 }
+                                                                 echo "</optgroup>";
                                                                  ?>                  
                                                             </select>
                                                        </div>
@@ -793,7 +894,7 @@ function showDiv(){
                                                            <?php
                                                                  if($fakultas_idfakultas!="" || $universitas_iduniversitas!=""){
                                                            echo "<select class=\"form-control\" name=\"fakultas_idfakultas\" "
-                                                                      . "id=\"fakultas_idfakultas\" onchange=\"tampilkanJurusan();\">
+                                                                      . "id=\"fakultas_idfakultas\" >
                                                                       <option value=\"\">Pilih Prodi</option>";
                                                                       $qry = $DB->query("select idprodi,namaProdi from prodi where "
                                                                               . " kodeUniversitas='$universitas_iduniversitas' group by namaProdi asc");
@@ -811,10 +912,10 @@ function showDiv(){
                                                   </div>
 
                                                   <div class="form-group" id="jurusan-div" style="display: <?=$display_jurusan?>">
-                                                       <label for="inputMajor" class="col-md-3 control-label">Jurusan </label>
+                                                      <!-- <label for="inputMajor" class="col-md-3 control-label">Jurusan </label>-->
                                                        <div class="col-md-9" id="isi_jurusan">
                                                                      <?php
-                                                                     if($jurusan_idjurusan!="" ){
+                                                                 /*    if($jurusan_idjurusan!="" ){
                                                             echo "<select class=\"form-control\" 
                                                                           name=\"jurusan_idjurusan\" value=\"jurusan_idjurusan\">
                                                                  <option value=\"\">Pilih Jurusan</option>";
@@ -830,14 +931,33 @@ function showDiv(){
                                                                            echo "<option value=\"$namajurusan\" >$namajurusan</option>";
                                                                  }
                                                                  echo "</select>";
-                                                                     }
+                                                                     }*/
                                                                  ?>                  
                                                             
                                                        </div>
                                                        
                                                   </div>
+                                                <div class="form-group" id='mou-div' style="display: <?=$status_display_mou?>">
+                                                       <label for="inputMOU" class="col-md-3 control-label">Dok. Kerjasama(MOU/MOA) <?=dok_mou?></label>
+                                                       <div class="col-md-9">
+                                                            <?php
+                                                            if ($dok_mou != "") {
+                                                                 echo "<a href ='$url_rewrite/data/$id/$dok_mou' >$dok_mou</a>&nbsp;&nbsp;&nbsp;";
+                                                                 echo "<button type=\"button\" class=\"btn btn-warning btn-sm\"  
+                                                                 onclick=\"javascript:location.href='$url_rewrite" . "proses/student/rmou/$id/$dok_mou'\"
+                                                                 >Remove File</button>";
+                                                                 echo "<input type='hidden' value='$dok_mou' name='text_dok_mou'/>";
+                                                            } else {
+                                                                 ?>
+                                                           <input type="file" class="form-control" id="dok_mou" name="dok_mou">  <i>Tipe File: jpg/png/pdf <b>Max Size : <?=$CONFIG->sizeFile_text?></b></i>
+                                                                 
+                                                                 <?php
+                                                            }
+                                                            ?>
+                                                       </div>
+                                                  </div>
                                                  
-                                                 <div id="pt_asal_div" style="display:<?=$display_prodi?>">
+                                                 <div id="pt_asal-div" style="display:<?=$status_display_pt_asal?>">
                                                   <div class="form-group">
                                                        <label for="inputPostalCode" class="col-md-3 control-label">PT. Asal</label>
                                                        <div class="col-md-9">
@@ -852,7 +972,7 @@ function showDiv(){
                                                   </div>-->
                                                   </div>
                                                  
-                                                  <div id="content_tambahan" style="display:<?php if($jenjangstudi_idjenjangstudi<=7) echo "none"; else echo "block"?>">
+                                                  <div id="content_keterangan" style="display: <?=$status_display_ket?>">
                                                   <div class="form-group">
                                                        <label for="inputPostalCode" class="col-md-3 control-label">Penyelenggara Program </label>
                                                        <div class="col-md-9">
@@ -896,7 +1016,7 @@ function showDiv(){
                                                                                       dateFormat: 'd M yy ',
                                                                               });
                                                                               });</script>         
-                                                                                                                                          <input type="text" readonly="1" class="form-control" id="mulaibelajar" value="<?= $mulaibelajar ?>" name="mulaibelajar" placeholder="Start of Study">
+                                                                                                                                          <input type="text" readonly="1" class="form-control" id="mulaibelajar" value="<?= $mulaibelajar ?>" name="mulaibelajar" placeholder="">
                                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                                             </div>
                                                        </div>
@@ -1009,7 +1129,7 @@ function showDiv(){
                                                        <label for="inputFrom" class="col-md-3 control-label">Dari</label>
                                                        <div class="col-md-9">
                                                             <div class="input-group">
-                                                                 <input type="text" readonly="1"  class="form-control" id="periode_belajar_start" value="<?= $periode_belajar_start ?>" name="periode_belajar_start" placeholder="From">
+                                                                 <input type="text" readonly="1"  class="form-control" id="periode_belajar_start" value="<?= $periode_belajar_start ?>" name="periode_belajar_start" placeholder="">
                                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                                             </div>
                                                        </div>
@@ -1019,7 +1139,7 @@ function showDiv(){
                                                        <label for="inputTo" class="col-md-3 control-label">Sampai</label>
                                                        <div class="col-md-9">
                                                             <div class="input-group">
-                                                                 <input type="text"  readonly="1"  class="form-control" id="periode_belajar_end" value="<?= $periode_belajar_end ?>" name="periode_belajar_end" placeholder="To">
+                                                                 <input type="text"  readonly="1"  class="form-control" id="periode_belajar_end" value="<?= $periode_belajar_end ?>" name="periode_belajar_end" placeholder="">
                                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                                             </div>
                                                        </div>
@@ -1064,21 +1184,18 @@ function showDiv(){
                                         <div class="panel panel-default">
                                              <!-- Default panel contents -->
                                              <div class="panel-heading te-panel-heading">
-                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Dokumen Pendukung</p>
+                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Paspor</p>
                                              </div>
 
                                              <div class="clearfix"></div>
 
                                              <div class="panel-body">
-                                                  <div class="form-group">
-                                                       <label for="inputPassport" class="col-md-3 control-label">Paspor</label>
-                                                       <div class="col-md-9"></div>
-                                                  </div>
+                                                  
 
                                                   <div class="form-group ">
                                                        <label for="inputNumber" class="col-md-3 control-label">Nomor</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" value="<?= $nmrpaspor ?>" class="form-control" id="nmrpaspor" name="nmrpaspor" placeholder="Number">
+                                                            <input type="text" value="<?= $nmrpaspor ?>" class="form-control" id="nmrpaspor" name="nmrpaspor" placeholder="">
                                                        </div>
                                                   </div>
                                                   <script>
@@ -1108,7 +1225,7 @@ function showDiv(){
                                                        <label for="inputIssuedDate" class="col-md-3 control-label">Tanggal Pengajuan</label>
                                                        <div class="col-md-9">
                                                             <div class="input-group">
-                                                                 <input type="text" readonly="1"  class="form-control" id="mulaipassport" value="<?= $mulaipassport ?>" name="mulaipassport" placeholder="Issued Date">
+                                                                 <input type="text" readonly="1"  class="form-control" id="mulaipassport" value="<?= $mulaipassport ?>" name="mulaipassport" placeholderIssued Date">
                                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                                             </div>
                                                        </div>
@@ -1118,7 +1235,7 @@ function showDiv(){
                                                        <label for="inputExpiryDate" class="col-md-3 control-label">Tanggal Berakhir</label>
                                                        <div class="col-md-9">
                                                             <div class="input-group">
-                                                                 <input type="text" readonly="1"  class="form-control" id="akhirpassport"  value="<?= $akhirpassport ?>" name="akhirpassport" placeholder="Expiry Date">
+                                                                 <input type="text" readonly="1"  class="form-control" id="akhirpassport"  value="<?= $akhirpassport ?>" name="akhirpassport" placeholder="">
                                                                  <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
                                                             </div>
                                                        </div>
@@ -1136,23 +1253,30 @@ function showDiv(){
                                                                  echo "<input type='hidden' value='$passport1' name='text_passport1'/>";
                                                             } else {
                                                                  ?>
-                                                                 <input type="file" class="form-control" id="passport1" name="passport1">
+                                                                 <input type="file" class="form-control" id="passport1" name="passport1"><i>Tipe File: jpg/png/pdf Max Size : <?=$CONFIG->sizeFile_text?></i>
                                                                  <?php
                                                             }
                                                             ?>
                                                        </div>
                                                   </div>
+                                             </div>
+                                        </div>
+                                          <!-- panel study info -->
+                                        <div class="panel panel-default">
+                                             <!-- Default panel contents -->
+                                             <div class="panel-heading te-panel-heading">
+                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Dokumen Pendukung (Pendanaan, Kesehatan, Pernyataan, LOA)</p>
+                                             </div>
 
-                                                  <div class="form-group">
-                                                       <label for="inputFunding" class="col-md-3 control-label">Pendaan</label>
-                                                       <div class="col-md-9"></div>
-                                                  </div>
+                                             <div class="clearfix"></div>
+
+                                                 <div class="panel-body"> 
 
                                                   <div class="form-group">
                                                        <label for="inputFunding" class="col-md-3 control-label">Jenis Pendanaan</label>
                                                        <div class="col-md-9">
                                                             <select class="form-control" name="pembiayaan_idpembiayaan">
-                                                                 <option value="">Select Funding</option>
+                                                                 <option value="">Pilih Jenis Pendanaan</option>
                                                                  <?php
                                                                  $qry = $DB->query("select idpembiayaan,jenispembiayaan from pembiayaan");
                                                                  while ($row = $DB->fetch_object($qry)) {
@@ -1171,9 +1295,16 @@ function showDiv(){
                                                   <div class="form-group">
                                                        <label for="inputScholarshipProvider" class="col-md-3 control-label">Penyedia Beasiswa</label>
                                                        <div class="col-md-9">
-                                                            <input type="text" value="<?= $sumber_pembiayaan ?>" class="form-control" id="sumber_pembiayaan" name="sumber_pembiayaan" placeholder="Scholarship Provider">
+                                                           <input type="text" value="<?= $sumber_pembiayaan ?>" class="form-control" id="sumber_pembiayaan" name="sumber_pembiayaan" placeholder=""><i>Misalnya: Orag Tua, Pemerintah, Kampus,dl</i>
                                                        </div>
                                                   </div>
+                                                  
+                                                   <div class="form-group">
+                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penyedia Beasiswa</label>
+                                                       <div class="col-md-9">
+                                                           <input type="text" value="<?= $jabatan_penjamin?>" class="form-control" id="jabatan_penjamin" name="jabatan_penjamin" placeholder=""><i>Misalnya: Rektor, Direktur, Ketua Prodi</i>
+                                                       </div>
+                                                  </div>   
 
                                                   <div class="form-group">
                                                        <label for="inputFinancialStatement" class="col-md-3 control-label">Surat Jaminan Keuangan (Financial Statement)</label>
@@ -1187,7 +1318,7 @@ function showDiv(){
                                                                  echo "<input type='hidden' value='$keuangan' name='text_keuangan'/>";
                                                             } else {
                                                                  ?>
-                                                                 <input type="file" class="form-control" id="keuangan" name="keuangan">
+                                                                 <input type="file" class="form-control" id="keuangan" name="keuangan"><i>Tipe File: jpg/png/pdf Max Size : <?=$CONFIG->sizeFile_text?></i>
                                                             <?php }
                                                             ?>
                                                        </div>
@@ -1205,7 +1336,7 @@ function showDiv(){
                                                                  echo "<input type='hidden' value='$pernyataan1' name='text_pernyataan1'/>";
                                                             } else {
                                                                  ?>
-                                                                 <input type="file" class="form-control" id="pernyataan1" name="pernyataan1">
+                                                                 <input type="file" class="form-control" id="pernyataan1" name="pernyataan1"><i>Tipe File: jpg/png/pdf Max Size : <?=$CONFIG->sizeFile_text?></i>
                                                                  <?php
                                                             }
                                                             ?>
@@ -1224,7 +1355,7 @@ function showDiv(){
                                                                  echo "<input type='hidden' value='$kesehatan' name='text_kesehatan'/>";
                                                             } else {
                                                                  ?>
-                                                                 <input type="file" class="form-control" id="kesehatan" name="kesehatan">
+                                                                 <input type="file" class="form-control" id="kesehatan" name="kesehatan"><i>Tipe File: jpg/png/pdf Max Size : <?=$CONFIG->sizeFile_text?></i>
                                                                  <?php
                                                             }
                                                             ?>
@@ -1243,30 +1374,32 @@ function showDiv(){
                                                                  echo "<input type='hidden' value='$loa' name='text_loa'/>";
                                                             } else {
                                                                  ?>
-                                                                 <input type="file" class="form-control" id="loa" name="loa">
+                                                                 <input type="file" class="form-control" id="loa" name="loa"><i>Tipe File: jpg/png/pdf Max Size : <?=$CONFIG->sizeFile_text?></i>
                                                                  <?php
                                                             }
                                                             ?>
                                                        </div>
                                                   </div>
-                                                <!--  <div class="form-group">
-                                                       <label for="inputMOU" class="col-md-3 control-label">Dokumen Kerjasama(MOU/MOA)</label>
+                                                  
+                                                  <div class="form-group">
+                                                       <label for="inputLetterAcceptance" class="col-md-3 control-label">Ijazah Terakhir</label>
                                                        <div class="col-md-9">
                                                             <?php
-                                                            if ($dok_mou != "") {
-                                                                 echo "<a href ='$url_rewrite/data/$id/$dok_mou' >$dok_mou</a>&nbsp;&nbsp;&nbsp;";
+                                                            if ($ijazah != "") {
+                                                                 echo "<a href ='$url_rewrite/data/$id/$ijazah' >$ijazah</a>&nbsp;&nbsp;&nbsp;";
                                                                  echo "<button type=\"button\" class=\"btn btn-warning btn-sm\"  
-                                                                 onclick=\"javascript:location.href='$url_rewrite" . "proses/student/rmou/$id/$dok_mou'\"
+                                                                 onclick=\"javascript:location.href='$url_rewrite" . "proses/ekstension/rijazah/$id/$ijazah'\"
                                                                  >Remove File</button>";
-                                                                 echo "<input type='hidden' value='$dok_mou' name='text_dok_mou'/>";
+                                                                 echo "<input type='hidden' value='$ijazah' name='text_ijazah'/>";
                                                             } else {
                                                                  ?>
-                                                                 <input type="file" class="form-control" id="dok_mou" name="dok_mou">
+                                                                 <input type="file" class="form-control" id="ijazah" name="ijazah"><i>Tipe File: jpg/png/pdf Max Size : <?=$CONFIG->sizeFile_text?></i>
                                                                  <?php
                                                             }
                                                             ?>
                                                        </div>
-                                                  </div>-->
+                                                  </div>
+                                               
 
                                              </div>
                                              <!-- end of panel body -->
@@ -1309,14 +1442,14 @@ function showDiv(){
                                              <div class="clearfix"></div>
 
                                              <div class="panel-body">
-                                                  <div class="form-group ">
+                                                 <div class="form-group " style="display:none">
                                                        <label for="inputLoginUsername" class="col-md-3 control-label">Desired Login Username</label>
                                                        <div class="col-md-9">
                                                             <input type="text" readonly="1" class="form-control" id="idmahasiswa"  value="<?=$login_mahasiswa?>" name="idmahasiswa" placeholder="Desired Login Username">
                                                        </div>
                                                   </div>
 
-                                                  <div class="form-group">
+                                                  <div class="form-group" style="display:none">
                                                        <label for="inputPassword" class="col-md-3 control-label">Choose a Password</label>
                                                        <div class="col-md-9">
                                                             <input type="hidden" value="<?=$id?>" name="kode"/>
@@ -1325,6 +1458,7 @@ function showDiv(){
                                                             <input type="password" readonly="1" class="form-control" id="login_password" value="<?=$login_mahasiswa?>" name="login_password" placeholder="Choose a Password">
                                                        </div>
                                                   </div>
+                                               <center>Silahkan Klik Tombol Verfikasi untuk memasukan atau memperbaharui LOR (Letter of Reccomendation) </center>
 
 
                                              </div>
@@ -1337,7 +1471,7 @@ function showDiv(){
 
                                         <div class="form-group">
                                              <div class="col-md-offset-3 col-md-9">
-                                                  <button type="submit" name="btnStudy" class="btn btn-primary">Save and Finish</button>
+                                                  <button type="submit" name="btnStudy" class="btn btn-primary">Verifikasi</button>
                                              </div>
                                         </div>
                                    </form>
@@ -1345,7 +1479,7 @@ function showDiv(){
                                         <div class="panel panel-default">
                                              <!-- Default panel contents -->
                                              <div class="panel-heading te-panel-heading">
-                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Verification Information</p>
+                                                  <i class="glyphicon glyphicon-th-large"></i> <p>Informasi Verifikasi dari Dikti</p>
                                              </div>
                                             <div class="panel-body">
                                                   <div class="form-group ">

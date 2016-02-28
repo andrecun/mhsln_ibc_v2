@@ -12,17 +12,18 @@
 include '../config/application.php';
 $kodeUniversitas=$_GET['kodeUniversitas'];
 echo "<select class=\"form-control\" name=\"fakultas_idfakultas\" "
- . "id=\"fakultas_idfakultas\" onchange=\"tampilkanJurusan();\">
+ . "id=\"fakultas_idfakultas\" >
 <option value=\"\">Pilih Prodi</option>";
-$qry = $DB->query("select idprodi,namaProdi from prodi where kodeUniversitas='$kodeUniversitas'"
+$qry = $DB->query("select idprodi,namaProdi,kodeProdi from prodi where kodeUniversitas='$kodeUniversitas'"
         . " group by namaProdi asc");
 while ($row = $DB->fetch_object($qry)) {
      $idprodi = $row->idprodi;
+     $kodeProdi=$row->kodeProdi;
      $namaprodi = $row->namaProdi;
      if ($idprodi == $fakultas_idfakultas)
-          echo "<option value=\"$idprodi\" selected>$namaprodi</option>";
+          echo "<option value=\"$kodeprodi\" selected>$namaprodi</option>";
      else
-          echo "<option value=\"$idprodi\" >$namaprodi</option>";
+          echo "<option value=\"$kodeProdi\" >$namaprodi</option>";
 }
 echo "</select>";
 ?>

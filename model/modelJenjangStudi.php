@@ -66,7 +66,7 @@ class modelJenjangStudi extends mysql_db {
           $result = $this->query($query);
         //  echo $result;
           //Wrap Output Query
-          $data=$this->fetch_object($result);
+          $data=$this->fetch_array($result);
         
           return $data;
      }
