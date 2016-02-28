@@ -1,0 +1,1597 @@
+O:4:"wsdl":52:{s:4:"wsdl";s:81:"http://118.98.235.161:8280/services/services/t/pd.dikti.go.id/KelembagaanSvc?wsdl";s:7:"schemas";a:2:{s:26:"http://dikti.go.id/pd/v1.0";a:1:{i:0;O:16:"nusoap_xmlschema":35:{s:6:"schema";s:0:"";s:3:"xml";s:0:"";s:19:"enclosingNamespaces";a:16:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:3:"ns1";s:30:"http://ws.wso2.org/dataservice";s:4:"wsaw";s:41:"http://www.w3.org/2006/05/addressing/wsdl";s:4:"http";s:37:"http://schemas.xmlsoap.org/wsdl/http/";s:3:"ns0";s:26:"http://dikti.go.id/pd/v1.0";s:2:"xs";s:32:"http://www.w3.org/2001/XMLSchema";s:4:"mime";s:37:"http://schemas.xmlsoap.org/wsdl/mime/";s:4:"soap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:6:"soap12";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";s:3:"wsp";s:44:"http://schemas.xmlsoap.org/ws/2004/09/policy";s:3:"wsu";s:82:"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";s:2:"sp";s:52:"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy";}s:10:"schemaInfo";a:4:{s:20:"attributeFormDefault";s:11:"unqualified";s:18:"elementFormDefault";s:9:"qualified";s:15:"targetNamespace";s:26:"http://dikti.go.id/pd/v1.0";s:13:"schemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";}s:21:"schemaTargetNamespace";s:26:"http://dikti.go.id/pd/v1.0";s:10:"attributes";a:0:{}s:12:"complexTypes";a:15:{s:27:"_getListProdi_ContainedType";a:5:{s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:6:"kodePT";a:4:{s:4:"name";s:6:"kodePT";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:12:"updatedAfter";a:4:{s:4:"name";s:12:"updatedAfter";s:8:"nillable";s:4:"true";s:4:"type";s:41:"http://www.w3.org/2001/XMLSchema:dateTime";s:4:"form";s:9:"qualified";}}}s:16:"ListProgramStudi";a:6:{s:4:"name";s:16:"ListProgramStudi";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:1:{s:12:"ProgramStudi";a:5:{s:9:"maxOccurs";s:9:"unbounded";s:9:"minOccurs";s:1:"0";s:4:"name";s:12:"ProgramStudi";s:4:"type";s:39:"http://dikti.go.id/pd/v1.0:ProgramStudi";s:4:"form";s:9:"qualified";}}}s:12:"ProgramStudi";a:6:{s:4:"name";s:12:"ProgramStudi";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:21:{s:2:"ID";a:4:{s:4:"name";s:2:"ID";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:15:"PerguruanTinggi";a:2:{s:3:"ref";s:42:"http://dikti.go.id/pd/v1.0:PerguruanTinggi";s:4:"form";s:9:"qualified";}s:4:"Kode";a:4:{s:4:"name";s:4:"Kode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"Nama";a:4:{s:4:"name";s:4:"Nama";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:17:"JenjangPendidikan";a:2:{s:3:"ref";s:44:"http://dikti.go.id/pd/v1.0:JenjangPendidikan";s:4:"form";s:9:"qualified";}s:14:"TanggalBerdiri";a:4:{s:4:"name";s:14:"TanggalBerdiri";s:8:"nillable";s:4:"true";s:4:"type";s:37:"http://www.w3.org/2001/XMLSchema:date";s:4:"form";s:9:"qualified";}s:17:"SkPenyelenggaraan";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:17:"SkPenyelenggaraan";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:24:"TanggalSkPenyelenggaraan";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:24:"TanggalSkPenyelenggaraan";s:8:"nillable";s:4:"true";s:4:"type";s:37:"http://www.w3.org/2001/XMLSchema:date";s:4:"form";s:9:"qualified";}s:8:"SksLulus";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:8:"SksLulus";s:8:"nillable";s:4:"true";s:4:"type";s:40:"http://www.w3.org/2001/XMLSchema:integer";s:4:"form";s:9:"qualified";}s:6:"Status";a:4:{s:4:"name";s:6:"Status";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"Visi";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:4:"Visi";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"Misi";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:4:"Misi";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:10:"Kompetensi";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:10:"Kompetensi";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:5:"Jalan";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:5:"Jalan";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:7:"KabKota";a:2:{s:3:"ref";s:34:"http://dikti.go.id/pd/v1.0:KabKota";s:4:"form";s:9:"qualified";}s:7:"KodePos";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:7:"KodePos";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:7:"Telepon";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:7:"Telepon";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:9:"Faksimile";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:9:"Faksimile";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:7:"Website";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:7:"Website";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:5:"Email";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:5:"Email";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:10:"LastUpdate";a:4:{s:4:"name";s:10:"LastUpdate";s:8:"nillable";s:4:"true";s:4:"type";s:41:"http://www.w3.org/2001/XMLSchema:dateTime";s:4:"form";s:9:"qualified";}}}s:15:"PerguruanTinggi";a:6:{s:4:"name";s:15:"PerguruanTinggi";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:4:"Kode";a:4:{s:4:"name";s:4:"Kode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"Nama";a:4:{s:4:"name";s:4:"Nama";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}}}s:17:"JenjangPendidikan";a:6:{s:4:"name";s:17:"JenjangPendidikan";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:4:"Kode";a:4:{s:4:"name";s:4:"Kode";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"Nama";a:4:{s:4:"name";s:4:"Nama";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}}}s:7:"KabKota";a:6:{s:4:"name";s:7:"KabKota";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:2:"ID";a:4:{s:4:"name";s:2:"ID";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"Nama";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:4:"Nama";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}}}s:23:"_getProdi_ContainedType";a:5:{s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:3:{s:6:"kodePT";a:4:{s:4:"name";s:6:"kodePT";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:9:"kodeProdi";a:4:{s:4:"name";s:9:"kodeProdi";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:12:"updatedAfter";a:4:{s:4:"name";s:12:"updatedAfter";s:8:"nillable";s:4:"true";s:4:"type";s:41:"http://www.w3.org/2001/XMLSchema:dateTime";s:4:"form";s:9:"qualified";}}}s:25:"_getListPT2_ContainedType";a:5:{s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:3:{s:9:"idPembina";a:4:{s:4:"name";s:9:"idPembina";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"page";a:4:{s:4:"name";s:4:"page";s:8:"nillable";s:4:"true";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:9:"qualified";}s:12:"updatedAfter";a:4:{s:4:"name";s:12:"updatedAfter";s:8:"nillable";s:4:"true";s:4:"type";s:41:"http://www.w3.org/2001/XMLSchema:dateTime";s:4:"form";s:9:"qualified";}}}s:19:"ListPerguruanTinggi";a:6:{s:4:"name";s:19:"ListPerguruanTinggi";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:1:{s:15:"PerguruanTinggi";a:2:{s:3:"ref";s:42:"http://dikti.go.id/pd/v1.0:PerguruanTinggi";s:4:"form";s:9:"qualified";}}}s:29:"_getPTPembinaan_ContainedType";a:4:{s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";}s:15:"ListPTPembinaan";a:6:{s:4:"name";s:15:"ListPTPembinaan";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:1:{s:11:"PTPembinaan";a:5:{s:9:"maxOccurs";s:9:"unbounded";s:9:"minOccurs";s:1:"0";s:4:"name";s:11:"PTPembinaan";s:4:"type";s:38:"http://dikti.go.id/pd/v1.0:PTPembinaan";s:4:"form";s:9:"qualified";}}}s:11:"PTPembinaan";a:6:{s:4:"name";s:11:"PTPembinaan";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:8:{s:2:"ID";a:4:{s:4:"name";s:2:"ID";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:4:"IdSP";a:4:{s:4:"name";s:4:"IdSP";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:6:"KodePT";a:4:{s:4:"name";s:6:"KodePT";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:6:"NamaPT";a:4:{s:4:"name";s:6:"NamaPT";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:14:"JenisBlacklist";a:4:{s:4:"name";s:14:"JenisBlacklist";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:17:"KategoriBlacklist";a:2:{s:3:"ref";s:44:"http://dikti.go.id/pd/v1.0:KategoriBlacklist";s:4:"form";s:9:"qualified";}s:11:"BannedUntil";a:4:{s:4:"name";s:11:"BannedUntil";s:8:"nillable";s:4:"true";s:4:"type";s:41:"http://www.w3.org/2001/XMLSchema:dateTime";s:4:"form";s:9:"qualified";}s:6:"Alasan";a:4:{s:4:"name";s:6:"Alasan";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}}}s:17:"KategoriBlacklist";a:6:{s:4:"name";s:17:"KategoriBlacklist";s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:3:{s:2:"ID";a:4:{s:4:"name";s:2:"ID";s:8:"nillable";s:4:"true";s:4:"type";s:40:"http://www.w3.org/2001/XMLSchema:integer";s:4:"form";s:9:"qualified";}s:4:"Nama";a:5:{s:9:"minOccurs";s:1:"0";s:4:"name";s:4:"Nama";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:9:"Deskripsi";a:4:{s:4:"name";s:9:"Deskripsi";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}}}s:20:"_getPT_ContainedType";a:5:{s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:6:"kodePT";a:4:{s:4:"name";s:6:"kodePT";s:8:"nillable";s:4:"true";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";}s:12:"updatedAfter";a:4:{s:4:"name";s:12:"updatedAfter";s:8:"nillable";s:4:"true";s:4:"type";s:41:"http://www.w3.org/2001/XMLSchema:dateTime";s:4:"form";s:9:"qualified";}}}s:24:"_getListPT_ContainedType";a:5:{s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";s:8:"elements";a:2:{s:4:"page";a:4:{s:4:"name";s:4:"page";s:8:"nillable";s:4:"true";s:4:"type";s:36:"http://www.w3.org/2001/XMLSchema:int";s:4:"form";s:9:"qualified";}s:12:"updatedAfter";a:4:{s:4:"name";s:12:"updatedAfter";s:8:"nillable";s:4:"true";s:4:"type";s:41:"http://www.w3.org/2001/XMLSchema:dateTime";s:4:"form";s:9:"qualified";}}}}s:16:"complexTypeStack";a:0:{}s:18:"currentComplexType";N;s:8:"elements";a:13:{s:12:"getListProdi";a:4:{s:4:"name";s:12:"getListProdi";s:4:"form";s:9:"qualified";s:4:"type";s:54:"http://dikti.go.id/pd/v1.0:_getListProdi_ContainedType";s:9:"typeClass";s:7:"element";}s:16:"ListProgramStudi";a:4:{s:4:"name";s:16:"ListProgramStudi";s:4:"type";s:43:"http://dikti.go.id/pd/v1.0:ListProgramStudi";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:15:"PerguruanTinggi";a:4:{s:4:"name";s:15:"PerguruanTinggi";s:4:"type";s:42:"http://dikti.go.id/pd/v1.0:PerguruanTinggi";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:17:"JenjangPendidikan";a:4:{s:4:"name";s:17:"JenjangPendidikan";s:4:"type";s:44:"http://dikti.go.id/pd/v1.0:JenjangPendidikan";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:7:"KabKota";a:4:{s:4:"name";s:7:"KabKota";s:4:"type";s:34:"http://dikti.go.id/pd/v1.0:KabKota";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:8:"getProdi";a:4:{s:4:"name";s:8:"getProdi";s:4:"form";s:9:"qualified";s:4:"type";s:50:"http://dikti.go.id/pd/v1.0:_getProdi_ContainedType";s:9:"typeClass";s:7:"element";}s:10:"getListPT2";a:4:{s:4:"name";s:10:"getListPT2";s:4:"form";s:9:"qualified";s:4:"type";s:52:"http://dikti.go.id/pd/v1.0:_getListPT2_ContainedType";s:9:"typeClass";s:7:"element";}s:19:"ListPerguruanTinggi";a:4:{s:4:"name";s:19:"ListPerguruanTinggi";s:4:"type";s:46:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:14:"getPTPembinaan";a:4:{s:4:"name";s:14:"getPTPembinaan";s:4:"form";s:9:"qualified";s:4:"type";s:56:"http://dikti.go.id/pd/v1.0:_getPTPembinaan_ContainedType";s:9:"typeClass";s:7:"element";}s:15:"ListPTPembinaan";a:4:{s:4:"name";s:15:"ListPTPembinaan";s:4:"type";s:42:"http://dikti.go.id/pd/v1.0:ListPTPembinaan";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:17:"KategoriBlacklist";a:4:{s:4:"name";s:17:"KategoriBlacklist";s:4:"type";s:44:"http://dikti.go.id/pd/v1.0:KategoriBlacklist";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:5:"getPT";a:4:{s:4:"name";s:5:"getPT";s:4:"form";s:9:"qualified";s:4:"type";s:47:"http://dikti.go.id/pd/v1.0:_getPT_ContainedType";s:9:"typeClass";s:7:"element";}s:9:"getListPT";a:4:{s:4:"name";s:9:"getListPT";s:4:"form";s:9:"qualified";s:4:"type";s:51:"http://dikti.go.id/pd/v1.0:_getListPT_ContainedType";s:9:"typeClass";s:7:"element";}}s:12:"elementStack";a:0:{}s:14:"currentElement";N;s:11:"simpleTypes";a:0:{}s:15:"simpleTypeStack";a:0:{}s:17:"currentSimpleType";N;s:7:"imports";a:0:{}s:6:"parser";N;s:8:"position";i:97;s:5:"depth";i:1;s:11:"depth_array";a:5:{i:0;i:0;i:1;i:92;i:2;i:93;i:3;i:94;i:4;i:96;}s:7:"message";a:97:{i:0;a:1:{s:5:"cdata";s:0:"";}i:1;a:1:{s:5:"cdata";s:0:"";}i:2;a:1:{s:5:"cdata";s:0:"";}i:3;a:1:{s:5:"cdata";s:0:"";}i:4;a:1:{s:5:"cdata";s:0:"";}i:5;a:1:{s:5:"cdata";s:0:"";}i:6;a:1:{s:5:"cdata";s:0:"";}i:7;a:1:{s:5:"cdata";s:0:"";}i:8;a:1:{s:5:"cdata";s:0:"";}i:9;a:1:{s:5:"cdata";s:0:"";}i:10;a:1:{s:5:"cdata";s:0:"";}i:11;a:1:{s:5:"cdata";s:0:"";}i:12;a:1:{s:5:"cdata";s:0:"";}i:13;a:1:{s:5:"cdata";s:0:"";}i:14;a:1:{s:5:"cdata";s:0:"";}i:15;a:1:{s:5:"cdata";s:0:"";}i:16;a:1:{s:5:"cdata";s:0:"";}i:17;a:1:{s:5:"cdata";s:0:"";}i:18;a:1:{s:5:"cdata";s:0:"";}i:19;a:1:{s:5:"cdata";s:0:"";}i:20;a:1:{s:5:"cdata";s:0:"";}i:21;a:1:{s:5:"cdata";s:0:"";}i:22;a:1:{s:5:"cdata";s:0:"";}i:23;a:1:{s:5:"cdata";s:0:"";}i:24;a:1:{s:5:"cdata";s:0:"";}i:25;a:1:{s:5:"cdata";s:0:"";}i:26;a:1:{s:5:"cdata";s:0:"";}i:27;a:1:{s:5:"cdata";s:0:"";}i:28;a:1:{s:5:"cdata";s:0:"";}i:29;a:1:{s:5:"cdata";s:0:"";}i:30;a:1:{s:5:"cdata";s:0:"";}i:31;a:1:{s:5:"cdata";s:0:"";}i:32;a:1:{s:5:"cdata";s:0:"";}i:33;a:1:{s:5:"cdata";s:0:"";}i:34;a:1:{s:5:"cdata";s:0:"";}i:35;a:1:{s:5:"cdata";s:0:"";}i:36;a:1:{s:5:"cdata";s:0:"";}i:37;a:1:{s:5:"cdata";s:0:"";}i:38;a:1:{s:5:"cdata";s:0:"";}i:39;a:1:{s:5:"cdata";s:0:"";}i:40;a:1:{s:5:"cdata";s:0:"";}i:41;a:1:{s:5:"cdata";s:0:"";}i:42;a:1:{s:5:"cdata";s:0:"";}i:43;a:1:{s:5:"cdata";s:0:"";}i:44;a:1:{s:5:"cdata";s:0:"";}i:45;a:1:{s:5:"cdata";s:0:"";}i:46;a:1:{s:5:"cdata";s:0:"";}i:47;a:1:{s:5:"cdata";s:0:"";}i:48;a:1:{s:5:"cdata";s:0:"";}i:49;a:1:{s:5:"cdata";s:0:"";}i:50;a:1:{s:5:"cdata";s:0:"";}i:51;a:1:{s:5:"cdata";s:0:"";}i:52;a:1:{s:5:"cdata";s:0:"";}i:53;a:1:{s:5:"cdata";s:0:"";}i:54;a:1:{s:5:"cdata";s:0:"";}i:55;a:1:{s:5:"cdata";s:0:"";}i:56;a:1:{s:5:"cdata";s:0:"";}i:57;a:1:{s:5:"cdata";s:0:"";}i:58;a:1:{s:5:"cdata";s:0:"";}i:59;a:1:{s:5:"cdata";s:0:"";}i:60;a:1:{s:5:"cdata";s:0:"";}i:61;a:1:{s:5:"cdata";s:0:"";}i:62;a:1:{s:5:"cdata";s:0:"";}i:63;a:1:{s:5:"cdata";s:0:"";}i:64;a:1:{s:5:"cdata";s:0:"";}i:65;a:1:{s:5:"cdata";s:0:"";}i:66;a:1:{s:5:"cdata";s:0:"";}i:67;a:1:{s:5:"cdata";s:0:"";}i:68;a:1:{s:5:"cdata";s:0:"";}i:69;a:1:{s:5:"cdata";s:0:"";}i:70;a:1:{s:5:"cdata";s:0:"";}i:71;a:1:{s:5:"cdata";s:0:"";}i:72;a:1:{s:5:"cdata";s:0:"";}i:73;a:1:{s:5:"cdata";s:0:"";}i:74;a:1:{s:5:"cdata";s:0:"";}i:75;a:1:{s:5:"cdata";s:0:"";}i:76;a:1:{s:5:"cdata";s:0:"";}i:77;a:1:{s:5:"cdata";s:0:"";}i:78;a:1:{s:5:"cdata";s:0:"";}i:79;a:1:{s:5:"cdata";s:0:"";}i:80;a:1:{s:5:"cdata";s:0:"";}i:81;a:1:{s:5:"cdata";s:0:"";}i:82;a:1:{s:5:"cdata";s:0:"";}i:83;a:1:{s:5:"cdata";s:0:"";}i:84;a:1:{s:5:"cdata";s:0:"";}i:85;a:1:{s:5:"cdata";s:0:"";}i:86;a:1:{s:5:"cdata";s:0:"";}i:87;a:1:{s:5:"cdata";s:0:"";}i:88;a:1:{s:5:"cdata";s:0:"";}i:89;a:1:{s:5:"cdata";s:0:"";}i:90;a:1:{s:5:"cdata";s:0:"";}i:91;a:1:{s:5:"cdata";s:0:"";}i:92;a:1:{s:5:"cdata";s:0:"";}i:93;a:1:{s:5:"cdata";s:0:"";}i:94;a:1:{s:5:"cdata";s:0:"";}i:95;a:1:{s:5:"cdata";s:0:"";}i:96;a:1:{s:5:"cdata";s:0:"";}}s:16:"defaultNamespace";a:97:{i:0;b:0;i:1;b:0;i:2;b:0;i:3;b:0;i:4;b:0;i:5;b:0;i:6;b:0;i:7;b:0;i:8;b:0;i:9;b:0;i:10;b:0;i:11;b:0;i:12;b:0;i:13;b:0;i:14;b:0;i:15;b:0;i:16;b:0;i:17;b:0;i:18;b:0;i:19;b:0;i:20;b:0;i:21;b:0;i:22;b:0;i:23;b:0;i:24;b:0;i:25;b:0;i:26;b:0;i:27;b:0;i:28;b:0;i:29;b:0;i:30;b:0;i:31;b:0;i:32;b:0;i:33;b:0;i:34;b:0;i:35;b:0;i:36;b:0;i:37;b:0;i:38;b:0;i:39;b:0;i:40;b:0;i:41;b:0;i:42;b:0;i:43;b:0;i:44;b:0;i:45;b:0;i:46;b:0;i:47;b:0;i:48;b:0;i:49;b:0;i:50;b:0;i:51;b:0;i:52;b:0;i:53;b:0;i:54;b:0;i:55;b:0;i:56;b:0;i:57;b:0;i:58;b:0;i:59;b:0;i:60;b:0;i:61;b:0;i:62;b:0;i:63;b:0;i:64;b:0;i:65;b:0;i:66;b:0;i:67;b:0;i:68;b:0;i:69;b:0;i:70;b:0;i:71;b:0;i:72;b:0;i:73;b:0;i:74;b:0;i:75;b:0;i:76;b:0;i:77;b:0;i:78;b:0;i:79;b:0;i:80;b:0;i:81;b:0;i:82;b:0;i:83;b:0;i:84;b:0;i:85;b:0;i:86;b:0;i:87;b:0;i:88;b:0;i:89;b:0;i:90;b:0;i:91;b:0;i:92;b:0;i:93;b:0;i:94;b:0;i:95;b:0;i:96;b:0;}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:0:"";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:16:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:3:"ns1";s:30:"http://ws.wso2.org/dataservice";s:4:"wsaw";s:41:"http://www.w3.org/2006/05/addressing/wsdl";s:4:"http";s:37:"http://schemas.xmlsoap.org/wsdl/http/";s:3:"ns0";s:26:"http://dikti.go.id/pd/v1.0";s:2:"xs";s:32:"http://www.w3.org/2001/XMLSchema";s:4:"mime";s:37:"http://schemas.xmlsoap.org/wsdl/mime/";s:4:"soap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:6:"soap12";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";s:3:"wsp";s:44:"http://schemas.xmlsoap.org/ws/2004/09/policy";s:3:"wsu";s:82:"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";s:2:"sp";s:52:"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy";}s:14:"usedNamespaces";a:0:{}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}}}s:30:"http://ws.wso2.org/dataservice";a:1:{i:0;O:16:"nusoap_xmlschema":35:{s:6:"schema";s:0:"";s:3:"xml";s:0:"";s:19:"enclosingNamespaces";a:16:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:3:"ns1";s:30:"http://ws.wso2.org/dataservice";s:4:"wsaw";s:41:"http://www.w3.org/2006/05/addressing/wsdl";s:4:"http";s:37:"http://schemas.xmlsoap.org/wsdl/http/";s:3:"ns0";s:26:"http://dikti.go.id/pd/v1.0";s:2:"xs";s:32:"http://www.w3.org/2001/XMLSchema";s:4:"mime";s:37:"http://schemas.xmlsoap.org/wsdl/mime/";s:4:"soap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:6:"soap12";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";s:3:"wsp";s:44:"http://schemas.xmlsoap.org/ws/2004/09/policy";s:3:"wsu";s:82:"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";s:2:"sp";s:52:"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy";}s:10:"schemaInfo";a:4:{s:20:"attributeFormDefault";s:11:"unqualified";s:18:"elementFormDefault";s:9:"qualified";s:15:"targetNamespace";s:30:"http://ws.wso2.org/dataservice";s:13:"schemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";}s:21:"schemaTargetNamespace";s:30:"http://ws.wso2.org/dataservice";s:10:"attributes";a:0:{}s:12:"complexTypes";a:1:{s:36:"_DATA_SERVICE_RESPONSE_ContainedType";a:4:{s:9:"typeClass";s:11:"complexType";s:7:"phpType";s:6:"struct";s:13:"simpleContent";s:5:"false";s:10:"compositor";s:8:"sequence";}}s:16:"complexTypeStack";a:0:{}s:18:"currentComplexType";N;s:8:"elements";a:3:{s:16:"DataServiceFault";a:4:{s:4:"name";s:16:"DataServiceFault";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:14:"REQUEST_STATUS";a:4:{s:4:"name";s:14:"REQUEST_STATUS";s:4:"type";s:39:"http://www.w3.org/2001/XMLSchema:string";s:4:"form";s:9:"qualified";s:9:"typeClass";s:7:"element";}s:21:"DATA_SERVICE_RESPONSE";a:4:{s:4:"name";s:21:"DATA_SERVICE_RESPONSE";s:4:"form";s:9:"qualified";s:4:"type";s:67:"http://ws.wso2.org/dataservice:_DATA_SERVICE_RESPONSE_ContainedType";s:9:"typeClass";s:7:"element";}}s:12:"elementStack";a:0:{}s:14:"currentElement";N;s:11:"simpleTypes";a:0:{}s:15:"simpleTypeStack";a:0:{}s:17:"currentSimpleType";N;s:7:"imports";a:0:{}s:6:"parser";N;s:8:"position";i:7;s:5:"depth";i:1;s:11:"depth_array";a:5:{i:0;i:0;i:1;i:3;i:2;i:4;i:3;i:5;i:4;i:6;}s:7:"message";a:7:{i:0;a:1:{s:5:"cdata";s:0:"";}i:1;a:1:{s:5:"cdata";s:0:"";}i:2;a:1:{s:5:"cdata";s:0:"";}i:3;a:1:{s:5:"cdata";s:0:"";}i:4;a:1:{s:5:"cdata";s:0:"";}i:5;a:1:{s:5:"cdata";s:0:"";}i:6;a:1:{s:5:"cdata";s:0:"";}}s:16:"defaultNamespace";a:7:{i:0;b:0;i:1;b:0;i:2;b:0;i:3;b:0;i:4;b:0;i:5;b:0;i:6;b:0;}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:0:"";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:16:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:3:"ns1";s:30:"http://ws.wso2.org/dataservice";s:4:"wsaw";s:41:"http://www.w3.org/2006/05/addressing/wsdl";s:4:"http";s:37:"http://schemas.xmlsoap.org/wsdl/http/";s:3:"ns0";s:26:"http://dikti.go.id/pd/v1.0";s:2:"xs";s:32:"http://www.w3.org/2001/XMLSchema";s:4:"mime";s:37:"http://schemas.xmlsoap.org/wsdl/mime/";s:4:"soap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:6:"soap12";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";s:3:"wsp";s:44:"http://schemas.xmlsoap.org/ws/2004/09/policy";s:3:"wsu";s:82:"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";s:2:"sp";s:52:"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy";}s:14:"usedNamespaces";a:0:{}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}}}}s:13:"currentSchema";r:889;s:7:"message";a:179:{i:0;a:1:{s:5:"cdata";s:131:"
+   
+      
+         
+            
+               
+                  
+                     
+                        
+   
+   
+      ";}i:1;a:1:{s:5:"cdata";s:4:"
+   ";}i:2;a:1:{s:5:"cdata";s:1912:"
+   Layanan data kelembagaan (Perguruan Tinggi dan Program Studi)
+      
+         
+            
+               
+                  
+                  
+               
+            
+         
+         
+         
+            
+               
+            
+         
+         
+            
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+               
+            
+         
+         
+         
+            
+               
+               
+            
+         
+         
+         
+            
+               
+               
+            
+         
+         
+         
+            
+               
+               
+            
+         
+         
+            
+               
+                  
+                  
+                  
+               
+            
+         
+         
+            
+               
+                  
+                  
+                  
+               
+            
+         
+         
+         
+            
+               
+            
+         
+         
+            
+               
+            
+         
+         
+         
+            
+               
+            
+         
+         
+            
+               
+               
+               
+               
+               
+               
+               
+               
+            
+         
+         
+         
+            
+               
+               
+               
+            
+         
+         
+            
+               
+                  
+                  
+               
+            
+         
+         
+            
+               
+                  
+                  
+               
+            
+         
+      
+            ";}i:3;a:1:{s:5:"cdata";s:7:"
+      ";}i:4;a:1:{s:5:"cdata";s:13:"
+            ";}i:5;a:1:{s:5:"cdata";s:29:"
+            
+               ";}i:6;a:1:{s:5:"cdata";s:19:"
+                  ";}i:7;a:1:{s:5:"cdata";s:41:"
+                  
+                     ";}i:8;a:1:{s:5:"cdata";s:47:"
+                     
+                        ";}i:9;a:1:{s:5:"cdata";s:19:"
+                  ";}i:10;a:1:{s:5:"cdata";s:41:"
+                  
+                     ";}i:11;a:1:{s:5:"cdata";s:47:"
+                     
+                        ";}i:12;a:1:{s:5:"cdata";s:19:"
+                  ";}i:13;a:1:{s:5:"cdata";s:19:"
+                  ";}i:14;a:1:{s:5:"cdata";s:22:"
+                     ";}i:15;a:1:{s:5:"cdata";s:35:"
+               
+                  ";}i:16;a:1:{s:5:"cdata";s:10:"
+         ";}i:17;a:1:{s:5:"cdata";s:13:"
+            ";}i:18;a:1:{s:5:"cdata";s:16:"
+               ";}i:19;a:1:{s:5:"cdata";s:4:"
+   ";}i:20;a:1:{s:5:"cdata";s:141:"
+      
+         
+         
+         
+            
+               
+                  
+               
+            
+         
+      
+         ";}i:21;a:1:{s:5:"cdata";s:4:"
+   ";}i:22;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:23;a:1:{s:5:"cdata";s:4:"
+   ";}i:24;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:25;a:1:{s:5:"cdata";s:4:"
+   ";}i:26;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:27;a:1:{s:5:"cdata";s:4:"
+   ";}i:28;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:29;a:1:{s:5:"cdata";s:4:"
+   ";}i:30;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:31;a:1:{s:5:"cdata";s:4:"
+   ";}i:32;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:33;a:1:{s:5:"cdata";s:4:"
+   ";}i:34;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:35;a:1:{s:5:"cdata";s:4:"
+   ";}i:36;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:37;a:1:{s:5:"cdata";s:4:"
+   ";}i:38;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:39;a:1:{s:5:"cdata";s:4:"
+   ";}i:40;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:41;a:1:{s:5:"cdata";s:4:"
+   ";}i:42;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:43;a:1:{s:5:"cdata";s:4:"
+   ";}i:44;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:45;a:1:{s:5:"cdata";s:4:"
+   ";}i:46;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:47;a:1:{s:5:"cdata";s:4:"
+   ";}i:48;a:1:{s:5:"cdata";s:7:"
+      ";}i:49;a:1:{s:5:"cdata";s:10:"
+         ";}i:50;a:1:{s:5:"cdata";s:10:"
+         ";}i:51;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:52;a:1:{s:5:"cdata";s:7:"
+      ";}i:53;a:1:{s:5:"cdata";s:10:"
+         ";}i:54;a:1:{s:5:"cdata";s:10:"
+         ";}i:55;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:56;a:1:{s:5:"cdata";s:7:"
+      ";}i:57;a:1:{s:5:"cdata";s:10:"
+         ";}i:58;a:1:{s:5:"cdata";s:10:"
+         ";}i:59;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:60;a:1:{s:5:"cdata";s:7:"
+      ";}i:61;a:1:{s:5:"cdata";s:10:"
+         ";}i:62;a:1:{s:5:"cdata";s:10:"
+         ";}i:63;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:64;a:1:{s:5:"cdata";s:7:"
+      ";}i:65;a:1:{s:5:"cdata";s:10:"
+         ";}i:66;a:1:{s:5:"cdata";s:10:"
+         ";}i:67;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:68;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:69;a:1:{s:5:"cdata";s:10:"
+         ";}i:70;a:1:{s:5:"cdata";s:10:"
+         ";}i:71;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:72;a:1:{s:5:"cdata";s:4:"
+   ";}i:73;a:1:{s:5:"cdata";s:7:"
+      ";}i:74;a:1:{s:5:"cdata";s:7:"
+      ";}i:75;a:1:{s:5:"cdata";s:7:"
+      ";}i:76;a:1:{s:5:"cdata";s:10:"
+         ";}i:77;a:1:{s:5:"cdata";s:10:"
+         ";}i:78;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:79;a:1:{s:5:"cdata";s:10:"
+         ";}i:80;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:81;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:82;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:83;a:1:{s:5:"cdata";s:7:"
+      ";}i:84;a:1:{s:5:"cdata";s:10:"
+         ";}i:85;a:1:{s:5:"cdata";s:10:"
+         ";}i:86;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:87;a:1:{s:5:"cdata";s:10:"
+         ";}i:88;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:89;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:90;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:91;a:1:{s:5:"cdata";s:7:"
+      ";}i:92;a:1:{s:5:"cdata";s:10:"
+         ";}i:93;a:1:{s:5:"cdata";s:10:"
+         ";}i:94;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:95;a:1:{s:5:"cdata";s:10:"
+         ";}i:96;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:97;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:98;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:99;a:1:{s:5:"cdata";s:7:"
+      ";}i:100;a:1:{s:5:"cdata";s:10:"
+         ";}i:101;a:1:{s:5:"cdata";s:10:"
+         ";}i:102;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:103;a:1:{s:5:"cdata";s:10:"
+         ";}i:104;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:105;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:106;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:107;a:1:{s:5:"cdata";s:7:"
+      ";}i:108;a:1:{s:5:"cdata";s:10:"
+         ";}i:109;a:1:{s:5:"cdata";s:10:"
+         ";}i:110;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:111;a:1:{s:5:"cdata";s:10:"
+         ";}i:112;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:113;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:114;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:115;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:116;a:1:{s:5:"cdata";s:10:"
+         ";}i:117;a:1:{s:5:"cdata";s:10:"
+         ";}i:118;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:119;a:1:{s:5:"cdata";s:10:"
+         ";}i:120;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:121;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:122;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:123;a:1:{s:5:"cdata";s:4:"
+   ";}i:124;a:1:{s:5:"cdata";s:7:"
+      ";}i:125;a:1:{s:5:"cdata";s:7:"
+      ";}i:126;a:1:{s:5:"cdata";s:7:"
+      ";}i:127;a:1:{s:5:"cdata";s:10:"
+         ";}i:128;a:1:{s:5:"cdata";s:10:"
+         ";}i:129;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:130;a:1:{s:5:"cdata";s:10:"
+         ";}i:131;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:132;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:133;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:134;a:1:{s:5:"cdata";s:7:"
+      ";}i:135;a:1:{s:5:"cdata";s:10:"
+         ";}i:136;a:1:{s:5:"cdata";s:10:"
+         ";}i:137;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:138;a:1:{s:5:"cdata";s:10:"
+         ";}i:139;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:140;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:141;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:142;a:1:{s:5:"cdata";s:7:"
+      ";}i:143;a:1:{s:5:"cdata";s:10:"
+         ";}i:144;a:1:{s:5:"cdata";s:10:"
+         ";}i:145;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:146;a:1:{s:5:"cdata";s:10:"
+         ";}i:147;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:148;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:149;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:150;a:1:{s:5:"cdata";s:7:"
+      ";}i:151;a:1:{s:5:"cdata";s:10:"
+         ";}i:152;a:1:{s:5:"cdata";s:10:"
+         ";}i:153;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:154;a:1:{s:5:"cdata";s:10:"
+         ";}i:155;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:156;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:157;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:158;a:1:{s:5:"cdata";s:7:"
+      ";}i:159;a:1:{s:5:"cdata";s:10:"
+         ";}i:160;a:1:{s:5:"cdata";s:10:"
+         ";}i:161;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:162;a:1:{s:5:"cdata";s:10:"
+         ";}i:163;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:164;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:165;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:166;a:1:{s:5:"cdata";s:11:"
+   
+      ";}i:167;a:1:{s:5:"cdata";s:10:"
+         ";}i:168;a:1:{s:5:"cdata";s:10:"
+         ";}i:169;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:170;a:1:{s:5:"cdata";s:10:"
+         ";}i:171;a:1:{s:5:"cdata";s:23:"
+         
+            ";}i:172;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:173;a:1:{s:5:"cdata";s:10:"
+         ";}i:174;a:1:{s:5:"cdata";s:1:"
+";}i:175;a:1:{s:5:"cdata";s:7:"
+      ";}i:176;a:1:{s:5:"cdata";s:17:"
+      
+         ";}i:177;a:1:{s:5:"cdata";s:4:"
+   ";}i:178;a:1:{s:5:"cdata";s:7:"
+      ";}}s:12:"complexTypes";a:0:{}s:8:"messages";a:13:{s:17:"getListPT2Request";a:1:{s:10:"parameters";s:38:"http://dikti.go.id/pd/v1.0:getListPT2^";}s:18:"getListPT2Response";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}s:16:"DataServiceFault";a:1:{s:10:"parameters";s:48:"http://ws.wso2.org/dataservice:DataServiceFault^";}s:19:"getListProdiRequest";a:1:{s:10:"parameters";s:40:"http://dikti.go.id/pd/v1.0:getListProdi^";}s:20:"getListProdiResponse";a:1:{s:10:"parameters";s:44:"http://dikti.go.id/pd/v1.0:ListProgramStudi^";}s:21:"getPTPembinaanRequest";a:1:{s:10:"parameters";s:42:"http://dikti.go.id/pd/v1.0:getPTPembinaan^";}s:22:"getPTPembinaanResponse";a:1:{s:10:"parameters";s:43:"http://dikti.go.id/pd/v1.0:ListPTPembinaan^";}s:15:"getProdiRequest";a:1:{s:10:"parameters";s:36:"http://dikti.go.id/pd/v1.0:getProdi^";}s:16:"getProdiResponse";a:1:{s:10:"parameters";s:44:"http://dikti.go.id/pd/v1.0:ListProgramStudi^";}s:16:"getListPTRequest";a:1:{s:10:"parameters";s:37:"http://dikti.go.id/pd/v1.0:getListPT^";}s:17:"getListPTResponse";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}s:12:"getPTRequest";a:1:{s:10:"parameters";s:33:"http://dikti.go.id/pd/v1.0:getPT^";}s:13:"getPTResponse";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}}s:14:"currentMessage";s:13:"getPTResponse";s:16:"currentOperation";s:5:"getPT";s:9:"portTypes";a:1:{s:22:"KelembagaanSvcPortType";a:6:{s:10:"getListPT2";a:3:{s:5:"input";a:1:{s:7:"message";s:17:"getListPT2Request";}s:6:"output";a:1:{s:7:"message";s:18:"getListPT2Response";}s:5:"fault";a:1:{s:7:"message";s:16:"DataServiceFault";}}s:12:"getListProdi";a:3:{s:5:"input";a:1:{s:7:"message";s:19:"getListProdiRequest";}s:6:"output";a:1:{s:7:"message";s:20:"getListProdiResponse";}s:5:"fault";a:1:{s:7:"message";s:16:"DataServiceFault";}}s:14:"getPTPembinaan";a:3:{s:5:"input";a:1:{s:7:"message";s:21:"getPTPembinaanRequest";}s:6:"output";a:1:{s:7:"message";s:22:"getPTPembinaanResponse";}s:5:"fault";a:1:{s:7:"message";s:16:"DataServiceFault";}}s:8:"getProdi";a:3:{s:5:"input";a:1:{s:7:"message";s:15:"getProdiRequest";}s:6:"output";a:1:{s:7:"message";s:16:"getProdiResponse";}s:5:"fault";a:1:{s:7:"message";s:16:"DataServiceFault";}}s:9:"getListPT";a:3:{s:5:"input";a:1:{s:7:"message";s:16:"getListPTRequest";}s:6:"output";a:1:{s:7:"message";s:17:"getListPTResponse";}s:5:"fault";a:1:{s:7:"message";s:16:"DataServiceFault";}}s:5:"getPT";a:4:{s:5:"input";a:1:{s:7:"message";s:12:"getPTRequest";}s:6:"output";a:1:{s:7:"message";s:13:"getPTResponse";}s:5:"fault";a:1:{s:7:"message";s:16:"DataServiceFault";}s:7:"binding";a:1:{s:7:"message";s:0:"";}}}}s:15:"currentPortType";s:22:"KelembagaanSvcPortType";s:8:"bindings";a:2:{s:27:"KelembagaanSvcSoap11Binding";a:9:{s:8:"portType";s:22:"KelembagaanSvcPortType";s:6:"prefix";s:4:"soap";s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:5:"style";s:8:"document";s:10:"operations";a:6:{s:10:"getListPT2";a:9:{s:4:"name";s:10:"getListPT2";s:7:"binding";s:27:"KelembagaanSvcSoap11Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";s:10:"soapAction";s:14:"urn:getListPT2";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:17:"getListPT2Request";s:5:"parts";a:1:{s:10:"parameters";s:38:"http://dikti.go.id/pd/v1.0:getListPT2^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:18:"getListPT2Response";s:5:"parts";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:12:"getListProdi";a:9:{s:4:"name";s:12:"getListProdi";s:7:"binding";s:27:"KelembagaanSvcSoap11Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";s:10:"soapAction";s:16:"urn:getListProdi";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:19:"getListProdiRequest";s:5:"parts";a:1:{s:10:"parameters";s:40:"http://dikti.go.id/pd/v1.0:getListProdi^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:20:"getListProdiResponse";s:5:"parts";a:1:{s:10:"parameters";s:44:"http://dikti.go.id/pd/v1.0:ListProgramStudi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:14:"getPTPembinaan";a:9:{s:4:"name";s:14:"getPTPembinaan";s:7:"binding";s:27:"KelembagaanSvcSoap11Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";s:10:"soapAction";s:18:"urn:getPTPembinaan";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:21:"getPTPembinaanRequest";s:5:"parts";a:1:{s:10:"parameters";s:42:"http://dikti.go.id/pd/v1.0:getPTPembinaan^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:22:"getPTPembinaanResponse";s:5:"parts";a:1:{s:10:"parameters";s:43:"http://dikti.go.id/pd/v1.0:ListPTPembinaan^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:8:"getProdi";a:9:{s:4:"name";s:8:"getProdi";s:7:"binding";s:27:"KelembagaanSvcSoap11Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";s:10:"soapAction";s:12:"urn:getProdi";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:15:"getProdiRequest";s:5:"parts";a:1:{s:10:"parameters";s:36:"http://dikti.go.id/pd/v1.0:getProdi^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:16:"getProdiResponse";s:5:"parts";a:1:{s:10:"parameters";s:44:"http://dikti.go.id/pd/v1.0:ListProgramStudi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:9:"getListPT";a:9:{s:4:"name";s:9:"getListPT";s:7:"binding";s:27:"KelembagaanSvcSoap11Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";s:10:"soapAction";s:13:"urn:getListPT";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:16:"getListPTRequest";s:5:"parts";a:1:{s:10:"parameters";s:37:"http://dikti.go.id/pd/v1.0:getListPT^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:17:"getListPTResponse";s:5:"parts";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:5:"getPT";a:9:{s:4:"name";s:5:"getPT";s:7:"binding";s:27:"KelembagaanSvcSoap11Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";s:10:"soapAction";s:9:"urn:getPT";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:12:"getPTRequest";s:5:"parts";a:1:{s:10:"parameters";s:33:"http://dikti.go.id/pd/v1.0:getPT^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:13:"getPTResponse";s:5:"parts";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}}s:4:"name";s:27:"KelembagaanSvcSoap12Binding";s:4:"type";s:49:"http://dikti.go.id/pd/v1.0:KelembagaanSvcPortType";s:11:"bindingType";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";}s:27:"KelembagaanSvcSoap12Binding";a:7:{s:8:"portType";s:22:"KelembagaanSvcPortType";s:6:"prefix";s:6:"soap12";s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:5:"style";s:8:"document";s:10:"operations";a:6:{s:10:"getListPT2";a:9:{s:4:"name";s:10:"getListPT2";s:7:"binding";s:27:"KelembagaanSvcSoap12Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";s:10:"soapAction";s:14:"urn:getListPT2";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:17:"getListPT2Request";s:5:"parts";a:1:{s:10:"parameters";s:38:"http://dikti.go.id/pd/v1.0:getListPT2^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:18:"getListPT2Response";s:5:"parts";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:12:"getListProdi";a:9:{s:4:"name";s:12:"getListProdi";s:7:"binding";s:27:"KelembagaanSvcSoap12Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";s:10:"soapAction";s:16:"urn:getListProdi";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:19:"getListProdiRequest";s:5:"parts";a:1:{s:10:"parameters";s:40:"http://dikti.go.id/pd/v1.0:getListProdi^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:20:"getListProdiResponse";s:5:"parts";a:1:{s:10:"parameters";s:44:"http://dikti.go.id/pd/v1.0:ListProgramStudi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:14:"getPTPembinaan";a:9:{s:4:"name";s:14:"getPTPembinaan";s:7:"binding";s:27:"KelembagaanSvcSoap12Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";s:10:"soapAction";s:18:"urn:getPTPembinaan";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:21:"getPTPembinaanRequest";s:5:"parts";a:1:{s:10:"parameters";s:42:"http://dikti.go.id/pd/v1.0:getPTPembinaan^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:22:"getPTPembinaanResponse";s:5:"parts";a:1:{s:10:"parameters";s:43:"http://dikti.go.id/pd/v1.0:ListPTPembinaan^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:8:"getProdi";a:9:{s:4:"name";s:8:"getProdi";s:7:"binding";s:27:"KelembagaanSvcSoap12Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";s:10:"soapAction";s:12:"urn:getProdi";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:15:"getProdiRequest";s:5:"parts";a:1:{s:10:"parameters";s:36:"http://dikti.go.id/pd/v1.0:getProdi^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:16:"getProdiResponse";s:5:"parts";a:1:{s:10:"parameters";s:44:"http://dikti.go.id/pd/v1.0:ListProgramStudi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:9:"getListPT";a:9:{s:4:"name";s:9:"getListPT";s:7:"binding";s:27:"KelembagaanSvcSoap12Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";s:10:"soapAction";s:13:"urn:getListPT";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:16:"getListPTRequest";s:5:"parts";a:1:{s:10:"parameters";s:37:"http://dikti.go.id/pd/v1.0:getListPT^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:17:"getListPTResponse";s:5:"parts";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}s:5:"getPT";a:9:{s:4:"name";s:5:"getPT";s:7:"binding";s:27:"KelembagaanSvcSoap12Binding";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";s:10:"soapAction";s:9:"urn:getPT";s:5:"style";s:8:"document";s:5:"input";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:12:"getPTRequest";s:5:"parts";a:1:{s:10:"parameters";s:33:"http://dikti.go.id/pd/v1.0:getPT^";}}s:6:"output";a:3:{s:3:"use";s:7:"literal";s:7:"message";s:13:"getPTResponse";s:5:"parts";a:1:{s:10:"parameters";s:47:"http://dikti.go.id/pd/v1.0:ListPerguruanTinggi^";}}s:9:"transport";s:36:"http://schemas.xmlsoap.org/soap/http";s:13:"documentation";s:0:"";}}s:11:"bindingType";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";s:8:"endpoint";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";}}s:14:"currentBinding";s:27:"KelembagaanSvcSoap12Binding";s:5:"ports";a:2:{s:33:"KelembagaanSvcHttpsSoap11Endpoint";a:3:{s:7:"binding";s:27:"KelembagaanSvcSoap11Binding";s:8:"location";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap11Endpoint";s:11:"bindingType";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";}s:33:"KelembagaanSvcHttpsSoap12Endpoint";a:3:{s:7:"binding";s:27:"KelembagaanSvcSoap12Binding";s:8:"location";s:111:"https://118.98.235.161:8243/services/services/t/pd.dikti.go.id/KelembagaanSvc.KelembagaanSvcHttpsSoap12Endpoint";s:11:"bindingType";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";}}s:11:"currentPort";s:33:"KelembagaanSvcHttpsSoap12Endpoint";s:6:"opData";a:0:{}s:6:"status";s:7:"service";s:13:"documentation";b:0;s:8:"endpoint";s:0:"";s:6:"import";a:0:{}s:6:"parser";i:0;s:8:"position";i:179;s:5:"depth";i:-2;s:11:"depth_array";a:10:{i:0;i:177;i:1;i:178;i:2;i:173;i:3;i:3;i:4;i:16;i:5;i:17;i:6;i:18;i:7;i:13;i:8;i:14;i:-1;i:174;}s:9:"proxyhost";s:0:"";s:9:"proxyport";s:0:"";s:13:"proxyusername";s:0:"";s:13:"proxypassword";s:0:"";s:7:"timeout";i:5;s:16:"response_timeout";i:3600;s:12:"curl_options";a:0:{}s:8:"use_curl";b:0;s:8:"username";s:0:"";s:8:"password";s:0:"";s:8:"authtype";s:0:"";s:11:"certRequest";a:0:{}s:5:"title";s:6:"NuSOAP";s:7:"version";s:5:"0.9.5";s:8:"revision";s:18:"$Revision: 1.123 $";s:9:"error_str";s:0:"";s:9:"debug_str";s:59482:"2016-02-25 09:30:32.902386 wsdl: ctor wsdl=http://118.98.235.161:8280/services/services/t/pd.dikti.go.id/KelembagaanSvc?wsdl timeout=5 response_timeout=3600
+2016-02-25 09:30:32.902424 wsdl: parse and process WSDL path=http://118.98.235.161:8280/services/services/t/pd.dikti.go.id/KelembagaanSvc?wsdl
+2016-02-25 09:30:32.902450 wsdl: parse WSDL at path=http://118.98.235.161:8280/services/services/t/pd.dikti.go.id/KelembagaanSvc?wsdl
+2016-02-25 09:30:32.902483 wsdl: getting WSDL http(s) URL http://118.98.235.161:8280/services/services/t/pd.dikti.go.id/KelembagaanSvc?wsdl
+2016-02-25 09:30:32.902515 soap_transport_http: ctor url=http://118.98.235.161:8280/services/services/t/pd.dikti.go.id/KelembagaanSvc?wsdl use_curl= curl_options:
+array(0) {
+}
+2016-02-25 09:30:32.902570 soap_transport_http: parsed URL scheme = http
+2016-02-25 09:30:32.902595 soap_transport_http: parsed URL host = 118.98.235.161
+2016-02-25 09:30:32.902617 soap_transport_http: parsed URL port = 8280
+2016-02-25 09:30:32.902637 soap_transport_http: parsed URL path = /services/services/t/pd.dikti.go.id/KelembagaanSvc
+2016-02-25 09:30:32.902658 soap_transport_http: parsed URL query = wsdl
+2016-02-25 09:30:32.902709 soap_transport_http: set header Host: 118.98.235.161:8280
+2016-02-25 09:30:32.902759 soap_transport_http: set header User-Agent: NuSOAP/0.9.5 (1.123)
+2016-02-25 09:30:32.902794 soap_transport_http: set header Accept-Encoding: gzip, deflate
+2016-02-25 09:30:32.902818 soap_transport_http: set header Connection: close
+2016-02-25 09:30:32.902846 soap_transport_http: entered send() with data of length: 0
+2016-02-25 09:30:32.902876 soap_transport_http: connect connection_timeout 5, response_timeout 3600, scheme http, host 118.98.235.161, port 8280
+2016-02-25 09:30:32.902914 soap_transport_http: calling fsockopen with host 118.98.235.161 connection_timeout 5
+2016-02-25 09:30:32.952512 soap_transport_http: set response timeout to 3600
+2016-02-25 09:30:32.952571 soap_transport_http: socket connected
+2016-02-25 09:30:32.952610 soap_transport_http: HTTP request: GET /services/services/t/pd.dikti.go.id/KelembagaanSvc?wsdl HTTP/1.1
+2016-02-25 09:30:32.952630 soap_transport_http: HTTP header: Host: 118.98.235.161:8280
+2016-02-25 09:30:32.952644 soap_transport_http: HTTP header: User-Agent: NuSOAP/0.9.5 (1.123)
+2016-02-25 09:30:32.952657 soap_transport_http: HTTP header: Accept-Encoding: gzip, deflate
+2016-02-25 09:30:32.952671 soap_transport_http: HTTP header: Connection: close
+2016-02-25 09:30:32.952726 soap_transport_http: wrote data to socket, length = 184
+2016-02-25 09:30:33.045934 soap_transport_http: read line of 17 bytes: HTTP/1.1 200 OK
+2016-02-25 09:30:33.046001 soap_transport_http: read line of 24 bytes: Content-Type: text/xml
+2016-02-25 09:30:33.046022 soap_transport_http: read line of 37 bytes: Date: Thu, 25 Feb 2016 02:30:05 GMT
+2016-02-25 09:30:33.046041 soap_transport_http: read line of 28 bytes: Transfer-Encoding: chunked
+2016-02-25 09:30:33.046061 soap_transport_http: read line of 2 bytes: 
+2016-02-25 09:30:33.046101 soap_transport_http: found end of headers after length 108
+2016-02-25 09:30:33.046173 soap_transport_http: want to read chunked content
+2016-02-25 09:30:33.046204 soap_transport_http: read chunk line of 6 bytes
+2016-02-25 09:30:33.046221 soap_transport_http: chunk length 8180
+2016-02-25 09:30:33.048433 soap_transport_http: read buffer of 5546 bytes
+2016-02-25 09:30:33.051474 soap_transport_http: read buffer of 2634 bytes
+2016-02-25 09:30:33.051525 soap_transport_http: read chunk terminator of 2 bytes
+2016-02-25 09:30:33.054650 soap_transport_http: read chunk line of 6 bytes
+2016-02-25 09:30:33.054694 soap_transport_http: chunk length 8180
+2016-02-25 09:30:33.057176 soap_transport_http: read buffer of 4158 bytes
+2016-02-25 09:30:33.107959 soap_transport_http: read buffer of 1388 bytes
+2016-02-25 09:30:33.108282 soap_transport_http: read buffer of 1388 bytes
+2016-02-25 09:30:33.114073 soap_transport_http: read buffer of 1246 bytes
+2016-02-25 09:30:33.114125 soap_transport_http: read chunk terminator of 2 bytes
+2016-02-25 09:30:33.114160 soap_transport_http: read chunk line of 6 bytes
+2016-02-25 09:30:33.114179 soap_transport_http: chunk length 5794
+2016-02-25 09:30:33.117016 soap_transport_http: read buffer of 5546 bytes
+2016-02-25 09:30:33.129924 soap_transport_http: read buffer of 248 bytes
+2016-02-25 09:30:33.129986 soap_transport_http: read chunk terminator of 2 bytes
+2016-02-25 09:30:33.130006 soap_transport_http: read chunk line of 3 bytes
+2016-02-25 09:30:33.130024 soap_transport_http: chunk length 0
+2016-02-25 09:30:33.130040 soap_transport_http: read body of length 22154
+2016-02-25 09:30:33.130061 soap_transport_http: received a total of 22262 bytes of data from server
+2016-02-25 09:30:33.130116 soap_transport_http: closed socket
+2016-02-25 09:30:33.130150 soap_transport_http: No Content-Encoding header
+2016-02-25 09:30:33.130169 soap_transport_http: end of send()
+2016-02-25 09:30:33.130212 wsdl: got WSDL URL
+2016-02-25 09:30:33.130224 wsdl: Parse WSDL
+2016-02-25 09:30:33.131181 wsdl: Parsing WSDL schema
+2016-02-25 09:30:33.131216 nusoap_xmlschema: nusoap_xmlschema class instantiated, inside constructor
+2016-02-25 09:30:33.131354 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing untyped element getListProdi type _getListProdi_ContainedType
+2016-02-25 09:30:33.131376 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element getListProdi to elements array
+2016-02-25 09:30:33.131433 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing unnamed complexType for element getListProdi named _getListProdi_ContainedType
+2016-02-25 09:30:33.131539 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element kodePT of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.131564 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element kodePT to complexType _getListProdi_ContainedType
+2016-02-25 09:30:33.131603 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element kodePT
+2016-02-25 09:30:33.131670 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element updatedAfter of type http://www.w3.org/2001/XMLSchema:dateTime
+2016-02-25 09:30:33.131692 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element updatedAfter to complexType _getListProdi_ContainedType
+2016-02-25 09:30:33.131728 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element updatedAfter
+2016-02-25 09:30:33.131776 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType _getListProdi_ContainedType
+2016-02-25 09:30:33.131842 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(5) {
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(2) {
+    'kodePT' =>
+    array(4) {
+      'name' =>
+      string(6) "kodePT"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'updatedAfter' =>
+    array(4) {
+      'name' =>
+      string(12) "updatedAfter"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(41) "http://www.w3.org/2001/XMLSchema:dateTime"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.131880 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element getListProdi
+2016-02-25 09:30:33.131942 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ListProgramStudi of type http://dikti.go.id/pd/v1.0:ListProgramStudi
+2016-02-25 09:30:33.131964 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ListProgramStudi to elements array
+2016-02-25 09:30:33.132003 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ListProgramStudi
+2016-02-25 09:30:33.132051 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType ListProgramStudi
+2016-02-25 09:30:33.132155 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ProgramStudi of type http://dikti.go.id/pd/v1.0:ProgramStudi
+2016-02-25 09:30:33.132177 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ProgramStudi to complexType ListProgramStudi
+2016-02-25 09:30:33.132211 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ProgramStudi
+2016-02-25 09:30:33.132260 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType ListProgramStudi
+2016-02-25 09:30:33.132302 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(16) "ListProgramStudi"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(1) {
+    'ProgramStudi' =>
+    array(5) {
+      'maxOccurs' =>
+      string(9) "unbounded"
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(12) "ProgramStudi"
+      'type' =>
+      string(39) "http://dikti.go.id/pd/v1.0:ProgramStudi"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.132353 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType ProgramStudi
+2016-02-25 09:30:33.132455 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ID of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.132476 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ID to complexType ProgramStudi
+2016-02-25 09:30:33.132510 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ID
+2016-02-25 09:30:33.132568 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing element as ref to http://dikti.go.id/pd/v1.0:PerguruanTinggi
+2016-02-25 09:30:33.132588 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element PerguruanTinggi to complexType ProgramStudi
+2016-02-25 09:30:33.132623 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ref to http://dikti.go.id/pd/v1.0:PerguruanTinggi
+2016-02-25 09:30:33.132688 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Kode of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.132709 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Kode to complexType ProgramStudi
+2016-02-25 09:30:33.132755 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Kode
+2016-02-25 09:30:33.132829 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Nama of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.132851 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Nama to complexType ProgramStudi
+2016-02-25 09:30:33.132885 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Nama
+2016-02-25 09:30:33.132944 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing element as ref to http://dikti.go.id/pd/v1.0:JenjangPendidikan
+2016-02-25 09:30:33.132963 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element JenjangPendidikan to complexType ProgramStudi
+2016-02-25 09:30:33.132997 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ref to http://dikti.go.id/pd/v1.0:JenjangPendidikan
+2016-02-25 09:30:33.133061 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element TanggalBerdiri of type http://www.w3.org/2001/XMLSchema:date
+2016-02-25 09:30:33.133083 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element TanggalBerdiri to complexType ProgramStudi
+2016-02-25 09:30:33.133116 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element TanggalBerdiri
+2016-02-25 09:30:33.133185 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element SkPenyelenggaraan of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.133206 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element SkPenyelenggaraan to complexType ProgramStudi
+2016-02-25 09:30:33.133240 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element SkPenyelenggaraan
+2016-02-25 09:30:33.133310 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element TanggalSkPenyelenggaraan of type http://www.w3.org/2001/XMLSchema:date
+2016-02-25 09:30:33.133363 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element TanggalSkPenyelenggaraan to complexType ProgramStudi
+2016-02-25 09:30:33.133410 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element TanggalSkPenyelenggaraan
+2016-02-25 09:30:33.133490 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element SksLulus of type http://www.w3.org/2001/XMLSchema:integer
+2016-02-25 09:30:33.133520 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element SksLulus to complexType ProgramStudi
+2016-02-25 09:30:33.133557 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element SksLulus
+2016-02-25 09:30:33.133660 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Status of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.133684 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Status to complexType ProgramStudi
+2016-02-25 09:30:33.133721 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Status
+2016-02-25 09:30:33.133793 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Visi of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.133815 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Visi to complexType ProgramStudi
+2016-02-25 09:30:33.133853 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Visi
+2016-02-25 09:30:33.133924 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Misi of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.133946 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Misi to complexType ProgramStudi
+2016-02-25 09:30:33.133980 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Misi
+2016-02-25 09:30:33.134049 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Kompetensi of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.134071 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Kompetensi to complexType ProgramStudi
+2016-02-25 09:30:33.134105 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Kompetensi
+2016-02-25 09:30:33.134174 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Jalan of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.134195 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Jalan to complexType ProgramStudi
+2016-02-25 09:30:33.134229 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Jalan
+2016-02-25 09:30:33.134285 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing element as ref to http://dikti.go.id/pd/v1.0:KabKota
+2016-02-25 09:30:33.134305 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element KabKota to complexType ProgramStudi
+2016-02-25 09:30:33.134339 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ref to http://dikti.go.id/pd/v1.0:KabKota
+2016-02-25 09:30:33.134408 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element KodePos of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.134429 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element KodePos to complexType ProgramStudi
+2016-02-25 09:30:33.134468 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element KodePos
+2016-02-25 09:30:33.134538 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Telepon of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.134559 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Telepon to complexType ProgramStudi
+2016-02-25 09:30:33.134594 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Telepon
+2016-02-25 09:30:33.134664 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Faksimile of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.134685 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Faksimile to complexType ProgramStudi
+2016-02-25 09:30:33.134719 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Faksimile
+2016-02-25 09:30:33.134788 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Website of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.134809 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Website to complexType ProgramStudi
+2016-02-25 09:30:33.134843 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Website
+2016-02-25 09:30:33.134912 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Email of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.134933 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Email to complexType ProgramStudi
+2016-02-25 09:30:33.134967 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Email
+2016-02-25 09:30:33.135035 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element LastUpdate of type http://www.w3.org/2001/XMLSchema:dateTime
+2016-02-25 09:30:33.135056 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element LastUpdate to complexType ProgramStudi
+2016-02-25 09:30:33.135090 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element LastUpdate
+2016-02-25 09:30:33.135138 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType ProgramStudi
+2016-02-25 09:30:33.135336 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(12) "ProgramStudi"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(21) {
+    'ID' =>
+    array(4) {
+      'name' =>
+      string(2) "ID"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'PerguruanTinggi' =>
+    array(2) {
+      'ref' =>
+      string(42) "http://dikti.go.id/pd/v1.0:PerguruanTinggi"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Kode' =>
+    array(4) {
+      'name' =>
+      string(4) "Kode"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Nama' =>
+    array(4) {
+      'name' =>
+      string(4) "Nama"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'JenjangPendidikan' =>
+    array(2) {
+      'ref' =>
+      string(44) "http://dikti.go.id/pd/v1.0:JenjangPendidikan"
+      'form' =>
+      string(9) "qualified"
+    }
+    'TanggalBerdiri' =>
+    array(4) {
+      'name' =>
+      string(14) "TanggalBerdiri"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(37) "http://www.w3.org/2001/XMLSchema:date"
+      'form' =>
+      string(9) "qualified"
+    }
+    'SkPenyelenggaraan' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(17) "SkPenyelenggaraan"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'TanggalSkPenyelenggaraan' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(24) "TanggalSkPenyelenggaraan"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(37) "http://www.w3.org/2001/XMLSchema:date"
+      'form' =>
+      string(9) "qualified"
+    }
+    'SksLulus' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(8) "SksLulus"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(40) "http://www.w3.org/2001/XMLSchema:integer"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Status' =>
+    array(4) {
+      'name' =>
+      string(6) "Status"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Visi' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(4) "Visi"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Misi' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(4) "Misi"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Kompetensi' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(10) "Kompetensi"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Jalan' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(5) "Jalan"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'KabKota' =>
+    array(2) {
+      'ref' =>
+      string(34) "http://dikti.go.id/pd/v1.0:KabKota"
+      'form' =>
+      string(9) "qualified"
+    }
+    'KodePos' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(7) "KodePos"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Telepon' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(7) "Telepon"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Faksimile' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(9) "Faksimile"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Website' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(7) "Website"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Email' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(5) "Email"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'LastUpdate' =>
+    array(4) {
+      'name' =>
+      string(10) "LastUpdate"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(41) "http://www.w3.org/2001/XMLSchema:dateTime"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.135406 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element PerguruanTinggi of type http://dikti.go.id/pd/v1.0:PerguruanTinggi
+2016-02-25 09:30:33.135429 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element PerguruanTinggi to elements array
+2016-02-25 09:30:33.135472 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element PerguruanTinggi
+2016-02-25 09:30:33.135521 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType PerguruanTinggi
+2016-02-25 09:30:33.135619 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Kode of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.135642 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Kode to complexType PerguruanTinggi
+2016-02-25 09:30:33.135677 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Kode
+2016-02-25 09:30:33.135742 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Nama of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.135764 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Nama to complexType PerguruanTinggi
+2016-02-25 09:30:33.135805 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Nama
+2016-02-25 09:30:33.135862 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType PerguruanTinggi
+2016-02-25 09:30:33.135912 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(15) "PerguruanTinggi"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(2) {
+    'Kode' =>
+    array(4) {
+      'name' =>
+      string(4) "Kode"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Nama' =>
+    array(4) {
+      'name' =>
+      string(4) "Nama"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.135979 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element JenjangPendidikan of type http://dikti.go.id/pd/v1.0:JenjangPendidikan
+2016-02-25 09:30:33.136001 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element JenjangPendidikan to elements array
+2016-02-25 09:30:33.136039 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element JenjangPendidikan
+2016-02-25 09:30:33.136087 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType JenjangPendidikan
+2016-02-25 09:30:33.136183 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Kode of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.136206 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Kode to complexType JenjangPendidikan
+2016-02-25 09:30:33.136240 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Kode
+2016-02-25 09:30:33.136306 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Nama of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.136329 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Nama to complexType JenjangPendidikan
+2016-02-25 09:30:33.136364 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Nama
+2016-02-25 09:30:33.136412 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType JenjangPendidikan
+2016-02-25 09:30:33.136461 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(17) "JenjangPendidikan"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(2) {
+    'Kode' =>
+    array(4) {
+      'name' =>
+      string(4) "Kode"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Nama' =>
+    array(4) {
+      'name' =>
+      string(4) "Nama"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.136525 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element KabKota of type http://dikti.go.id/pd/v1.0:KabKota
+2016-02-25 09:30:33.136547 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element KabKota to elements array
+2016-02-25 09:30:33.136584 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element KabKota
+2016-02-25 09:30:33.136631 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType KabKota
+2016-02-25 09:30:33.136728 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ID of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.136751 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ID to complexType KabKota
+2016-02-25 09:30:33.136785 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ID
+2016-02-25 09:30:33.136857 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Nama of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.136879 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Nama to complexType KabKota
+2016-02-25 09:30:33.136923 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Nama
+2016-02-25 09:30:33.136981 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType KabKota
+2016-02-25 09:30:33.137032 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(7) "KabKota"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(2) {
+    'ID' =>
+    array(4) {
+      'name' =>
+      string(2) "ID"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Nama' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(4) "Nama"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.137091 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing untyped element getProdi type _getProdi_ContainedType
+2016-02-25 09:30:33.137110 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element getProdi to elements array
+2016-02-25 09:30:33.137162 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing unnamed complexType for element getProdi named _getProdi_ContainedType
+2016-02-25 09:30:33.137265 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element kodePT of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.137288 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element kodePT to complexType _getProdi_ContainedType
+2016-02-25 09:30:33.137323 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element kodePT
+2016-02-25 09:30:33.137416 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element kodeProdi of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.137439 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element kodeProdi to complexType _getProdi_ContainedType
+2016-02-25 09:30:33.137475 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element kodeProdi
+2016-02-25 09:30:33.137542 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element updatedAfter of type http://www.w3.org/2001/XMLSchema:dateTime
+2016-02-25 09:30:33.137564 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element updatedAfter to complexType _getProdi_ContainedType
+2016-02-25 09:30:33.137599 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element updatedAfter
+2016-02-25 09:30:33.137647 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType _getProdi_ContainedType
+2016-02-25 09:30:33.137703 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(5) {
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(3) {
+    'kodePT' =>
+    array(4) {
+      'name' =>
+      string(6) "kodePT"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'kodeProdi' =>
+    array(4) {
+      'name' =>
+      string(9) "kodeProdi"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'updatedAfter' =>
+    array(4) {
+      'name' =>
+      string(12) "updatedAfter"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(41) "http://www.w3.org/2001/XMLSchema:dateTime"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.137740 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element getProdi
+2016-02-25 09:30:33.137796 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing untyped element getListPT2 type _getListPT2_ContainedType
+2016-02-25 09:30:33.137815 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element getListPT2 to elements array
+2016-02-25 09:30:33.137869 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing unnamed complexType for element getListPT2 named _getListPT2_ContainedType
+2016-02-25 09:30:33.137968 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element idPembina of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.137991 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element idPembina to complexType _getListPT2_ContainedType
+2016-02-25 09:30:33.138027 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element idPembina
+2016-02-25 09:30:33.138094 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element page of type http://www.w3.org/2001/XMLSchema:int
+2016-02-25 09:30:33.138116 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element page to complexType _getListPT2_ContainedType
+2016-02-25 09:30:33.138151 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element page
+2016-02-25 09:30:33.138218 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element updatedAfter of type http://www.w3.org/2001/XMLSchema:dateTime
+2016-02-25 09:30:33.138239 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element updatedAfter to complexType _getListPT2_ContainedType
+2016-02-25 09:30:33.138273 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element updatedAfter
+2016-02-25 09:30:33.138323 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType _getListPT2_ContainedType
+2016-02-25 09:30:33.138379 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(5) {
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(3) {
+    'idPembina' =>
+    array(4) {
+      'name' =>
+      string(9) "idPembina"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'page' =>
+    array(4) {
+      'name' =>
+      string(4) "page"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(36) "http://www.w3.org/2001/XMLSchema:int"
+      'form' =>
+      string(9) "qualified"
+    }
+    'updatedAfter' =>
+    array(4) {
+      'name' =>
+      string(12) "updatedAfter"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(41) "http://www.w3.org/2001/XMLSchema:dateTime"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.138416 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element getListPT2
+2016-02-25 09:30:33.138481 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ListPerguruanTinggi of type http://dikti.go.id/pd/v1.0:ListPerguruanTinggi
+2016-02-25 09:30:33.138503 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ListPerguruanTinggi to elements array
+2016-02-25 09:30:33.138540 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ListPerguruanTinggi
+2016-02-25 09:30:33.138588 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType ListPerguruanTinggi
+2016-02-25 09:30:33.138678 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing element as ref to http://dikti.go.id/pd/v1.0:PerguruanTinggi
+2016-02-25 09:30:33.138699 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element PerguruanTinggi to complexType ListPerguruanTinggi
+2016-02-25 09:30:33.138733 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ref to http://dikti.go.id/pd/v1.0:PerguruanTinggi
+2016-02-25 09:30:33.138781 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType ListPerguruanTinggi
+2016-02-25 09:30:33.138820 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(19) "ListPerguruanTinggi"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(1) {
+    'PerguruanTinggi' =>
+    array(2) {
+      'ref' =>
+      string(42) "http://dikti.go.id/pd/v1.0:PerguruanTinggi"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.138888 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing untyped element getPTPembinaan type _getPTPembinaan_ContainedType
+2016-02-25 09:30:33.138908 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element getPTPembinaan to elements array
+2016-02-25 09:30:33.138959 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing unnamed complexType for element getPTPembinaan named _getPTPembinaan_ContainedType
+2016-02-25 09:30:33.139038 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType _getPTPembinaan_ContainedType
+2016-02-25 09:30:33.139071 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(4) {
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+}
+
+2016-02-25 09:30:33.139107 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element getPTPembinaan
+2016-02-25 09:30:33.139169 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ListPTPembinaan of type http://dikti.go.id/pd/v1.0:ListPTPembinaan
+2016-02-25 09:30:33.139191 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ListPTPembinaan to elements array
+2016-02-25 09:30:33.139228 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ListPTPembinaan
+2016-02-25 09:30:33.139275 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType ListPTPembinaan
+2016-02-25 09:30:33.139379 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element PTPembinaan of type http://dikti.go.id/pd/v1.0:PTPembinaan
+2016-02-25 09:30:33.139401 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element PTPembinaan to complexType ListPTPembinaan
+2016-02-25 09:30:33.139437 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element PTPembinaan
+2016-02-25 09:30:33.139490 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType ListPTPembinaan
+2016-02-25 09:30:33.139534 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(15) "ListPTPembinaan"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(1) {
+    'PTPembinaan' =>
+    array(5) {
+      'maxOccurs' =>
+      string(9) "unbounded"
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(11) "PTPembinaan"
+      'type' =>
+      string(38) "http://dikti.go.id/pd/v1.0:PTPembinaan"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.139593 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType PTPembinaan
+2016-02-25 09:30:33.139702 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ID of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.139723 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ID to complexType PTPembinaan
+2016-02-25 09:30:33.139760 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ID
+2016-02-25 09:30:33.139830 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element IdSP of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.139851 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element IdSP to complexType PTPembinaan
+2016-02-25 09:30:33.139886 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element IdSP
+2016-02-25 09:30:33.139953 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element KodePT of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.139974 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element KodePT to complexType PTPembinaan
+2016-02-25 09:30:33.140009 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element KodePT
+2016-02-25 09:30:33.140076 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element NamaPT of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.140097 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element NamaPT to complexType PTPembinaan
+2016-02-25 09:30:33.140131 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element NamaPT
+2016-02-25 09:30:33.140197 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element JenisBlacklist of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.140217 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element JenisBlacklist to complexType PTPembinaan
+2016-02-25 09:30:33.140251 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element JenisBlacklist
+2016-02-25 09:30:33.140308 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing element as ref to http://dikti.go.id/pd/v1.0:KategoriBlacklist
+2016-02-25 09:30:33.140328 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element KategoriBlacklist to complexType PTPembinaan
+2016-02-25 09:30:33.140362 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ref to http://dikti.go.id/pd/v1.0:KategoriBlacklist
+2016-02-25 09:30:33.140428 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element BannedUntil of type http://www.w3.org/2001/XMLSchema:dateTime
+2016-02-25 09:30:33.140449 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element BannedUntil to complexType PTPembinaan
+2016-02-25 09:30:33.140483 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element BannedUntil
+2016-02-25 09:30:33.140548 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Alasan of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.140568 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Alasan to complexType PTPembinaan
+2016-02-25 09:30:33.140603 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Alasan
+2016-02-25 09:30:33.140651 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType PTPembinaan
+2016-02-25 09:30:33.140744 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(11) "PTPembinaan"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(8) {
+    'ID' =>
+    array(4) {
+      'name' =>
+      string(2) "ID"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'IdSP' =>
+    array(4) {
+      'name' =>
+      string(4) "IdSP"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'KodePT' =>
+    array(4) {
+      'name' =>
+      string(6) "KodePT"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'NamaPT' =>
+    array(4) {
+      'name' =>
+      string(6) "NamaPT"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'JenisBlacklist' =>
+    array(4) {
+      'name' =>
+      string(14) "JenisBlacklist"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'KategoriBlacklist' =>
+    array(2) {
+      'ref' =>
+      string(44) "http://dikti.go.id/pd/v1.0:KategoriBlacklist"
+      'form' =>
+      string(9) "qualified"
+    }
+    'BannedUntil' =>
+    array(4) {
+      'name' =>
+      string(11) "BannedUntil"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(41) "http://www.w3.org/2001/XMLSchema:dateTime"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Alasan' =>
+    array(4) {
+      'name' =>
+      string(6) "Alasan"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.140811 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element KategoriBlacklist of type http://dikti.go.id/pd/v1.0:KategoriBlacklist
+2016-02-25 09:30:33.140833 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element KategoriBlacklist to elements array
+2016-02-25 09:30:33.140871 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element KategoriBlacklist
+2016-02-25 09:30:33.140919 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing named complexType KategoriBlacklist
+2016-02-25 09:30:33.141017 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element ID of type http://www.w3.org/2001/XMLSchema:integer
+2016-02-25 09:30:33.141038 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element ID to complexType KategoriBlacklist
+2016-02-25 09:30:33.141074 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element ID
+2016-02-25 09:30:33.141145 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Nama of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.141167 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Nama to complexType KategoriBlacklist
+2016-02-25 09:30:33.141202 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Nama
+2016-02-25 09:30:33.141270 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element Deskripsi of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.141291 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element Deskripsi to complexType KategoriBlacklist
+2016-02-25 09:30:33.141325 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element Deskripsi
+2016-02-25 09:30:33.141434 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType KategoriBlacklist
+2016-02-25 09:30:33.141500 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(6) {
+  'name' =>
+  string(17) "KategoriBlacklist"
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(3) {
+    'ID' =>
+    array(4) {
+      'name' =>
+      string(2) "ID"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(40) "http://www.w3.org/2001/XMLSchema:integer"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Nama' =>
+    array(5) {
+      'minOccurs' =>
+      string(1) "0"
+      'name' =>
+      string(4) "Nama"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'Deskripsi' =>
+    array(4) {
+      'name' =>
+      string(9) "Deskripsi"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.141564 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing untyped element getPT type _getPT_ContainedType
+2016-02-25 09:30:33.141583 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element getPT to elements array
+2016-02-25 09:30:33.141637 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing unnamed complexType for element getPT named _getPT_ContainedType
+2016-02-25 09:30:33.141741 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element kodePT of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.141764 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element kodePT to complexType _getPT_ContainedType
+2016-02-25 09:30:33.141800 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element kodePT
+2016-02-25 09:30:33.141868 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element updatedAfter of type http://www.w3.org/2001/XMLSchema:dateTime
+2016-02-25 09:30:33.141890 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element updatedAfter to complexType _getPT_ContainedType
+2016-02-25 09:30:33.141925 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element updatedAfter
+2016-02-25 09:30:33.141974 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType _getPT_ContainedType
+2016-02-25 09:30:33.142023 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(5) {
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(2) {
+    'kodePT' =>
+    array(4) {
+      'name' =>
+      string(6) "kodePT"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(39) "http://www.w3.org/2001/XMLSchema:string"
+      'form' =>
+      string(9) "qualified"
+    }
+    'updatedAfter' =>
+    array(4) {
+      'name' =>
+      string(12) "updatedAfter"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(41) "http://www.w3.org/2001/XMLSchema:dateTime"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.142062 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element getPT
+2016-02-25 09:30:33.142123 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing untyped element getListPT type _getListPT_ContainedType
+2016-02-25 09:30:33.142146 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element getListPT to elements array
+2016-02-25 09:30:33.142214 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing unnamed complexType for element getListPT named _getListPT_ContainedType
+2016-02-25 09:30:33.142349 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element page of type http://www.w3.org/2001/XMLSchema:int
+2016-02-25 09:30:33.142377 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element page to complexType _getListPT_ContainedType
+2016-02-25 09:30:33.142425 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element page
+2016-02-25 09:30:33.142507 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> processing typed element updatedAfter of type http://www.w3.org/2001/XMLSchema:dateTime
+2016-02-25 09:30:33.142532 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> add element updatedAfter to complexType _getListPT_ContainedType
+2016-02-25 09:30:33.142603 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element updatedAfter
+2016-02-25 09:30:33.142663 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing complexType _getListPT_ContainedType
+2016-02-25 09:30:33.142728 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> array(5) {
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+  'elements' =>
+  array(2) {
+    'page' =>
+    array(4) {
+      'name' =>
+      string(4) "page"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(36) "http://www.w3.org/2001/XMLSchema:int"
+      'form' =>
+      string(9) "qualified"
+    }
+    'updatedAfter' =>
+    array(4) {
+      'name' =>
+      string(12) "updatedAfter"
+      'nillable' =>
+      string(4) "true"
+      'type' =>
+      string(41) "http://www.w3.org/2001/XMLSchema:dateTime"
+      'form' =>
+      string(9) "qualified"
+    }
+  }
+}
+
+2016-02-25 09:30:33.142768 nusoap_xmlschema: <http://dikti.go.id/pd/v1.0> done processing element getListPT
+2016-02-25 09:30:33.142806 wsdl: Parsing WSDL schema done
+2016-02-25 09:30:33.142845 wsdl: Parsing WSDL schema
+2016-02-25 09:30:33.142886 nusoap_xmlschema: nusoap_xmlschema class instantiated, inside constructor
+2016-02-25 09:30:33.143036 nusoap_xmlschema: <http://ws.wso2.org/dataservice> processing typed element DataServiceFault of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.143061 nusoap_xmlschema: <http://ws.wso2.org/dataservice> add element DataServiceFault to elements array
+2016-02-25 09:30:33.143103 nusoap_xmlschema: <http://ws.wso2.org/dataservice> done processing element DataServiceFault
+2016-02-25 09:30:33.143171 nusoap_xmlschema: <http://ws.wso2.org/dataservice> processing typed element REQUEST_STATUS of type http://www.w3.org/2001/XMLSchema:string
+2016-02-25 09:30:33.143194 nusoap_xmlschema: <http://ws.wso2.org/dataservice> add element REQUEST_STATUS to elements array
+2016-02-25 09:30:33.143234 nusoap_xmlschema: <http://ws.wso2.org/dataservice> done processing element REQUEST_STATUS
+2016-02-25 09:30:33.143292 nusoap_xmlschema: <http://ws.wso2.org/dataservice> processing untyped element DATA_SERVICE_RESPONSE type _DATA_SERVICE_RESPONSE_ContainedType
+2016-02-25 09:30:33.143311 nusoap_xmlschema: <http://ws.wso2.org/dataservice> add element DATA_SERVICE_RESPONSE to elements array
+2016-02-25 09:30:33.143366 nusoap_xmlschema: <http://ws.wso2.org/dataservice> processing unnamed complexType for element DATA_SERVICE_RESPONSE named _DATA_SERVICE_RESPONSE_ContainedType
+2016-02-25 09:30:33.143470 nusoap_xmlschema: <http://ws.wso2.org/dataservice> do not have any logic to process element any
+2016-02-25 09:30:33.143542 nusoap_xmlschema: <http://ws.wso2.org/dataservice> done processing complexType _DATA_SERVICE_RESPONSE_ContainedType
+2016-02-25 09:30:33.143576 nusoap_xmlschema: <http://ws.wso2.org/dataservice> array(4) {
+  'typeClass' =>
+  string(11) "complexType"
+  'phpType' =>
+  string(6) "struct"
+  'simpleContent' =>
+  string(5) "false"
+  'compositor' =>
+  string(8) "sequence"
+}
+
+2016-02-25 09:30:33.143614 nusoap_xmlschema: <http://ws.wso2.org/dataservice> done processing element DATA_SERVICE_RESPONSE
+2016-02-25 09:30:33.143648 wsdl: Parsing WSDL schema done
+2016-02-25 09:30:33.143765 wsdl: msg getListPT2Request: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:getListPT2
+2016-02-25 09:30:33.143879 wsdl: msg getListPT2Response: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:ListPerguruanTinggi
+2016-02-25 09:30:33.143991 wsdl: msg DataServiceFault: found part (with element) parameters: parameters,http://ws.wso2.org/dataservice:DataServiceFault
+2016-02-25 09:30:33.144099 wsdl: msg getListProdiRequest: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:getListProdi
+2016-02-25 09:30:33.144208 wsdl: msg getListProdiResponse: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:ListProgramStudi
+2016-02-25 09:30:33.144319 wsdl: msg getPTPembinaanRequest: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:getPTPembinaan
+2016-02-25 09:30:33.144428 wsdl: msg getPTPembinaanResponse: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:ListPTPembinaan
+2016-02-25 09:30:33.144536 wsdl: msg getProdiRequest: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:getProdi
+2016-02-25 09:30:33.144643 wsdl: msg getProdiResponse: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:ListProgramStudi
+2016-02-25 09:30:33.144749 wsdl: msg getListPTRequest: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:getListPT
+2016-02-25 09:30:33.144857 wsdl: msg getListPTResponse: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:ListPerguruanTinggi
+2016-02-25 09:30:33.144965 wsdl: msg getPTRequest: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:getPT
+2016-02-25 09:30:33.145088 wsdl: msg getPTResponse: found part (with element) parameters: parameters,http://dikti.go.id/pd/v1.0:ListPerguruanTinggi
+2016-02-25 09:30:33.145185 wsdl: portType KelembagaanSvcPortType operation: getListPT2
+2016-02-25 09:30:33.145495 wsdl: portType KelembagaanSvcPortType operation: getListProdi
+2016-02-25 09:30:33.145766 wsdl: portType KelembagaanSvcPortType operation: getPTPembinaan
+2016-02-25 09:30:33.146053 wsdl: portType KelembagaanSvcPortType operation: getProdi
+2016-02-25 09:30:33.146328 wsdl: portType KelembagaanSvcPortType operation: getListPT
+2016-02-25 09:30:33.146597 wsdl: portType KelembagaanSvcPortType operation: getPT
+2016-02-25 09:30:33.146907 wsdl: current binding: KelembagaanSvcSoap11Binding of portType: http://dikti.go.id/pd/v1.0:KelembagaanSvcPortType
+2016-02-25 09:30:33.147101 wsdl: current binding operation: getListPT2
+2016-02-25 09:30:33.147425 wsdl: current binding operation: getListProdi
+2016-02-25 09:30:33.147733 wsdl: current binding operation: getPTPembinaan
+2016-02-25 09:30:33.148041 wsdl: current binding operation: getProdi
+2016-02-25 09:30:33.148350 wsdl: current binding operation: getListPT
+2016-02-25 09:30:33.148817 wsdl: current binding operation: getPT
+2016-02-25 09:30:33.149316 wsdl: current binding: KelembagaanSvcSoap12Binding of portType: http://dikti.go.id/pd/v1.0:KelembagaanSvcPortType
+2016-02-25 09:30:33.149506 wsdl: current binding operation: getListPT2
+2016-02-25 09:30:33.149847 wsdl: current binding operation: getListProdi
+2016-02-25 09:30:33.150183 wsdl: current binding operation: getPTPembinaan
+2016-02-25 09:30:33.150495 wsdl: current binding operation: getProdi
+2016-02-25 09:30:33.150862 wsdl: current binding operation: getListPT
+2016-02-25 09:30:33.151174 wsdl: current binding operation: getPT
+2016-02-25 09:30:33.151521 wsdl: current service: KelembagaanSvc
+2016-02-25 09:30:33.151591 wsdl: current port: KelembagaanSvcHttpsSoap11Endpoint
+2016-02-25 09:30:33.151714 wsdl: current port: KelembagaanSvcHttpsSoap12Endpoint
+2016-02-25 09:30:33.151820 wsdl: Parsing WSDL done
+2016-02-25 09:30:33.151880 wsdl: post-parse data gathering for getListPT2
+2016-02-25 09:30:33.151932 wsdl: post-parse data gathering for getListProdi
+2016-02-25 09:30:33.151968 wsdl: post-parse data gathering for getPTPembinaan
+2016-02-25 09:30:33.152001 wsdl: post-parse data gathering for getProdi
+2016-02-25 09:30:33.152036 wsdl: post-parse data gathering for getListPT
+2016-02-25 09:30:33.152070 wsdl: post-parse data gathering for getPT
+2016-02-25 09:30:33.152107 wsdl: post-parse data gathering for getListPT2
+2016-02-25 09:30:33.152145 wsdl: post-parse data gathering for getListProdi
+2016-02-25 09:30:33.152176 wsdl: post-parse data gathering for getPTPembinaan
+2016-02-25 09:30:33.152207 wsdl: post-parse data gathering for getProdi
+2016-02-25 09:30:33.152238 wsdl: post-parse data gathering for getListPT
+2016-02-25 09:30:33.152270 wsdl: post-parse data gathering for getPT
+";s:12:"charencoding";b:1;s:10:"debugLevel";i:9;s:16:"XMLSchemaVersion";s:32:"http://www.w3.org/2001/XMLSchema";s:16:"soap_defencoding";s:10:"ISO-8859-1";s:10:"namespaces";a:16:{s:8:"SOAP-ENV";s:41:"http://schemas.xmlsoap.org/soap/envelope/";s:3:"xsd";s:32:"http://www.w3.org/2001/XMLSchema";s:3:"xsi";s:41:"http://www.w3.org/2001/XMLSchema-instance";s:8:"SOAP-ENC";s:41:"http://schemas.xmlsoap.org/soap/encoding/";s:4:"wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:3:"ns1";s:30:"http://ws.wso2.org/dataservice";s:4:"wsaw";s:41:"http://www.w3.org/2006/05/addressing/wsdl";s:4:"http";s:37:"http://schemas.xmlsoap.org/wsdl/http/";s:3:"ns0";s:26:"http://dikti.go.id/pd/v1.0";s:2:"xs";s:32:"http://www.w3.org/2001/XMLSchema";s:4:"mime";s:37:"http://schemas.xmlsoap.org/wsdl/mime/";s:4:"soap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:6:"soap12";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";s:3:"wsp";s:44:"http://schemas.xmlsoap.org/ws/2004/09/policy";s:3:"wsu";s:82:"http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd";s:2:"sp";s:52:"http://schemas.xmlsoap.org/ws/2005/07/securitypolicy";}s:14:"usedNamespaces";a:0:{}s:7:"typemap";a:6:{s:32:"http://www.w3.org/2001/XMLSchema";a:43:{s:6:"string";s:6:"string";s:7:"boolean";s:7:"boolean";s:5:"float";s:6:"double";s:6:"double";s:6:"double";s:7:"decimal";s:6:"double";s:8:"duration";s:0:"";s:8:"dateTime";s:6:"string";s:4:"time";s:6:"string";s:4:"date";s:6:"string";s:10:"gYearMonth";s:0:"";s:5:"gYear";s:0:"";s:9:"gMonthDay";s:0:"";s:4:"gDay";s:0:"";s:6:"gMonth";s:0:"";s:9:"hexBinary";s:6:"string";s:12:"base64Binary";s:6:"string";s:7:"anyType";s:6:"string";s:13:"anySimpleType";s:6:"string";s:16:"normalizedString";s:6:"string";s:5:"token";s:6:"string";s:8:"language";s:0:"";s:7:"NMTOKEN";s:0:"";s:8:"NMTOKENS";s:0:"";s:4:"Name";s:0:"";s:6:"NCName";s:0:"";s:2:"ID";s:0:"";s:5:"IDREF";s:0:"";s:6:"IDREFS";s:0:"";s:6:"ENTITY";s:0:"";s:8:"ENTITIES";s:0:"";s:7:"integer";s:7:"integer";s:18:"nonPositiveInteger";s:7:"integer";s:15:"negativeInteger";s:7:"integer";s:4:"long";s:7:"integer";s:3:"int";s:7:"integer";s:5:"short";s:7:"integer";s:4:"byte";s:7:"integer";s:18:"nonNegativeInteger";s:7:"integer";s:12:"unsignedLong";s:0:"";s:11:"unsignedInt";s:0:"";s:13:"unsignedShort";s:0:"";s:12:"unsignedByte";s:0:"";s:15:"positiveInteger";s:0:"";}s:35:"http://www.w3.org/2000/10/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:32:"http://www.w3.org/1999/XMLSchema";a:11:{s:2:"i4";s:0:"";s:3:"int";s:7:"integer";s:7:"boolean";s:7:"boolean";s:6:"string";s:6:"string";s:6:"double";s:6:"double";s:5:"float";s:6:"double";s:8:"dateTime";s:6:"string";s:11:"timeInstant";s:6:"string";s:12:"base64Binary";s:6:"string";s:6:"base64";s:6:"string";s:7:"ur-type";s:5:"array";}s:26:"http://soapinterop.org/xsd";a:1:{s:10:"SOAPStruct";s:6:"struct";}s:41:"http://schemas.xmlsoap.org/soap/encoding/";a:3:{s:6:"base64";s:6:"string";s:5:"array";s:5:"array";s:5:"Array";s:5:"array";}s:30:"http://xml.apache.org/xml-soap";a:1:{i:0;s:3:"Map";}}s:11:"xmlEntities";a:5:{s:4:"quot";s:1:""";s:3:"amp";s:1:"&";s:2:"lt";s:1:"<";s:2:"gt";s:1:">";s:4:"apos";s:1:"'";}s:9:"wsdl_info";a:10:{s:10:"xmlns:wsdl";s:32:"http://schemas.xmlsoap.org/wsdl/";s:9:"xmlns:ns1";s:30:"http://ws.wso2.org/dataservice";s:10:"xmlns:wsaw";s:41:"http://www.w3.org/2006/05/addressing/wsdl";s:10:"xmlns:http";s:37:"http://schemas.xmlsoap.org/wsdl/http/";s:9:"xmlns:ns0";s:26:"http://dikti.go.id/pd/v1.0";s:8:"xmlns:xs";s:32:"http://www.w3.org/2001/XMLSchema";s:10:"xmlns:mime";s:37:"http://schemas.xmlsoap.org/wsdl/mime/";s:10:"xmlns:soap";s:37:"http://schemas.xmlsoap.org/wsdl/soap/";s:12:"xmlns:soap12";s:39:"http://schemas.xmlsoap.org/wsdl/soap12/";s:15:"targetNamespace";s:26:"http://dikti.go.id/pd/v1.0";}s:20:"currentPortOperation";s:5:"getPT";s:8:"opStatus";s:6:"output";s:11:"serviceName";s:14:"KelembagaanSvc";}

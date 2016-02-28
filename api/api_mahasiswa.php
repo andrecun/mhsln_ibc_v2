@@ -47,7 +47,11 @@ if ($level == 1 || $level == 4) {
 }
 
 if ($status != "") {
-     $sWhere = "Where idstatus ='$status' ";
+     if ($sWhere != "")
+          $sWhere.=" and idstatus ='$status' ";
+     else
+          $sWhere = "Where idstatus ='$status' ";
+     
 }
 if ($universitas != "") {
      if ($sWhere != "")

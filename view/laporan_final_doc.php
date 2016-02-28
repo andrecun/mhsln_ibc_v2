@@ -97,7 +97,7 @@ if ($jData > 0) {
         $data = $DB->fetch_array($qry);
 
         $kode_pt = $data['kodeUniversitas'];
-        $sql_univ = "select alamat_jalan,nama_wilayah from pdpt_universitas where  kode_pt='{$kode_pt}' and nama_wilayah is not null";
+        $sql_univ = "select alamat_jalan,nama_wilayah from prodi where  kodeUniversitas='{$kode_pt}' and nama_wilayah is not null";
         $qry_univ = $DB->query($sql_univ);
         $data_univ = $DB->fetch_array($qry_univ);
 

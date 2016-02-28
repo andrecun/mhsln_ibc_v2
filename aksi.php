@@ -274,7 +274,7 @@ else {
                          $file = $purifier->purify($data[4]);
                          $file_upload_foto = "$path_upload" . "$kode" . "/$file";
                          unlink($file_upload_foto);
-                         $DB->query("update mahasiswa set rskld='' where kode='$kode'");
+                         $DB->query("update mahasiswa set skld='' where kode='$kode'");
                          $UTILITY->location_goto("content/ekstension/edit/$kode/3");
                          exit;
                          break;

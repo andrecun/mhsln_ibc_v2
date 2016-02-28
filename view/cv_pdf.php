@@ -25,14 +25,17 @@ $sql = "SELECT mahasiswa.*,pembiayaan.*,user.*,jenjangstudi.*,jurusan.*,prodi.*,
 	and mahasiswa.idmahasiswa=ijin.mahasiswa_idmahasiswa
 	and mahasiswa.pembiayaan_idpembiayaan=pembiayaan.idpembiayaan
 	and mahasiswa.kode='" . $KODE . "'";*/
-$sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je.* ,F.*
+$sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je.* ,F.*,
+                U.namaUniversitas as namaPT, F.namaProdi as nProdi
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
                left join universitas U on U.kodeUniversitas=M.universitas_iduniversitas
                left join status S on S.idstatus=I.status_idstatus 
                left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
-               left join prodi F on F.idprodi=M.prodi_idprodi 
+               left join prodi F on F.kodeProdi=M.prodi_idprodi 
                 left join jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
                where M.kode='$KODE' ";
+//echo $sql;
+//exit;
 
 $html = '<html>
 <head>
@@ -134,19 +137,13 @@ while ($data = $DB->fetch_array($result)) {
           <tr valign=\"top\">
                <td><strong>Universitas</strong></td>
                <td>:</td>
-               <td>{$data['namauniversitas']}</td>
+               <td>{$data['namaPT']}</td>
                <td>&nbsp;</td>
           </tr>
           <tr valign=\"top\">
                <td><strong>Prodi</strong></td>
                <td>:</td>
-               <td>{$data['namaProdi']}</td>
-               <td>&nbsp;</td>
-          </tr>
-          <tr valign=\"top\">
-               <td><strong>Jurusan</strong></td>
-               <td>:</td>
-               <td>{$data['namaJurusan']}</td>
+               <td>{$data['nProdi']}</td>
                <td>&nbsp;</td>
           </tr>
           <tr valign=\"top\">
@@ -322,7 +319,7 @@ define('_MPDF_URI',"$url_rewrite/library/mpdf/");
 require "$PATH/library/mpdf/mpdf.php";
 $mpdf=new mPDF(); 
 $mpdf->SetHeader('{DATE j-M-Y}|Sistem Perizinan Mahasiswa Asing|Dikti');
-$mpdf->SetFooter('Colaboration with Universitas Gunadarma||{PAGENO}');
+//$mpdf->SetFooter('Colaboration with Universitas Gunadarma||{PAGENO}');
 $mpdf->WriteHTML($html);
 $mpdf->Output("$filename","D");
 /*$mpdf=new mPDF('','','','',15,15,16,16,9,9,'L');
