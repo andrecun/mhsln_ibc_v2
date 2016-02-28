@@ -173,12 +173,13 @@ for ($i = 0; $i < count($aColumns); $i++) {
   $sOrder
   $sLimit
   " ; */
-$sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah
+$sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,M.tgl_update as tgl_ubah,
+     U.namaUniversitas as namaPT, F.namaProdi as nProdi,N.namanegara as namanegara,M.email as EM 
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
                left join universitas U on U.kodeUniversitas=M.universitas_iduniversitas
                left join status S on S.idstatus=I.status_idstatus 
-               left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
-               left join prodi F on F.idprodi=M.prodi_idprodi
+                 left join nationality N on N.idnationality=M.nationality_idnationality
+               left join prodi F on F.kodeProdi=M.prodi_idprodi and F.kodeUniversitas=M.universitas_iduniversitas
                 $sWhere
 	$sOrder
 	$sLimit";
@@ -214,9 +215,9 @@ $output = array(
     "aaData" => array()
 );
 //echo "<pre>";
-$sExportFile = "Rekapitulasi Ijin Belajar.xls";
-header('Content-Type: application/vnd.ms-excel');
-header('Content-Disposition: attachment; filename=' . $sExportFile . '.xls');
+//$sExportFile = "Rekapitulasi Ijin Belajar.xls";
+//header('Content-Type: application/vnd.ms-excel');
+//header('Content-Disposition: attachment; filename=' . $sExportFile . '.xls');
 echo "<html><head></head><body><table border=1  width='2000px'>"
  . "
      <thead>
@@ -224,12 +225,13 @@ echo "<html><head></head><body><table border=1  width='2000px'>"
         <thead>
                      <th  width=\"10px\">No</th>
                       <th width=\"200px\">Nama</th>
+                       <th width=\"200px\">Jenis Kelamin</th>
                       <th width=\"300px\">Tempat , Tgl Lahir</th>
                        <th width=\"100px\">Negara</th>
                       <th width=\"300px\">Alamat Asal</th>
                       <th width=\"300px\">Alamat di Indonesia</th>
                       <th width=\"200px\">Institusi</th>
-                      <th width=\"200px\">Jurusan</th>
+                      <th width=\"200px\">Prodi</th>
                         <th width=\"200px\">Program/Jenjang Studi</th>
                       <th width=\"100px\">Jenis Ijin (Baru/ Perpanjang)</th>
                       <th width=\"200px\">Lama Ijin</th> 
@@ -258,6 +260,11 @@ while ($data = $DB->fetch_array($rResult)) {
      $row = array();
      //print_r($aRow);namauniversitas
      $namamahasiswa = $data["namamahasiswa"];
+     $sex=$data["sex"];
+     if($sex==1){
+         $jl="Pria";
+     }else
+         $jl="Wania";
      $namamahasiswa2 = $data["namamahasiswa2"];
      $tempatlahir = $data["tempatlahir"];
      $tanggallahir = $UTILITY->format_tanggal($data["tanggallahir"]);
@@ -277,9 +284,16 @@ while ($data = $DB->fetch_array($rResult)) {
      $foto = $data["foto"];
      //mode 2
      $universitas_iduniversitas = $data["universitas_iduniversitas"];
-     $fakultas_idfakultas = $data["prodi_idprodi"];
+     $fakultas_idfakultas = $data["nProdi"];
      $jurusan_idjurusan = $data["jurusan_idjurusan"];
      $jenjangstudi_idjenjangstudi = $data["jenjangstudi_idjenjangstudi"];
+     $qWhere = array("idjenjangstudi" => $jenjangstudi_idjenjangstudi );     
+     $data_jenjang = $JENJANG_STUDI->readJenjangStudi($qWhere);
+     $namajenjangstudi=$data_jenjang['namajenjangstudi']; 
+     
+     
+     
+     
      $mulaibelajar = $UTILITY->format_tanggal($data["mulaibelajar"]);
      $periode_belajar_start = $UTILITY->format_tanggal($data["periode_belajar_awal"]);
      $periode_belajar_end = $UTILITY->format_tanggal($data["periode_belajar_akhir"]);
@@ -317,7 +331,7 @@ $universitas=$data['namauniversitas'];
 
      $no_kitas= $data['no_kitas'];
      $no_skld= $data['no_skld'];
-     $tgl_kitas_akhir= $data['tgl_kitas_akhir'];
+     $tgl_kitas_akhir= $UTILITY->format_tanggal($data['tgl_kitas_akhir']);
      $id = $aRow['kode'];
 
      $status_doc = $data["ekstension"];
@@ -330,12 +344,14 @@ $universitas=$data['namauniversitas'];
      echo " <tr>
                     <td>$no</td>  
                     <td>$namamahasiswa $namamahasiswa2</td>
+                        <td>$jl</td>
                          <td>$tempatlahir / $tanggallahir</td>
                                <td>$country</td>
                                <td>$alamat</td>
                                      <td>$alamatind</td>
                       <td>$universitas</td>
-                           <td>$jurusan_idjurusan</td>
+                           <td>$fakultas_idfakultas</td>
+                               <td>$namajenjangstudi</td>
                       <td>$status_doc</td>
                        <td>$lamaijin</td>
                      
