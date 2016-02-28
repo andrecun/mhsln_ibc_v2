@@ -30,6 +30,8 @@ $postalind = $purifier->purify( $_POST["postalind_ket"] );
 $telp2 = $purifier->purify( $_POST["telp2_ket"] );
 $foto = $purifier->purify( $_POST["foto_ket"] );
 
+$email = $purifier->purify( $_POST["email_ket"] );
+
 $kondisi =$_POST['kondisi'];
 $text='';
 $tgl_update=date( "Y-m-d" );
@@ -37,11 +39,11 @@ $keterangan_mahasiswa=array();
 if ( $namamahasiswa!="1" ) {
   $text.="Nama Depan tidak lengkap atau salah\n";
   $keterangan_mahasiswa['namamahasiswa_ket']=1;
-}
+}/*
 if ( $namamahasiswa2!="1" ) {
   $text.="Nama Belakang tidak lengkap atau salah\n";
   $keterangan_mahasiswa['namamahasiswa2_ket']=1;
-}
+}*/
 if ( $tanggallahir!="1" ) {
   $text.="Tempat / Tanggal lahir tidak lengkap atau salah\n";
   $keterangan_mahasiswa['tanggallahir_ket']=1;
@@ -101,6 +103,10 @@ if ( $telp2!="1" ) {
 if ( $foto!="1" ) {
   $text.="Foto tidak sesuai\n";
   $keterangan_mahasiswa['foto_ket']=1;
+}
+if ( $email!="1" ) {
+  $text.="email tidak lengkap atau sesuai\n";
+  $keterangan_mahasiswa['email_ket']=1;
 }
 
 

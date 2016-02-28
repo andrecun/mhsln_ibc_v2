@@ -87,7 +87,7 @@ if ($jData > 0) {
                left join status S on S.idstatus=I.status_idstatus 
                left join pembiayaan P on P.idpembiayaan=M.pembiayaan_idpembiayaan
                left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
-               left join prodi F on F.idprodi=M.prodi_idprodi 
+               left join prodi F on F.kodeprodi=M.prodi_idprodi and F.kodeUniversitas=M.universitas_iduniversitas 
                left join nationality N on N.idnationality=M.nationality_idnationality 
                 left join jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
                where M.kode='$KODE' and I.status_idstatus=4 limit 1 ";

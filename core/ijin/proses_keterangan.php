@@ -9,6 +9,8 @@ $mulaipassport = $_POST["mulaipassport_ket"];
 $akhirpassport = $_POST["akhirpassport_ket"];
 $passport1=$purifier->purify( $_POST["passport1_ket"] );
 $pembiayaan_idpembiayaan = $purifier->purify( $_POST["pembiayaan_idpembiayaan_ket"] );
+$jabatan_penjamin=$purifier->purify( $_POST["jabatan_penjamin_ket"] );
+
 $sumber_pembiayaan = $purifier->purify( $_POST["sumber_pembiayaan_ket"] );
 $keuangan=$purifier->purify( $_POST["keuangan_ket"] );
 $pernyataan1=$purifier->purify( $_POST["pernyataan1_ket"] );
@@ -25,8 +27,7 @@ $ijazah_ket=$purifier->purify( $_POST["ijazah_ket"] );
 $no_skld_ket=$purifier->purify( $_POST["no_skld_ket"] );
 $skld_ket=$purifier->purify( $_POST["skld_ket"] );
 $tgl_skld_ket=$purifier->purify( $_POST["tgl_skld_ket"] );
-
-$dok_mou=$purifier->purify( $_POST['dok_mou_ket'] );
+//$dok_mou=$purifier->purify( $_POST['dok_mou_ket'] );
 
 
 $mahasiswa_idmahasiswa=$_POST['mahasiswa_idmahasiswa'];
@@ -56,7 +57,13 @@ if ( $passport1!="1" ) {
 if ( $pembiayaan_idpembiayaan!="1" ) {
   $keterangan.="Pendanaan tidak lengkap atau salah\n";
   $keterangan_field["pembiayaan_idpembiayaan_ket"]=1;
-}if ( $sumber_pembiayaan!="1" ) {
+}
+
+if ( $jabatan_penjamin!="1" ) {
+  $keterangan.="Jabatan Penjamin tidak lengkap atau salah\n";
+  $keterangan_field["jabatan_penjamin_ket"]=1;
+}
+if ( $sumber_pembiayaan!="1" ) {
   $keterangan.="Penyedia Beasiswa tidak lengkap atau salah\n";
   $keterangan_field["sumber_pembiayaan_ket"]=1;
 }
@@ -70,15 +77,13 @@ if ( $keuangan!="1" ) {
   $keterangan.="Surat Kesehatan tidak lengkap atau salah\n";
   $keterangan_field["kesehatan_ket"]=1;
 }
+if ( $ekstension!=1 ) {
 if ( $loa!="1" ) {
   $keterangan.="LOA tidak lengkap atau salah\n";
   $keterangan_field["loa_ket"]=1;
 }
-
-if ( $dok_mou!="1" ) {
-  $keterangan.="Dok mou tidak ada atau salah\n";
-  $keterangan_field["dok_mou_ket"]=1;
 }
+
 
 if ( $ekstension==1 ) {
   /*$no_kitas=$purifier->purify($_POST['no_kitas_ket']);

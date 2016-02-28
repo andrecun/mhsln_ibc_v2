@@ -48,26 +48,29 @@ if ( $jData > 0 ) {
     //mode 2
     $universitas_iduniversitas = $data["universitas_iduniversitas"];
     $fakultas_idfakultas = $data["prodi_idprodi"];
-
-    if ( $fakultas_idfakultas != "" || $fakultas_idfakultas != "0" ) {
-        $display_prodi = "block";
-    }
-
-    $jurusan_idjurusan = $data["jurusan_idjurusan"];
-    if ( $jurusan_idjurusan != "" || $jurusan_idjurusan != "0" ) {
-        $display_jurusan = "block";
-    }
+   $email = $data["email"];
 
     $ket_program = $data["ket_program"];
     $penyelenggara_program = $data["penyelenggara_program"];
     $jenjangstudi_idjenjangstudi = $data["jenjangstudi_idjenjangstudi"];
-    if ( abs( $jenjangstudi_idjenjangstudi ) <= 7 ) {
-        $display_prodi = "block";
-        $display_jurusan = "block";
-    } else {
-        $display_prodi = "none";
-        $display_jurusan = "none";
-    }
+     
+                         $qWhere = array("idjenjangstudi" => $jenjangstudi_idjenjangstudi );     
+                         $data_jenjang = $JENJANG_STUDI->readJenjangStudi($qWhere);
+                         if($data_jenjang['show_prodi']==1){
+                             $display_prodi="block";
+                         }else $display_prodi="none";
+                         
+                         if($data_jenjang["show_mou"]==1){
+                             $status_display_mou="block";
+                         }else $status_display_mou="none";
+                         
+                         if($data_jenjang["show_pt_asal"]==1){
+                             $status_display_pt_asal="block";
+                         }else $status_display_pt_asal="none";
+                         
+                           if($data_jenjang["show_ket"]==1){
+                             $status_display_ket="block";
+                         }else $status_display_ket="none";
     $ijazah = $data['ijazah'];
 
     $jurusan_idjurusan = $data["jurusan_idjurusan"];
@@ -236,7 +239,7 @@ if ( $status_edit == 1 ) {
                                         <div class="col-md-3"><center><b>(Tandai Bila Benar)</b></center></div>
                                     </div>
                                     <div class="form-group ">
-                                        <label for="inputFirstName" class="col-md-3 control-label">Nama Depan</label>
+                                        <label for="inputFirstName" class="col-md-3 control-label">Nama Lengkap</label>
                                         <div class="col-md-6">
                                             <input type="text" readonly="1" class="form-control" value="<?php echo $namamahasiswa ?>" id="namamahasiswa" name="namamahasiswa" placeholder="First Name">
                                         </div>
@@ -248,7 +251,7 @@ if ( $keterangan_mahasiswa['namamahasiswa_ket'] != "1" )
                                         </div>
                                     </div>
 
-                                    <div class="form-group">
+                                  <!--  <div class="form-group">
                                         <label for="inputLastName" class="col-md-3 control-label">Nama Belakang</label>
                                         <div class="col-md-6">
                                             <input type="text" readonly="1" class="form-control" value="<?php echo $namamahasiswa2 ?>" id="namamahasiswa2" name="namamahasiswa2" placeholder="Last Name">
@@ -259,7 +262,7 @@ if ( $keterangan_mahasiswa['namamahasiswa2_ket'] != "1" )
     echo "checked";
 ?> value="1" class="form-control" id="namamahasiswa2_ket" name="namamahasiswa2_ket" >
                                         </div>
-                                    </div>
+                                    </div>-->
 
                                     <div class="form-group">
                                         <label for="inputPlaceDateBirth" class="col-md-3 control-label">TTL</label>
@@ -484,6 +487,19 @@ if ( $keterangan_mahasiswa['postalind_ket'] != "1" )
 ?> value="1" class="form-control" id="postalind_ket" name="postalind_ket" >
                                         </div>
                                     </div>
+                                    
+                                        <div class="form-group">
+                                           <label for="inputPostalCode" class="col-md-3 control-label">Email </label>
+                                           <div class="col-md-6">
+                                               <input type="text" class="form-control" id="email" value="<?=$email ?>" name="email" placeholder="" readonly="1">
+                                            </div>
+                                            <div class="col-md-3">
+                                            <input  type="checkbox" <?php
+if ( $keterangan_mahasiswa['email_ket'] != "1" )
+    echo "checked";
+?> value="1" class="form-control" id="email_ket" name="email_ket" >
+                                        </div>
+                                        </div>
 
                                     <div class="form-group">
                                         <label for="inputPhone" class="col-md-3 control-label">Telp/Handphone</label>
@@ -613,14 +629,48 @@ if ( $keterangan_studi['universitas_iduniversitas_ket'] != "1" )
                                                 <select  disabled onchange="showDiv();" class="form-control" name="jenjangstudi_idjenjangstudi" id="jenjangstudi_idjenjangstudi">
                                                     <option value="">Pilih Jenjang Studi</option>
                                                     <?php
-$qry = $DB->query( "select idjenjangstudi,namajenjangstudi from jenjangstudi" );
-while ( $row = $DB->fetch_object( $qry ) ) {
-    $idjenjangstudi = $row->idjenjangstudi;
-    $namajenjangstudi = $row->namajenjangstudi;
-    if ( $jenjangstudi_idjenjangstudi == $idjenjangstudi )
-        echo "<option value=\"$idjenjangstudi\" selected>$namajenjangstudi</option>";
-    else
-        echo "<option value=\"$idjenjangstudi\" >$namajenjangstudi</option>";
+                                                                 $qry = $DB->query("select idjenjangstudi,namajenjangstudi,tipe,urutan,"
+                                                                         . "show_mou,show_pt_asal,show_prodi "
+                                                                         . "from jenjangstudi where tipe='Non-Gelar' order by urutan");
+                                                                 echo "<optgroup label=\"Non-Gelar\">";
+                                                                 while ($row = $DB->fetch_object($qry)) {
+                                                                      $idjenjangstudi = $row->idjenjangstudi;
+                                                                      $namajenjangstudi = $row->namajenjangstudi;
+                                                                        $tipe=$row->tipe;
+                                                                      $show_mou=$row->show_mou;
+                                                                      $show_pt_asal=$row->show_pt_asal;
+                                                                      $show_prodi=$row->show_prodi;
+                                                                      if ($jenjangstudi_idjenjangstudi == $idjenjangstudi)
+                                                                           echo "<option value=\"$idjenjangstudi\" selected "
+                                                                              . " show_prodi=\"$show_prodi\" show_mou=\"$show_mou\" show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
+                                                                      else
+                                                                           echo "<option value=\"$idjenjangstudi\" "
+                                                                              . "show_mou=\"$show_mou\" show_prodi=\"$show_prodi\" "
+                                                                              . "show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
+                                                                 }
+                                                                 echo "</optgroup>";
+                                                                 ?>       
+                                                                   <?php
+                                                                 $qry = $DB->query("select idjenjangstudi,namajenjangstudi,tipe,urutan,"
+                                                                         . "show_mou,show_pt_asal,show_prodi "
+                                                                         . "from jenjangstudi where tipe='Gelar' order by urutan");
+                                                                 echo "<optgroup label=\"Gelar\">";
+                                                                 while ($row = $DB->fetch_object($qry)) {
+                                                                      $idjenjangstudi = $row->idjenjangstudi;
+                                                                      $namajenjangstudi = $row->namajenjangstudi;
+                                                                      $tipe=$row->tipe;
+                                                                      $show_mou=$row->show_mou;
+                                                                      $show_pt_asal=$row->show_pt_asal;
+                                                                      $show_prodi=$row->show_prodi;
+                                                                      if ($jenjangstudi_idjenjangstudi == $idjenjangstudi)
+                                                                           echo "<option value=\"$idjenjangstudi\" selected "
+                                                                              . "show_mou=\"$show_mou\" show_prodi=\"$show_prodi\" show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
+                                                                      else
+                                                                           echo "<option value=\"$idjenjangstudi\" "
+                                                                              . "show_mou=\"$show_mou\" show_prodi=\"$show_prodi\" show_pt_asal=\"$show_pt_asal\" >$namajenjangstudi</option>";
+                                                                 }
+                                                                 echo "</optgroup>";
+                                                                 ?>    
 }
 ?>
                                                 </select>
@@ -636,24 +686,24 @@ if ( $keterangan_studi['jenjangstudi_idjenjangstudi_ket'] != "1" )
                                         <div class="form-group" id="prodi-div" style="display: <?php echo $display_prodi ?>">
                                             <label for="inputFaculty" class="col-md-3 control-label">Prodi</label>
                                             <div class="col-md-6" id="isi_prodi">
-                                                <?php
-if ( $fakultas_idfakultas != "" || $universitas_iduniversitas != "" ) {
-    echo "<select disabled class=\"form-control\" name=\"fakultas_idfakultas\" "
-        . "id=\"fakultas_idfakultas\" onchange=\"tampilkanJurusan();\">
+                                               <?php
+                                                                 if($fakultas_idfakultas!="" || $universitas_iduniversitas!=""){
+                                                           echo "<select class=\"form-control\" name=\"fakultas_idfakultas\" "
+                                                                      . "id=\"fakultas_idfakultas\" readonly='1'>
                                                                       <option value=\"\">Pilih Prodi</option>";
-    $qry = $DB->query( "select idprodi,namaProdi from prodi where "
-        . " kodeUniversitas='$universitas_iduniversitas' group by namaProdi asc" );
-    while ( $row = $DB->fetch_object( $qry ) ) {
-        $idprodi = $row->idprodi;
-        $namaprodi = $row->namaProdi;
-        if ( $idprodi == $fakultas_idfakultas )
-            echo "<option value=\"$idprodi\" selected>$namaprodi</option>";
-        else
-            echo "<option value=\"$idprodi\" >$namaprodi</option>";
-    }
-    echo "</select>";
-}
-?>
+                                                                      $qry = $DB->query("select idprodi,namaProdi,kodeProdi from prodi where "
+                                                                              . " kodeUniversitas='$universitas_iduniversitas' group by namaProdi asc");
+                                                                      while ($row = $DB->fetch_object($qry)) {
+                                                                           $idprodi = $row->idprodi;
+                                                                           $kodeProdi=$row->kodeProdi;
+                                                                           $namaprodi= $row->namaProdi;
+                                                                           if ($idprodi == $fakultas_idfakultas)
+                                                                                echo "<option value=\"$kodeProdi\" selected>$namaprodi</option>";
+                                                                           else
+                                                                                echo "<option value=\"$kodeProdi\" >$namaprodi</option>";
+                                                                      }
+                                                                      echo "</select>";
+                                                                 }?>
                                             </div>
                                             <div class="col-md-3">
                                             <input  type="checkbox" <?php
@@ -663,7 +713,7 @@ if ( $keterangan_studi['fakultas_idfakultas_ket'] != "1" )
                                         </div>
                                         </div>
 
-                                        <div class="form-group" id="jurusan-div" style="display: <?php echo $display_jurusan ?>">
+                                   <!--     <div class="form-group" id="jurusan-div" style="display: <?php echo $display_jurusan ?>">
                                             <label for="inputMajor" class="col-md-3 control-label">Jurusan </label>
                                             <div class="col-md-6" id="isi_jurusan">
                                                 <?php
@@ -694,9 +744,9 @@ if ( $keterangan_studi['jurusan_idjurusan_ket'] != "1" )
 ?> value="1" class="form-control" id="jurusan_idjurusan_ket" name="jurusan_idjurusan_ket" >
                                         </div>
 
-                                        </div>
+                                        </div>-->
 
-                                        <div id="pt_asal_div" style="display:<?php echo $display_prodi ?>">
+                                        <div id="pt_asal_div" style="display:<?php echo $status_display_pt_asal ?>">
                                             <div class="form-group">
                                                 <label for="inputPostalCode" class="col-md-3 control-label">PT. Asal</label>
                                                 <div class="col-md-6">
@@ -717,8 +767,7 @@ if ( $keterangan_studi['pt_asal_ket'] != "1" )
                                             </div>-->
                                         </div>
 
-                                        <div id="content_tambahan" style="display:<?php if ( $jenjangstudi_idjenjangstudi <= 7 ) echo "none";
-else echo "block" ?>">
+                                        <div id="content_ket" style="display:<?php echo $status_display_ket ?>">
                                             <div class="form-group">
                                                 <label for="inputPostalCode" class="col-md-3 control-label">Penyelenggara Program </label>
                                                 <div class="col-md-6">
@@ -744,6 +793,34 @@ else echo "block" ?>">
                                         </div>
                                             </div>
                                         </div>
+
+<div class="form-group" id='mou-div' style="display: <?=$status_display_mou?>">
+                                                       <label for="inputMOU" class="col-md-3 control-label">Dok. Kerjasama(MOU/MOA) <?=dok_mou?></label>
+                                                       <div class="col-md-6">
+                                                            <?php
+                                                            if ($dok_mou != "") {
+                                                                 echo "<a href ='$url_rewrite/data/$id/$dok_mou' >$dok_mou</a>&nbsp;&nbsp;&nbsp;";
+                                                                 echo "<button type=\"button\" class=\"btn btn-warning btn-sm\"  
+                                                                 onclick=\"javascript:location.href='$url_rewrite" . "proses/student/rmou/$id/$dok_mou'\"
+                                                                 >Remove File</button>";
+                                                                 echo "<input type='hidden' value='$dok_mou' name='text_dok_mou'/>";
+                                                            } else {
+                                                                 ?>
+                                                           <input type="file" class="form-control" id="dok_mou" name="dok_mou">  <i>Tipe File: jpg/png/pdf <b>Max Size : <?=$CONFIG->sizeFile_text?></b></i>
+                                                                 
+                                                                 <?php
+                                                            }
+                                                            ?>
+                                                       </div>
+                                                            <?php
+if ( $dok_mou != "" ) {
+    echo "<a href ='$url_rewrite/data/$id/$dok_mou' >$dok_mou</a>&nbsp;&nbsp;&nbsp;";
+}?>
+                                                       
+                                                        <div class="col-md-3">
+                                                    <input  type="checkbox" value="1" class="form-control" id="dok_mou_ket" name="dok_mou_ket" <?php if ( $keterangan_field['dok_mou_ket'] != "1" ) echo "checked" ?>/>
+                                                </div>
+                                                  </div>
 
                                     </div>
                                     <!-- end of panel body -->
@@ -894,14 +971,14 @@ else echo "block" ?>">
                                 <div class="panel panel-default">
                                     <!-- Default panel contents -->
                                     <div class="panel-heading te-panel-heading">
-                                        <i class="glyphicon glyphicon-th-large"></i> <p>Dokumen Pendukung</p>
+                                        <i class="glyphicon glyphicon-th-large"></i> <p>Paspor</p>
                                     </div>
 
                                     <div class="clearfix"></div>
 
                                     <div class="panel-body">
                                         <div class="form-group">
-                                            <label for="inputPassport" class="col-md-3 control-label">Paspor</label>
+                                            <label for="inputPassport" class="col-md-3 control-label"></label>
                                             <div class="col-md-6"></div>
                                             <div class="col-md-3"><center><b>(Tandai Bila Benar)</b></center></div>
                                         </div>
@@ -969,11 +1046,17 @@ if ( $keterangan_field['mulaipasport_ket'] != "1" )
                                                 <input  type="checkbox" value="1" class="form-control" id="passport1_ket" name="passport1_ket" <?php if ( $keterangan_field['passport1_ket'] != "1" ) echo "checked"; ?>/>
                                             </div>
                                         </div>
+                                    </div></div>
+                                <div class="panel panel-default">
+                                    <!-- Default panel contents -->
+                                    <div class="panel-heading te-panel-heading">
+                                        <i class="glyphicon glyphicon-th-large"></i> <p>Dokumen Pendukung (Pendanaan, Keuangan,Kesehatan, Akademik,dll)</p>
+                                    </div>
 
-                                        <div class="form-group">
-                                            <label for="inputFunding" class="col-md-3 control-label">Pendanaan</label>
-                                            <div class="col-md-9"></div>
-                                        </div>
+                                    <div class="clearfix"></div>
+
+                                    <div class="panel-body">
+
 
                                         <div class="form-group">
                                             <label for="inputFunding" class="col-md-3 control-label">Jenis Pendanaan</label>
@@ -1001,12 +1084,22 @@ while ( $row = $DB->fetch_object( $qry ) ) {
                                         <div class="form-group">
                                             <label for="inputScholarshipProvider" class="col-md-3 control-label">Penyedia Beasiswa</label>
                                             <div class="col-md-6">
-                                                <input readonly="1" type="text" value="<?php echo $sumber_pembiayaan ?>" class="form-control" id="sumber_pembiayaan" name="sumber_pembiayaan" placeholder="Scholarship Provider">
+                                                <input readonly="1" type="text" value="<?php echo $sumber_pembiayaan ?>" class="form-control" id="sumber_pembiayaan" name="sumber_pembiayaan" placeholder="">
                                             </div>
                                             <div class="col-md-3">
                                                 <input  type="checkbox" value="1" class="form-control" id="sumber_pembiayaan_ket" name="sumber_pembiayaan_ket" <?php if ( $keterangan_field['sumber_pembiayaan_ket'] != "1" ) echo "checked" ?>/>
                                             </div>
                                         </div>
+                                        
+                                        <div class="form-group">
+                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penyedia Beasiswa</label>
+                                                       <div class="col-md-6">
+                                                           <input readonly="1" type="text" value="<?= $jabatan_penjamin?>" class="form-control" id="jabatan_penjamin" name="jabatan_penjamin" placeholder=""><i>Misalnya: Rektor, Direktur, Ketua Prodi</i>
+                                                       </div>
+                                                       <div class="col-md-3">
+                                                <input  type="checkbox" value="1" class="form-control" id="jabatan_penjamin_ket" name="jabatan_penjamin_ket" <?php if ( $keterangan_field['jabatan_penjamin_ket'] != "1" ) echo "checked" ?>/>
+                                            </div>
+                                                  </div>   
 
                                         <div class="form-group">
                                             <label for="inputFinancialStatement" class="col-md-3 control-label">Surat Keuangan</label>
@@ -1061,11 +1154,12 @@ if ( $pernyataan1 != "" ) {
                                             </div>
                                         </div>
 
+             <?php    if ( $ekstension != 1 ) { ?>
                                         <div class="form-group">
                                             <label for="inputLetterAcceptance" class="col-md-3 control-label">Letter of Acceptance</label>
                                             <div class="col-md-6">
                                                 <?php
-    if ( $loa != "" ) {
+    if ( $loa != ""  ) {
         echo "<a href ='$url_rewrite/data/$id/$loa' >$loa</a>&nbsp;&nbsp;&nbsp;";
         echo "<input type='hidden' value='$loa' name='text_loa'/>";
     } else {
@@ -1075,10 +1169,13 @@ if ( $pernyataan1 != "" ) {
 }
 ?>
                                             </div>
+                                            
+            
                                             <div class="col-md-3">
                                                 <input  type="checkbox" value="1" class="form-control" id="loa_ket" name="loa_ket"  <?php if ( $keterangan_field['loa_ket'] != "1" ) echo "checked" ?>/>
                                             </div>
                                         </div>
+                                     <?php }?>
                                         <?php
     if ( $ekstension == 1 ) {
 ?>
@@ -1148,7 +1245,7 @@ if ( $pernyataan1 != "" ) {
                                             </div>
 
                                             <div class="form-group">
-                                                <label for="inputLetterAcceptance" class="col-md-3 control-label">Ijazah</label>
+                                                <label for="inputLetterAcceptance" class="col-md-3 control-label">Transkrip Akademik</label>
                                                 <div class="col-md-6">
                                                     <?php
                         if ( $ijazah != "" ) {
@@ -1202,18 +1299,7 @@ if ( $pernyataan1 != "" ) {
                                             </div>
 
 <?php } ?>
-                                        <div class="form-group">
-                                                       <label for="inputMOU" class="col-md-3 control-label">Dokumen Kerjasama(MOU/MOA)</label>
-                                                       <div class="col-md-6">
-                                                            <?php
-if ( $dok_mou != "" ) {
-    echo "<a href ='$url_rewrite/data/$id/$dok_mou' >$dok_mou</a>&nbsp;&nbsp;&nbsp;";
-}?>
-                                                       </div>
-                                                        <div class="col-md-3">
-                                                    <input  type="checkbox" value="1" class="form-control" id="dok_mou_ket" name="dok_mou_ket" <?php if ( $keterangan_field['dok_mou_ket'] != "1" ) echo "checked" ?>/>
-                                                </div>
-                                                  </div>
+                                        
                                     </div>
                                     <!-- end of panel body -->
                                 </div>

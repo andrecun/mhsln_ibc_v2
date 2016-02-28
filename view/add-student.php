@@ -896,15 +896,16 @@ function showDiv(){
                                                            echo "<select class=\"form-control\" name=\"fakultas_idfakultas\" "
                                                                       . "id=\"fakultas_idfakultas\" >
                                                                       <option value=\"\">Pilih Prodi</option>";
-                                                                      $qry = $DB->query("select idprodi,namaProdi from prodi where "
+                                                                      $qry = $DB->query("select idprodi,namaProdi,kodeProdi from prodi where "
                                                                               . " kodeUniversitas='$universitas_iduniversitas' group by namaProdi asc");
                                                                       while ($row = $DB->fetch_object($qry)) {
                                                                            $idprodi = $row->idprodi;
+                                                                           $kodeProdi=$row->kodeProdi;
                                                                            $namaprodi= $row->namaProdi;
                                                                            if ($idprodi == $fakultas_idfakultas)
-                                                                                echo "<option value=\"$idprodi\" selected>$namaprodi</option>";
+                                                                                echo "<option value=\"$kodeProdi\" selected>$namaprodi</option>";
                                                                            else
-                                                                                echo "<option value=\"$idprodi\" >$namaprodi</option>";
+                                                                                echo "<option value=\"$kodeProdi\" >$namaprodi</option>";
                                                                       }
                                                                       echo "</select>";
                                                                  }?>

@@ -25,7 +25,7 @@ $sql = "SELECT mahasiswa.*,pembiayaan.*,user.*,jenjangstudi.*,jurusan.*,prodi.*,
 	and mahasiswa.idmahasiswa=ijin.mahasiswa_idmahasiswa
 	and mahasiswa.pembiayaan_idpembiayaan=pembiayaan.idpembiayaan
 	and mahasiswa.kode='" . $KODE . "'";*/
-$sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je.* ,F.*,
+$sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je.* ,F.*, P.jenispembiayaan, 
                 U.namaUniversitas as namaPT, F.namaProdi as nProdi,N.namanegara as namanegara,M.email as EM 
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
                left join universitas U on U.kodeUniversitas=M.universitas_iduniversitas
@@ -33,6 +33,7 @@ $sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je
                left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
                left join prodi F on F.kodeProdi=M.prodi_idprodi and  F.kodeUniversitas=M.universitas_iduniversitas 
                left join nationality N on N.idnationality=M.nationality_idnationality
+               left join pembiayaan P on P.idpembiayaan=M.pembiayaan_idpembiayaan 
                
                 left join jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
                where M.kode='$KODE' ";
@@ -205,29 +206,24 @@ $html.="</td>
                <td>{$data[sumber_pembiayaan]}</td>
                <td>&nbsp;</td>
           </tr>
-          <tr valign=\"top\">
-               <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tanggal Akhir</td>
-               <td>:</td>
-               <td>{$UTILITY->format_tanggal_ind($data[akhirsponsor])}</td>
-               <td>&nbsp;</td>
-          </tr>
+         
           <tr valign=\"top\">
                <td><strong>Surat Pernyataan</strong></td>
                <td>:</td>
                <td>";
                
-                    $html.=" file 1 :";
+                    $html.="";
                     if ($data['pernyataan1'] <> "") {
                          $html.="Berkas terlampir";
                     } else {
                          $html.="Tidak ada berkas";
                     }
-                    $html.= "<br>file 2 :";
+                 /*   $html.= "<br>file 2 :";
                     if ($data['pernyataan2'] <> "") {
                          $html.= "Berkas terlampir";
                     } else {
                          $html.= "Tidak ada berkas";
-                    }
+                    }*/
                     $html.="</td>
                <td>&nbsp;</td>
           </tr>
