@@ -697,7 +697,7 @@ if ( $keterangan_studi['jenjangstudi_idjenjangstudi_ket'] != "1" )
                                                                            $idprodi = $row->idprodi;
                                                                            $kodeProdi=$row->kodeProdi;
                                                                            $namaprodi= $row->namaProdi;
-                                                                           if ($idprodi == $fakultas_idfakultas)
+                                                                           if ($kodeProdi == $fakultas_idfakultas)
                                                                                 echo "<option value=\"$kodeProdi\" selected>$namaprodi</option>";
                                                                            else
                                                                                 echo "<option value=\"$kodeProdi\" >$namaprodi</option>";

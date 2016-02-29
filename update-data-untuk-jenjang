@@ -9,4 +9,4 @@ ALTER TABLE `jenjangstudi` ADD `show_pt_asal` INT NULL AFTER `show_mou`;
 ALTER TABLE `jenjangstudi` ADD `urutan` INT NULL AFTER `show_pt_asal`;
 
 ALTER TABLE `mahasiswa` ADD `jabatan_penjamin` TEXT NULL AFTER `dok_mou`, ADD `dok_jaminan` TEXT NULL AFTER `jabtan_penjamin`;
-UPDATE `dikti_final`.`sex` SET `namasex` = 'Pria' WHERE `sex`.`idsex` = 1;
+UPDATE `sex` SET `namasex` = 'Pria' WHERE `sex`.`idsex` = 1;
