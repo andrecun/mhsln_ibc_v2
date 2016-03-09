@@ -47,11 +47,23 @@ if ($level == 1 || $level == 4) {
 }
 
 if ($status != "") {
+    $array_status=array(3,4,5);
+    if(in_array($status, $array_status)){
+        $status=$status;
+    }
+    else{
+        $status="3,4,5";
+    }
      if ($sWhere != "")
-          $sWhere.=" and idstatus ='$status' ";
+          $sWhere.=" and idstatus in ($status) ";
      else
-          $sWhere = "Where idstatus ='$status' ";
+          $sWhere = "Where idstatus in ($status) ";
      
+}else{
+    if ($sWhere != "")
+          $sWhere.=" and idstatus in (3,4,5) ";
+     else
+          $sWhere = "Where idstatus in (3,4,5) "; 
 }
 if ($universitas != "") {
      if ($sWhere != "")
@@ -255,7 +267,7 @@ while ($aRow = $DB->fetch_array($rResult)) {
           $cetak_berkas = "";
      }
 
-     $view = "<a href=\"$url_rewrite" . "content/student/view/$id \" class=\"btn btn-success btn-xs\" title=\"View\">View</a>";
+     $view = "<center><a href=\"$url_rewrite" . "ch/detail/$id \" class=\"btn btn-success \" title=\"View\">View</a></center>";
      $row[] = "$namamahasiswa $namamahasiswa2";
      //$row[]="$alamat";
      $row[] = "$universitas";
@@ -263,13 +275,8 @@ while ($aRow = $DB->fetch_array($rResult)) {
      $row[] = "$text_doc";
      $row[] = "$tgl_update";
      $row[] = "$lamaijin";
-     if ($_SESSION["level$ID"] == "1")
-          $row[] = $edit . "  " . $delete . " $permit " . $verification . " " . $report . " " . $ekstension . " " . $cetak_berkas . " " . $download;
-     else if ($_SESSION["level$ID"] == "4")
-          $row[] = $view . " " . $report . " " . $ekstension . " " . $cetak_berkas . " " . $download;
-     else
-          $row[] = $edit . "  " . $delete . " " . $report . " " . $ekstension . " " . " " . $download;
-
+     $row[] = $view;
+     
 
 
      $output['aaData'][] = $row;

@@ -1,6 +1,12 @@
 <?php
 //echo "masukk123123";
 require_once 'config/application.php';
+$level = $_SESSION["level$ID"];
+ if($level=="4")
+ {
+     $UTILITY->location_goto("ch/view/");
+     exit();
+ }
 $path = ltrim($_SERVER['REQUEST_URI'], '/');    // Trim leading slash(es)
 $ZIP_REQUEST="dikti/mhsln_ibc/zip";
 $temp_path = explode($ZIP_REQUEST, $path);

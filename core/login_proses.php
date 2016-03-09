@@ -90,6 +90,11 @@ if ( isSet($id)) {
              
                $status=setcookie($cookie_name, 'usr=' . $userlogin. '&hash=' . $user_id_hash, time() + $cookie_time,"/","$domain");
             //   $_SESSION['cookies'] = 'usr=' . $nam . '&hash=' . $user_id_hash;
+              if ($level == "4"){
+
+                    $UTILITY->location_goto("ch/view");
+                    exi();
+              }
               if ($level != ""){
                    //$UTILITY->show_data($_COOKIE);
                     $UTILITY->location_goto("content/home");

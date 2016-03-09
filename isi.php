@@ -10,6 +10,12 @@
 #Gunadarma University
 
 require_once './config/application.php'; 
+$level = $_SESSION["level$ID"];
+ if($level=="4")
+ {
+     $UTILITY->location_goto("ch/view/");
+     exit();
+ }
 $path = ltrim($_SERVER['REQUEST_URI'], '/');    // Trim leading slash(es)
 $temp_path = explode($REQUEST, $path);
 

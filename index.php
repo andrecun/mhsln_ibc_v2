@@ -10,6 +10,12 @@
 #Gunadarma University
 include 'config/application.php';
   if ($_SESSION["user_name$ID"]!=""){
+        $level = $_SESSION["level$ID"];
+            if($level=="4")
+            {
+                $UTILITY->location_goto("ch/view/");
+                exit();
+            }
         $UTILITY->location_goto("content/home");
   }else include "view/index.php";
 ?>
