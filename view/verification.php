@@ -1092,7 +1092,7 @@ while ( $row = $DB->fetch_object( $qry ) ) {
                                         </div>
                                         
                                         <div class="form-group">
-                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penyedia Beasiswa</label>
+                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penjamin</label>
                                                        <div class="col-md-6">
                                                            <input readonly="1" type="text" value="<?= $jabatan_penjamin?>" class="form-control" id="jabatan_penjamin" name="jabatan_penjamin" placeholder=""><i>Misalnya: Rektor, Direktur, Ketua Prodi</i>
                                                        </div>
@@ -1175,6 +1175,20 @@ if ( $pernyataan1 != "" ) {
                                                 <input  type="checkbox" value="1" class="form-control" id="loa_ket" name="loa_ket"  <?php if ( $keterangan_field['loa_ket'] != "1" ) echo "checked" ?>/>
                                             </div>
                                         </div>
+                                        
+                                         <div class="form-group">
+                                                <label for="inputLetterAcceptance" class="col-md-3 control-label">Ijazah</label>
+                                                <div class="col-md-6">
+                                                    <?php
+                        if ( $ijazah != "" ) {
+                            echo "<a href ='$url_rewrite/data/$id/$ijazah' >$ijazah</a>&nbsp;&nbsp;&nbsp;";
+                        }
+?>
+                                                </div>
+                                                <div class="col-md-3">
+                                                    <input  type="checkbox" value="1" class="form-control" id="ijazah_ket" name="ijazah_ket" <?php if ( $keterangan_field['ijazah_ket'] != "1" ) echo "checked" ?>/>
+                                                </div>
+                                            </div>
                                      <?php }?>
                                         <?php
     if ( $ekstension == 1 ) {

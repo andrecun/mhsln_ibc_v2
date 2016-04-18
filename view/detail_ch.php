@@ -935,7 +935,7 @@ while ( $row = $DB->fetch_object( $qry ) ) {
                                         </div>
                                         
                                         <div class="form-group">
-                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penyedia Beasiswa</label>
+                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penjamin</label>
                                                        <div class="col-md-9">
                                                            <input readonly="1" type="text" value="<?= $jabatan_penjamin?>" class="form-control" id="jabatan_penjamin" name="jabatan_penjamin" placeholder=""><i>Misalnya: Rektor, Direktur, Ketua Prodi</i>
                                                        </div>
@@ -1008,6 +1008,16 @@ if ( $pernyataan1 != "" ) {
             
                                            
                                         </div>
+                                        <div class="form-group">
+                                                       <label for="inputLetterAcceptance" class="col-md-3 control-label">Ijazah Terakhir</label>
+                                                       <div class="col-md-9">
+                                                            <?php
+                                                            if ($ijazah != "") 
+                                                                 echo "<a href ='$url_rewrite/data/$id/$ijazah' >$ijazah</a>&nbsp;&nbsp;&nbsp;";
+                                                            
+                                                            ?>
+                                                       </div>
+                                                  </div>
                                      <?php }?>
                                         <?php
     if ( $ekstension == 1 ) {

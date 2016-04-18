@@ -1301,7 +1301,7 @@ function showDiv(){
                                                   </div>
                                                   
                                                    <div class="form-group">
-                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penyedia Beasiswa</label>
+                                                       <label for="inputScholarshipProvider" class="col-md-3 control-label">Jabatan Penjamin</label>
                                                        <div class="col-md-9">
                                                            <input type="text" value="<?= $jabatan_penjamin?>" class="form-control" id="jabatan_penjamin" name="jabatan_penjamin" placeholder=""><i>Misalnya: Rektor, Direktur, Ketua Prodi</i>
                                                        </div>

@@ -173,7 +173,8 @@ for ($i = 0; $i < count($aColumns); $i++) {
   $sOrder
   $sLimit
   " ; */
-$sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,M.tgl_update as tgl_ubah,
+$sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,M.tgl_update as tgl_ubah,M.jml_kitas as jml_kitas,
+    M.penyelenggara_program  as penyelenggara_program,
      U.namaUniversitas as namaPT, F.namaProdi as nProdi,N.namanegara as namanegara,M.email as EM 
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
                left join universitas U on U.kodeUniversitas=M.universitas_iduniversitas
@@ -231,7 +232,7 @@ echo "<html><head></head><body><table border=1  width='2000px'>"
                       <th width=\"300px\">Alamat Asal</th>
                       <th width=\"300px\">Alamat di Indonesia</th>
                       <th width=\"200px\">Institusi</th>
-                      <th width=\"200px\">Prodi</th>
+                      <th width=\"200px\">Prodi / Penyelenggara Program</th>
                         <th width=\"200px\">Program/Jenjang Studi</th>
                       <th width=\"100px\">Jenis Ijin (Baru/ Perpanjang)</th>
                       <th width=\"200px\">Lama Ijin</th> 
@@ -242,8 +243,8 @@ echo "<html><head></head><body><table border=1  width='2000px'>"
                       <th width=\"200px\">No Passport</th>
                       <th width=\"200px\">Tgl Berlaku Passport</th>
                       <th width=\"200px\">Tgl Berakhir Passport</th>
-                       <th width=\"200px\">Jenis Pendanaan</th>
-                       <th width=\"200px\">Sponsor</th>
+                      <th width=\"200px\">Jenis Pendanaan</th>
+                     
                        <th width=\"200px\">No Kitas</th> 
                        <th width=\"200px\">Tgl Awal Kitas</th> 
                        <th width=\"200px\">Tgl Akhir Kitas</th> 
@@ -333,11 +334,14 @@ $universitas=$data['namauniversitas'];
      $no_skld= $data['no_skld'];
      $tgl_kitas_akhir= $UTILITY->format_tanggal($data['tgl_kitas_akhir']);
      $id = $aRow['kode'];
-
+     
+     $jml_kitas= $data['jml_kitas'];
+     $penyelenggara_program= $data['penyelenggara_program'];
+     
      $status_doc = $data["ekstension"];
      if($status_doc==0)
           $status_doc="Baru";
-     else $status_doc="Perpanjang";
+     else $status_doc="Perpanjang ke - $jml_kitas";
      $tgl_update=$UTILITY->format_tanggal($data["tgl_ubah"]);
      $lamaijin = $data["LamaIjin"];
 
@@ -350,7 +354,7 @@ $universitas=$data['namauniversitas'];
                                <td>$alamat</td>
                                      <td>$alamatind</td>
                       <td>$universitas</td>
-                           <td>$fakultas_idfakultas</td>
+                           <td>$fakultas_idfakultas <br/>$penyelenggara_program</td>
                                <td>$namajenjangstudi</td>
                       <td>$status_doc</td>
                        <td>$lamaijin</td>
@@ -362,8 +366,7 @@ $universitas=$data['namauniversitas'];
                       <td>$nmrpaspor</td>
                       <td>$mulaipassport</td>
                       <td>$akhirpassport</td>
-                       <td>$jenispembiayaan</td>
-                       <td>$sumber_pembiayaan</td>
+                       <td>$jenispembiayaan <br/> $sumber_pembiayaan</td>
                        <td>$no_kitas</td> 
                        <td>$tgl_kitas</td> 
                        <td>$tgl_kitas_akhir</td> 

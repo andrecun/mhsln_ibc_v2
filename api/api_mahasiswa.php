@@ -165,7 +165,7 @@ for ($i = 0; $i < count($aColumns); $i++) {
   $sOrder
   $sLimit
   " ; */
-$sQuery = "select SQL_CALC_FOUND_ROWS M.kode,U.namauniversitas,s.namastatus,M.LamaIjin, M.tgl_update as tgl_ubah,
+$sQuery = "select SQL_CALC_FOUND_ROWS M.idmahasiswa,M.kunci,M.ekstension,S.idstatus, M.kode,U.namauniversitas,s.namastatus,M.LamaIjin, M.tgl_update as tgl_ubah,
                M.namamahasiswa as namamahasiswa ,M.universitas_iduniversitas as universitas_iduniversitas,
                I.status_idstatus as status_idstatus  ,M.ekstension as ekstension , M.alamat as alamat 
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
