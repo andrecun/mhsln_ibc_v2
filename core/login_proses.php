@@ -93,7 +93,7 @@ if ( isSet($id)) {
               if ($level == "4"){
 
                     $UTILITY->location_goto("ch/view");
-                    exi();
+                    exit();
               }
               if ($level != ""){
                    //$UTILITY->show_data($_COOKIE);

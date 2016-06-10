@@ -216,9 +216,9 @@ $output = array(
     "aaData" => array()
 );
 //echo "<pre>";
-//$sExportFile = "Rekapitulasi Ijin Belajar.xls";
-//header('Content-Type: application/vnd.ms-excel');
-//header('Content-Disposition: attachment; filename=' . $sExportFile . '.xls');
+$sExportFile = "Rekapitulasi Ijin Belajar.xls";
+header('Content-Type: application/vnd.ms-excel');
+header('Content-Disposition: attachment; filename=' . $sExportFile . '.xls');
 echo "<html><head></head><body><table border=1  width='2000px'>"
  . "
      <thead>
@@ -354,7 +354,7 @@ $universitas=$data['namauniversitas'];
                                <td>$alamat</td>
                                      <td>$alamatind</td>
                       <td>$universitas</td>
-                           <td>$fakultas_idfakultas <br/>$penyelenggara_program</td>
+                           <td>$fakultas_idfakultas - $penyelenggara_program</td>
                                <td>$namajenjangstudi</td>
                       <td>$status_doc</td>
                        <td>$lamaijin</td>

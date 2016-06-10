@@ -525,7 +525,7 @@ $qry = $DB->query( "select kodeUniversitas,namauniversitas from universitas $whe
 while ( $row = $DB->fetch_object( $qry ) ) {
     $kodeUniversitas = trim( $row->kodeUniversitas );
     $nama_universitas = $row->namauniversitas;
-    if ( $kodeUniversitas == $universitas_iduniversitas )
+    if ( strcmp($kodeUniversitas, $universitas_iduniversitas )==0)
         echo "<option value=\"$kodeUniversitas\" selected>$nama_universitas</option>";
     else
         echo "<option value=\"$kodeUniversitas\" >$nama_universitas</option>";
