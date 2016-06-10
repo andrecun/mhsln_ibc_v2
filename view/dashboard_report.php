@@ -266,8 +266,8 @@ while ($data = $DB->fetch_array($rResult)) {
          $jl="Pria";
      }else
          $jl="Wania";
-     $namamahasiswa2 = $data["namamahasiswa2"];
-     $tempatlahir = $data["tempatlahir"];
+     $namamahasiswa2 = ucwords($data["namamahasiswa2"]);
+     $tempatlahir = ucwords($data["tempatlahir"]);
      $tanggallahir = $UTILITY->format_tanggal($data["tanggallahir"]);
      $sex = $data["sex"];
      $nationality_idnationality = $data["nationality_idnationality"];
@@ -366,7 +366,7 @@ $universitas=$data['namauniversitas'];
                       <td>$nmrpaspor</td>
                       <td>$mulaipassport</td>
                       <td>$akhirpassport</td>
-                       <td>$jenispembiayaan <br/> $sumber_pembiayaan</td>
+                       <td>$jenispembiayaan - $sumber_pembiayaan</td>
                        <td>$no_kitas</td> 
                        <td>$tgl_kitas</td> 
                        <td>$tgl_kitas_akhir</td> 

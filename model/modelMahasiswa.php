@@ -13,13 +13,13 @@ require_once __DIR__ . "/../utility/database/mysql_db.php";
 class modelmahasiswa extends mysql_db {
 
      public function insertMahasiswa($data) {
-                  $namamahasiswa = addslashes($data["namamahasiswa"]);
-          $namamahasiswa2 = addslashes($data["namamahasiswa2"]);
-          $tempatlahir = $data["tempatlahir"];
+                  $namamahasiswa = addslashes(ucwords($data["namamahasiswa"]));
+          $namamahasiswa2 = addslashes(ucwords($data["namamahasiswa2"]));
+          $tempatlahir = ucwords($data["tempatlahir"]);
           $tanggallahir = $data["tanggallahir"];
           $sex = $data["sex"];
           $nationality_idnationality = addslashes($data["nationality_idnationality"]);
-          $alamat = $data["alamat"];
+          $alamat = ucwords($data["alamat"]);
           $city = addslashes($data["city"]);
           $province = $data["province"];
           $country = addslashes($data["country"]);
@@ -68,16 +68,13 @@ class modelmahasiswa extends mysql_db {
      }
 
      public function updateMahasiswa($data, $mode) {
-            $tgl_update=date("Y-m-d");
-          $kode=$data["kode"];
-          //mode 1
-          $namamahasiswa = addslashes($data["namamahasiswa"]);
-          $namamahasiswa2 = addslashes($data["namamahasiswa2"]);
-          $tempatlahir = $data["tempatlahir"];
+       $namamahasiswa = addslashes(ucwords($data["namamahasiswa"]));
+          $namamahasiswa2 = addslashes(ucwords($data["namamahasiswa2"]));
+          $tempatlahir = ucwords($data["tempatlahir"]);
           $tanggallahir = $data["tanggallahir"];
           $sex = $data["sex"];
           $nationality_idnationality = addslashes($data["nationality_idnationality"]);
-          $alamat = $data["alamat"];
+          $alamat = ucwords($data["alamat"]);
           $city = addslashes($data["city"]);
           $province = $data["province"];
           $country = addslashes($data["country"]);
@@ -89,9 +86,10 @@ class modelmahasiswa extends mysql_db {
           $telp = $data["telp"];
              $telp2 = $data["telp2"];
           $foto=$data["foto"];
-          $pt_asal=  addslashes($data['pt_asal']);
+          $ekstension=$data["ekstension"];
+          $pt_asal=addslashes($data['pt_asal']);
           $jml_kitas=$data['jml_kitas'];
-           $email=$data['email'];
+          $email=$data['email'];
           $dok_mou=$data['dok_mou'];
           $query_mode1 = "update mahasiswa set
                          namamahasiswa='$namamahasiswa',
