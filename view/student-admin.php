@@ -67,6 +67,37 @@ placeholder: "Pilih Prodi",
   })
   
                   });
+                  
+                           $(function() {
+                                                               $("#periode_belajar_start").datepicker({
+                                                               yearRange: '-70:+30',
+                                                                       changeMonth: true,
+                                                                    changeYear:true,
+                                                                       numberOfMonths: 3,
+                                                                       dateFormat: 'd M yy ',
+                                                                       onClose: function(selectedDate) {
+                                                                       $("#periode_belajar_end").datepicker("option", "minDate", selectedDate);
+                                                                               var lama=(bulan_studi($('#lamaijin').val())+1)*31;
+                                                                               var nyd = new Date(selectedDate);
+                                                                               nyd.setDate(nyd.getDate() + lama);
+                                                                                //alert(nyd);
+                                                                            $("#periode_belajar_end").datepicker("option", "maxDate", nyd);
+                                                                         //$("#periode_belajar_end").datepicker("option", "maxDate", " '+ "+lama+"M'");
+                                                                       }
+                                                               });
+                                                                       $("#periode_belajar_end").datepicker({
+                                                               yearRange: '-70:+30',
+                                                                       changeMonth: true,
+                                                                           changeYear: true,
+                                                                       numberOfMonths: 3,
+                                                                       dateFormat: 'd M yy ',
+                                                                       //maxDate: " '+ "+bulan_studi($('#lamaijin').val())+"M'",
+                                                                       //onClose: function(selectedDate) {
+                                                                      // $("#periode_belajar_start").datepicker("option", "maxDate", selectedDate);
+                                                                 
+                                                                       //}
+                                                               });
+                                                               });
 </script>
           <div class="col-md-9 te-content te-col-md-9">
               <div class="jumbotron">
@@ -81,6 +112,8 @@ placeholder: "Pilih Prodi",
                         $universitas=$_POST['university'];
                         $major=$_POST["major"];
                         $faculty=$_POST["faculty"];
+                        $periode_belajar_start = $_POST['periode_belajar_start'];
+                    $periode_belajar_end = $_POST['periode_belajar_end'];
                 ?>
                 <form role="form te-form-filter" method="post" action="<?=$url_rewrite?>content/student">
                   <div class="form-group">
@@ -136,6 +169,19 @@ placeholder: "Pilih Prodi",
                       </div>-->
 
                     </div>
+                      <div class="col-md-4 te-padding-top">
+                                                            <div class="input-group">
+                                                                 <input type="text" readonly="1"  class="form-control" id="periode_belajar_start" value="<?= $periode_belajar_start ?>" name="periode_belajar_start" placeholder="Tanggal Awal Report">
+                                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                            </div>
+                                                       </div>
+                                               
+                                                       <div class="col-md-4 te-padding-top">
+                                                            <div class="input-group">
+                                                                 <input type="text"  readonly="1"  class="form-control" id="periode_belajar_end" value="<?= $periode_belajar_end ?>" name="periode_belajar_end" placeholder="Tanggal Akhir Report">
+                                                                 <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                                            </div>
+                                                       </div>
                   </div>
 <?php }?>            
                     </div>
@@ -190,7 +236,10 @@ placeholder: "Pilih Prodi",
               <!-- end of panel body -->
 
               </div>
-
+<?php
+   $periode_belajar_start = trim($UTILITY->format_tanggal_db($_POST['periode_belajar_start']));
+                    $periode_belajar_end = trim($UTILITY->format_tanggal_db($_POST['periode_belajar_end']));
+?>
               <script>
       $(document).ready(function() {
           $('#te_table').dataTable(
@@ -209,7 +258,7 @@ placeholder: "Pilih Prodi",
                     
                     "bProcessing": true,
                     "bServerSide": true,
-                    "sAjaxSource": "<?=$url_rewrite?>api/api_mahasiswa.php?<?php echo "keyword=$keyword&status=$status&universitas=$universitas&major=$major&faculty=$faculty";?>"
+                    "sAjaxSource": "<?=$url_rewrite?>api/api_mahasiswa.php?<?php echo "keyword=$keyword&status=$status&universitas=$universitas&major=$major&faculty=$faculty&periode_belajar_start=$periode_belajar_start&periode_belajar_end=$periode_belajar_end";?>"
                }
                   )/*.rowGrouping({
             							iGroupingColumnIndex: 0,

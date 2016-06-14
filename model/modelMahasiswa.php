@@ -91,6 +91,7 @@ class modelmahasiswa extends mysql_db {
           $jml_kitas=$data['jml_kitas'];
           $email=$data['email'];
           $dok_mou=$data['dok_mou'];
+          $kode=$data['kode'];
           $query_mode1 = "update mahasiswa set
                          namamahasiswa='$namamahasiswa',
                          namamahasiswa2='$namamahasiswa2',
@@ -187,6 +188,7 @@ class modelmahasiswa extends mysql_db {
                     $query=$query_mode3;
                     break;
           }
+          echo $query;
              $result = $this->query($query);
              return $result;
           

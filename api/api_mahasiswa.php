@@ -32,6 +32,8 @@ $status = $_GET['status'];
 $universitas = $_GET['universitas'];
 $major = $_GET["major"];
 $faculty = $_GET["faculty"];
+$periode_belajar_start=$_GET['periode_belajar_start'];
+$periode_belajar_end=$_GET['periode_belajar_end'];
 //$document=$_GET["document"];
 $sWhere = "";
 
@@ -79,6 +81,19 @@ if ($faculty != "") {
           $sWhere.=" and idfakultas='$faculty' ";
      else
           $sWhere = "Where idfakultas= '$faculty' ";
+}
+if ($periode_belajar_start != "") {
+     if ($sWhere != "")
+          $sWhere.=" and I.tgl_update >= '$periode_belajar_start' ";
+     else
+          $sWhere = "Where I.tgl_update >= '$periode_belajar_start' ";
+}
+
+if ($periode_belajar_end != "") {
+     if ($sWhere != "")
+          $sWhere.=" and I.tgl_update <= '$periode_belajar_end' ";
+     else
+          $sWhere = "Where I.tgl_update <= '$periode_belajar_end' ";
 }
 /*
   if($document!=""){

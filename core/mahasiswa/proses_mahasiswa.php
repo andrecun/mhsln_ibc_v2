@@ -263,7 +263,6 @@ if ($kondisi == "tambah") {
 } else if ($kondisi == "edit") {
      $next = $mode + 1;
      //$UTILITY->show_data($data);
-     //exit;
      $MHS->updateMahasiswa($data, $mode);
      $UTILITY->location_goto("content/student/edit/$kode/$next");
 }
