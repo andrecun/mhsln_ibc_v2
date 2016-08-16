@@ -11,7 +11,7 @@ $mode = $_POST['mode'];
 $id_next = $DB->get_auto_increment("mahasiswa");
 if ($kode == "")
      $kode = $id_next;;
-
+$tgl_update=date("Y-m-d");
 function upload_for_mahasiswa($nama, $kode, $tipe, $path_upload) {
      $text_data = $_POST["text_$nama"];
      if ($text_data == "") {

@@ -38,6 +38,7 @@ class modelmahasiswa extends mysql_db {
           $dok_mou=$data['dok_mou'];
           $level=$_SESSION["level{$this->ID}"];
           $universitas_session=trim($_SESSION['unversitas']);
+          $tgl_update=date( "Y-m-d" );
          if($level==2)
               $universitas="universitas_iduniversitas='$universitas_session',";
           $query = "insert into mahasiswa set
@@ -68,6 +69,7 @@ class modelmahasiswa extends mysql_db {
      }
 
      public function updateMahasiswa($data, $mode) {
+      $tgl_update=date( "Y-m-d" );
        $namamahasiswa = addslashes(ucwords($data["namamahasiswa"]));
           $namamahasiswa2 = addslashes(ucwords($data["namamahasiswa2"]));
           $tempatlahir = ucwords($data["tempatlahir"]);
