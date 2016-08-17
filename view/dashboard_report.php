@@ -5,6 +5,14 @@ ob_clean();
 include '../config/application.php';
 $id = $_SESSION['user_id']; //Nanti diganti
 
+
+/*
+ * EXCEL
+ */
+$objReader = PHPExcel_IOFactory::createReader( 'Excel5' );
+$objPHPExcel = $objReader->load( "template/template-final.xls" );
+$baseRow = 4;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -216,6 +224,7 @@ $output = array(
     "aaData" => array()
 );
 //echo "<pre>";
+/*
 $sExportFile = "Rekapitulasi Ijin Belajar.xls";
 header('Content-Type: application/vnd.ms-excel');
 header('Content-Disposition: attachment; filename=' . $sExportFile . '.xls');
@@ -254,7 +263,7 @@ echo "<html><head></head><body><table border=1  width='2000px'>"
                       </tr>
                   </thead>
                   <tbody>
-                  ";
+                  ";*/
 $no = 0;
 while ($data = $DB->fetch_array($rResult)) {
      $no++;
@@ -274,7 +283,8 @@ while ($data = $DB->fetch_array($rResult)) {
      $alamat = $data["alamat"];
      $city = $data["city"];
      $province = $data["province"];
-     $country = $data["country"];
+     //$country = $data["country"];
+     $country=$data["namanegara"];
      $postal = $data["postal"];
      $alamatind = $data["alamatind"];
      $cityind = $data["cityind"];
@@ -291,6 +301,28 @@ while ($data = $DB->fetch_array($rResult)) {
      $qWhere = array("idjenjangstudi" => $jenjangstudi_idjenjangstudi );     
      $data_jenjang = $JENJANG_STUDI->readJenjangStudi($qWhere);
      $namajenjangstudi=$data_jenjang['namajenjangstudi']; 
+     
+      if($data_jenjang['show_prodi']==1){
+                             $display_prodi="block";
+                             $nProdi=$data['nProdi'];
+                             $keterangan_jenjang="$nProdi";
+                         }else $display_prodi="none";
+                         
+                         if($data_jenjang["show_mou"]==1){
+                             $status_display_mou="block";
+                         }else $status_display_mou="none";
+                         
+                         if($data_jenjang["show_pt_asal"]==1){
+                             $status_display_pt_asal="block";
+                             $pt_asal=$data["pt_asal"];
+                             $keterangan_jenjang="$pt_asal -";
+                         }else $status_display_pt_asal="none";
+                         
+                           if($data_jenjang["show_ket"]==1){
+                             $status_display_ket="block";
+                             $penyelenggara_program=$data["penyelenggara_program"];
+                             //$keterangan_jenjang=" <br/>$penyelenggara_program";
+                         }else $status_display_ket="none";
      
      
      
@@ -344,7 +376,7 @@ $universitas=$data['namauniversitas'];
      else $status_doc="Perpanjang ke - $jml_kitas";
      $tgl_update=$UTILITY->format_tanggal($data["tgl_ubah"]);
      $lamaijin = $data["LamaIjin"];
-
+/*
      echo " <tr>
                     <td>$no</td>  
                     <td>$namamahasiswa $namamahasiswa2</td>
@@ -374,8 +406,47 @@ $universitas=$data['namauniversitas'];
                                              <td>$tgl_update</td>
                     
                       </tr>";
+ * 
+ */
+     /*
+      * Excel
+      */
+     $row = $baseRow + $no;
+  //echo "$row $r<br/>";
+     //if($no!=1)
+  $objPHPExcel->getActiveSheet()->insertNewRowBefore( $row, 1 );
+
+  $objPHPExcel->getActiveSheet()->setCellValue( 'A'.$row, $no )
+  ->setCellValue( 'B'.$row, "$namamahasiswa $namamahasiswa2" )
+  ->setCellValue( 'C'.$row, "$jl" )
+  ->setCellValue( 'D'.$row, "$tempatlahir / $tanggallahir" )
+  ->setCellValue( 'E'.$row, "$country" )
+  ->setCellValue( 'F'.$row, "$alamat" )
+  ->setCellValue( 'G'.$row, "$alamatind" )
+  ->setCellValue( 'H'.$row, "$universitas" )
+  ->setCellValue( 'I'.$row, "$fakultas_idfakultas - $penyelenggara_program" )
+  ->setCellValue( 'J'.$row, "$namajenjangstudi <br/>$keterangan_jenjang" )
+  ->setCellValue( 'K'.$row, "$status_doc" )
+  ->setCellValue( 'L'.$row, "$lamaijin" )
+  ->setCellValue( 'M'.$row, "$mulaibelajar" )
+  ->setCellValue( 'N'.$row, "$periode_belajar_start" )
+  ->setCellValue( 'O'.$row, "$periode_belajar_end" )
+  ->setCellValue( 'P'.$row, "$nmrpaspor" )
+  ->setCellValue( 'Q'.$row, "$mulaipassport" )
+  ->setCellValue( 'R'.$row, "$akhirpassport" )
+  ->setCellValue( 'S'.$row, "$jenispembiayaan - $sumber_pembiayaan" )
+  ->setCellValue( 'T'.$row, "$no_kitas" )
+  ->setCellValue( 'U'.$row, "$tgl_kitas" )
+  ->setCellValue( 'V'.$row, "$tgl_kitas_akhir" )
+  ->setCellValue( 'W'.$row, "$no_skld" )
+  ->setCellValue( 'X'.$row, "$tgl_update" );
 }
 
-echo "</tbody></table></body></html>";
+//echo "</tbody></table></body></html>";
+$tgl_update=date("Y-m-d");
+$objPHPExcel->getActiveSheet()->removeRow( $baseRow, 1 );
+$objWriter = PHPExcel_IOFactory::createWriter( $objPHPExcel, 'Excel5' );
+$objWriter->save( "berkas/$tgl_update-rekapitulasi-ijin-belajar.xls" );
+$UTILITY->location_goto("berkas/$tgl_update-rekapitulasi-ijin-belajar.xls");
 ?>
 
