@@ -144,12 +144,13 @@ if ($jData > 0) {
         }
 
         $document->setValue('jenis_ijin', $text_ijin);
-        $document->setValue('nama', $sex . "." . $data[namamahasiswa] . " " . $data[namamahasiswa2]);
+        $document->setValue('nama', $sex . ". " . $data[namamahasiswa] . " " . $data[namamahasiswa2]);
         $document->setValue('negara', $data['country']);
         $document->setValue('no_paspor', $data[nmrpaspor]);
         $document->setValue('tempat_lahir', $data[tempatlahir]);
         $document->setValue('tanggal_lahir', $UTILITY->format_tanggal_ind($data[tanggallahir]));
-        $document->setValue('tempat_belajar', $data[namauniversitas] . " " . $data[namaProdi]);
+        //$document->setValue('tempat_belajar', $data[namauniversitas] . " " . $data[namaProdi]);
+        $document->setValue('tempat_belajar',  $data[namaProdi]);
         $document->setValue('lama_ijin', $data[LamaIjin]);
         $document->setValue('Value3', $UTILITY->format_tanggal_ind($data[mulaiperiode]));
         $document->setValue('waktu_akhir', $UTILITY->format_tanggal_ind($data[batasperiode]));
@@ -159,8 +160,8 @@ if ($jData > 0) {
             $text_biaya = $data[jenispembiayaan] . " : (" . $data[sumber_pembiayaan] . ")";
         }
         $document->setValue('biaya', $text_biaya);
-        $document->setValue('kedutaan', 'Kedutaan' . ' ' . $data[country]);
-        $document->setValue('imigrasi', 'Kanim Wilayah ' . $data_univ['nama_wilayah']);
+        $document->setValue('kedutaan', 'Kedutaan' . ' ' . trim($data[country]));
+        $document->setValue('imigrasi', 'Kanim Wilayah ' . trim($data_univ['nama_wilayah']));
 
 //echo "<pre>";
 //print_r($document);

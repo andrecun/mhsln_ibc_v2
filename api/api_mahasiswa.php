@@ -43,7 +43,8 @@ $username_session = $_SESSION["user_name$ID"];
 if ($level == 1 || $level == 4) {
      $sWhere = "";
 } else if ($level == 2) {
-     $sWhere = "Where U.kodeUniversitas='$universitas_session' ";
+     //$sWhere = "Where U.kodeUniversitas='$universitas_session' ";
+     $sWhere = "Where M.universitas_iduniversitas='$universitas_session' ";
 } else if ($level == 3) {
      $sWhere = "Where idmahasiswa='$username_session' ";
 }
@@ -57,9 +58,11 @@ if ($status != "") {
 }
 if ($universitas != "") {
      if ($sWhere != "")
-          $sWhere.=" and U.kodeUniversitas='$universitas' ";
+          //$sWhere.=" and U.kodeUniversitas='$universitas' ";
+          $sWhere.=" and M.universitas_iduniversitas='$universitas' ";
      else
-          $sWhere = "Where U.kodeUniversitas= '$universitas' ";
+          //$sWhere = "Where U.kodeUniversitas= '$universitas' ";
+          $sWhere = "Where M.universitas_iduniversitas= '$universitas' ";
 }
 
 if ($keyword != "") {
@@ -180,14 +183,13 @@ for ($i = 0; $i < count($aColumns); $i++) {
   $sOrder
   $sLimit
   " ; */
-$sQuery = "select SQL_CALC_FOUND_ROWS M.idmahasiswa,M.kunci,M.ekstension,S.idstatus, M.kode,U.namauniversitas,s.namastatus,M.LamaIjin, M.tgl_update as tgl_ubah,
+$sQuery = "select SQL_CALC_FOUND_ROWS M.idmahasiswa,M.kunci,M.ekstension,S.idstatus, M.kode,s.namastatus,M.LamaIjin, M.tgl_update as tgl_ubah,
                M.namamahasiswa as namamahasiswa ,M.universitas_iduniversitas as universitas_iduniversitas,
                I.status_idstatus as status_idstatus  ,M.ekstension as ekstension , M.alamat as alamat 
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
                left join universitas U on U.kodeUniversitas=M.universitas_iduniversitas
                left join status S on S.idstatus=I.status_idstatus 
-               left join jurusan J on J.idjurusan=M.jurusan_idjurusan 
-               left join prodi F on F.idprodi=M.prodi_idprodi
+              
                 $sWhere
 	$sOrder
 	$sLimit";
@@ -229,7 +231,15 @@ while ($aRow = $DB->fetch_array($rResult)) {
      $idmhs = $aRow["idmahasiswa"];
      $namamahasiswa = $aRow["namamahasiswa"];
      $namamahasiswa2 = $aRow["namamahasiswa2"];
-     $universitas = $aRow["namauniversitas"];
+
+     $universitas_iduniversitas =$aRow["universitas_iduniversitas"];
+     $qry_univ = $DB->query("select kodeUniversitas,namauniversitas from universitas 
+                    where kodeUniversitas='$universitas_iduniversitas'");
+     $universitas ="";
+     while ($row_univ = $DB->fetch_array($qry_univ)) {
+        $universitas = $row_univ["namauniversitas"];
+     }
+     //$universitas = $aRow["namauniversitas"];
      $status = $aRow["namastatus"];
      $id_status = $aRow["idstatus"];
      $alamat = $aRow["alamat"];
