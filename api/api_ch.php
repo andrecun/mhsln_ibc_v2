@@ -47,12 +47,12 @@ if ($level == 1 || $level == 4) {
 }
 
 if ($status != "") {
-    $array_status=array(3,4,5);
+    $array_status=array(2,3,4,5);
     if(in_array($status, $array_status)){
         $status=$status;
     }
     else{
-        $status="3,4,5";
+        $status="2,3,4,5";
     }
      if ($sWhere != "")
           $sWhere.=" and idstatus in ($status) ";
@@ -61,9 +61,9 @@ if ($status != "") {
      
 }else{
     if ($sWhere != "")
-          $sWhere.=" and idstatus in (3,4,5) ";
+          $sWhere.=" and idstatus in (2,3,4,5) ";
      else
-          $sWhere = "Where idstatus in (3,4,5) "; 
+          $sWhere = "Where idstatus in (2,3,4,5) "; 
 }
 if ($universitas != "") {
      if ($sWhere != "")

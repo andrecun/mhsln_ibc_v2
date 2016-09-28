@@ -514,14 +514,12 @@ echo"<input type=\"hidden\"  name=\"kode\" value=\"$id\">";
                                             <label for="inputUniversity" class="col-md-3 control-label">Universitas</label>
                                             <div class="col-md-9">
                                                 <select disabled onchange="tampilkanProdi();" class="form-control" name="universitas_iduniversitas" id="universitas_iduniversitas">
-                                                    <option value="">Pilih Universitas</option>
+                                                    <option value="">Pilih Universitas </option>
                                                     <?php
-$ses_uni = trim( $_SESSION[unversitas] );
-if ( $_SESSION["level$ID"] != '1' )
-    $where = " where kodeUniversitas='{$ses_uni}' ";
-else
-    $where = '';
+    $where = " where kodeUniversitas='{$universitas_iduniversitas}' ";
 $qry = $DB->query( "select kodeUniversitas,namauniversitas from universitas $where" );
+//echo "select kodeUniversitas,namauniversitas from universitas $where" ;
+//exit();
 while ( $row = $DB->fetch_object( $qry ) ) {
     $kodeUniversitas = trim( $row->kodeUniversitas );
     $nama_universitas = $row->namauniversitas;

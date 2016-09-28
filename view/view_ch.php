@@ -82,7 +82,7 @@ placeholder: "Pilih Prodi",
                         $major=$_POST["major"];
                         $faculty=$_POST["faculty"];
                 ?>
-                <form role="form te-form-filter" method="post" action="<?=$url_rewrite?>content/student">
+                <form role="form te-form-filter" method="post" action="<?=$url_rewrite?>ch/view">
                   <div class="form-group">
                     <div class="row">
                       <div class="col-md-4 te-padding-top">
@@ -93,7 +93,7 @@ placeholder: "Pilih Prodi",
                         <select class="form-control" id="inputStatus" name="status">
                              <option value="">Select Status</option>
                           <?php
-                                                                                $qry = $DB->query("select idstatus,namastatus from status where idstatus in (3,4,5)");
+                                                                                $qry = $DB->query("select idstatus,namastatus from status where idstatus in (2,3,4,5)");
                                                                                 while ($row = $DB->fetch_object($qry)) {
                                                                                      $idstatus= $row->idstatus;
                                                                                      $namastatus= $row->namastatus;
