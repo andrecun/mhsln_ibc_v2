@@ -3,15 +3,65 @@
 ob_start();
 ob_clean();
 include '../config/application.php';
+require "library/spout/src/Spout/Autoloader/autoload.php";
+
 $id = $_SESSION['user_id']; //Nanti diganti
 
+/**
+ * OPent tbs template engine
+ */
+include_once('library/opentbs/tbs_class.php'); // Load the TinyButStrong template engine
+include_once('library/opentbs/tbs_plugin_opentbs.php'); // Load the OpenTBS plugin
+// Initialize the TBS instance
+$TBS = new clsTinyButStrong; // new instance of TBS
+$TBS->Plugin(TBS_INSTALL, OPENTBS_PLUGIN); // load the OpenTBS plugin
+$template = 'template/spout-template-final.xlsx';
+$tgl_update=date("Y-m-d");
+$TBS->LoadTemplate($template, OPENTBS_ALREADY_UTF8); // Also merge some [onload] automatic fields (depends of the type of document).
+$newFilePath = "berkas/$tgl_update-rekapitulasi-ijin-belajar.xlsx";
+/* SPOUT 
+*/
+/*use Box\Spout\Reader\ReaderFactory;
+use Box\Spout\Writer\WriterFactory;
+use Box\Spout\Common\Type;
 
+$tgl_update=date("Y-m-d");
+$existingFilePath = 'template/spout-template-final.xlsx';
+$newFilePath = "berkas/$tgl_update-rekapitulasi-ijin-belajar.xlsx";
+
+// we need a reader to read the existing file...
+$reader = ReaderFactory::create(Type::XLSX);
+$reader->open($existingFilePath);
+$reader->setShouldFormatDates(true); // this is to be able to copy dates
+
+// ... and a writer to create the new file
+$writer = WriterFactory::create(Type::XLSX);
+//$writer->setColumnsWidth(50);
+$writer->openToFile($newFilePath);
+
+// let's read the entire spreadsheet...
+foreach ($reader->getSheetIterator() as $sheetIndex => $sheet) {
+    // Add sheets in the new file, as we read new sheets in the existing one
+    if ($sheetIndex !== 1) {
+        $writer->addNewSheetAndMakeItCurrent();
+    }
+
+    foreach ($sheet->getRowIterator() as $row) {
+        // ... and copy each row into the new spreadsheet
+        $writer->addRow($row);
+    }
+}
+*/
+
+/**
+ * Akhir Spout
+ */
 /*
  * EXCEL
  */
-$objReader = PHPExcel_IOFactory::createReader( 'Excel5' );
-$objPHPExcel = $objReader->load( "template/template-final.xls" );
-$baseRow = 4;
+//$objReader = PHPExcel_IOFactory::createReader( 'Excel5' );
+//$objPHPExcel = $objReader->load( "template/template-final.xls" );
+//$baseRow = 4;
 
 /*
  * To change this template, choose Tools | Templates
@@ -181,11 +231,10 @@ for ($i = 0; $i < count($aColumns); $i++) {
   $sOrder
   $sLimit
   " ; */
-$sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,M.tgl_update as tgl_ubah,M.jml_kitas as jml_kitas,
+$sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,S.*,M.tgl_update as tgl_ubah,M.jml_kitas as jml_kitas,
     M.penyelenggara_program  as penyelenggara_program,
-     U.namaUniversitas as namaPT, F.namaProdi as nProdi,N.namanegara as namanegara,M.email as EM 
+      F.namaProdi as nProdi,N.namanegara as namanegara,M.email as EM 
                from mahasiswa M left  join  ijin I on I.mahasiswa_idmahasiswa=M.idmahasiswa
-               left join universitas U on U.kodeUniversitas=M.universitas_iduniversitas
                left join status S on S.idstatus=I.status_idstatus 
                  left join nationality N on N.idnationality=M.nationality_idnationality
                left join prodi F on F.kodeProdi=M.prodi_idprodi and F.kodeUniversitas=M.universitas_iduniversitas
@@ -264,7 +313,9 @@ echo "<html><head></head><body><table border=1  width='2000px'>"
                   </thead>
                   <tbody>
                   ";*/
+                 
 $no = 0;
+$data_opentbs=array();
 while ($data = $DB->fetch_array($rResult)) {
      $no++;
      $row = array();
@@ -295,6 +346,12 @@ while ($data = $DB->fetch_array($rResult)) {
      $foto = $data["foto"];
      //mode 2
      $universitas_iduniversitas = $data["universitas_iduniversitas"];
+     $qry_univ = $DB->query("select kodeUniversitas,namauniversitas from universitas 
+                    where kodeUniversitas='$universitas_iduniversitas'");
+     $universitas ="";
+     while ($row_univ = $DB->fetch_array($qry_univ)) {
+        $universitas = $row_univ["namauniversitas"];
+     }
      $fakultas_idfakultas = $data["nProdi"];
      $jurusan_idjurusan = $data["jurusan_idjurusan"];
      $jenjangstudi_idjenjangstudi = $data["jenjangstudi_idjenjangstudi"];
@@ -352,7 +409,7 @@ while ($data = $DB->fetch_array($rResult)) {
      $tgl_kitas = $UTILITY->format_tanggal($data["tglkitas"]);
      $tgl_skld = $UTILITY->format_tanggal($data["tglkitas"]);
      $tanggal = str_replace("-", "", $data["tanggallahir"]);
-$universitas=$data['namauniversitas'];
+//$universitas=$data['namauniversitas'];
      $ekstension = $data["ekstension"];
      $login_mahasiswa = $tanggal . "-" . $universitas_iduniversitas . "" . $fakultas_idfakultas . "" . $jurusan_idjurusan . "" . $jenjangstudi_idjenjangstudi . "" . $id;
      $idmhs = $data["idmahasiswa"];
@@ -414,7 +471,12 @@ $universitas=$data['namauniversitas'];
      $row = $baseRow + $no;
   //echo "$row $r<br/>";
      //if($no!=1)
-  $objPHPExcel->getActiveSheet()->insertNewRowBefore( $row, 1 );
+   
+  /**
+   * data untuk phpexcel
+   */
+
+  /*$objPHPExcel->getActiveSheet()->insertNewRowBefore( $row, 1 );
 
   $objPHPExcel->getActiveSheet()->setCellValue( 'A'.$row, $no )
   ->setCellValue( 'B'.$row, "$namamahasiswa $namamahasiswa2" )
@@ -439,14 +501,84 @@ $universitas=$data['namauniversitas'];
   ->setCellValue( 'U'.$row, "$tgl_kitas" )
   ->setCellValue( 'V'.$row, "$tgl_kitas_akhir" )
   ->setCellValue( 'W'.$row, "$no_skld" )
-  ->setCellValue( 'X'.$row, "$tgl_update" );
-}
+  ->setCellValue( 'X'.$row, "$tgl_update" );*/
 
+
+  /**
+   * data untuk spout
+   */
+  
+   /* $writer->addRow(["$no", 
+   "$namamahasiswa $namamahasiswa2", 
+   "$jl", 
+   "$tempatlahir / $tanggallahir", 
+   "$country", 
+   "$alamat", 
+   "$alamatind", 
+   "$universitas", 
+   "$fakultas_idfakultas - $penyelenggara_program", 
+   "$namajenjangstudi <br/>$keterangan_jenjang", 
+   "$status_doc", 
+   "$lamaijin", 
+   "$mulaibelajar", 
+   "$periode_belajar_start", 
+   "$periode_belajar_end", 
+   "$nmrpaspor", 
+   "$mulaipassport", 
+   "$akhirpassport", 
+   "$jenispembiayaan - $sumber_pembiayaan", 
+   "$no_kitas", 
+   "$tgl_kitas", 
+   "$tgl_kitas_akhir", 
+   "$no_skld", 
+   "$tgl_update"]);
+   */
+  $data_opentbs[]=array("no"=>"$no",
+                "nama"=>"$namamahasiswa $namamahasiswa2",
+                "kelamin"=>"$jl", 
+                "ttl"=>"$tempatlahir / $tanggallahir", 
+                "negara"=> "$country", 
+                "alamat"=>"$alamat", 
+                "alamatindo"=>"$alamatind", 
+                "institusi"=> "$universitas", 
+                "prodi"=> "$fakultas_idfakultas - $penyelenggara_program", 
+                "program"=>"$namajenjangstudi <br/>$keterangan_jenjang",
+                "jenisijin"=> "$status_doc", 
+                "lama"=>"$lamaijin", 
+                "tgl_awal"=>"$mulaibelajar", 
+                "ijin_awal"=>"$periode_belajar_start", 
+                "ijin_akhir"=>"$periode_belajar_end",
+                "passport"=>"$nmrpaspor", 
+                "tgl_pasport"=>"$mulaipassport", 
+                "tgl_akhir_pasport"=> "$akhirpassport", 
+                "pendanaan"=>"$jenispembiayaan - $sumber_pembiayaan", 
+                "kitas"=> "$no_kitas", 
+                "tgl_awal_kitas"=> "$tgl_kitas", 
+                "tgl_akhir_kitas"=> "$tgl_kitas_akhir", 
+                "skld"=>"$no_skld", 
+                "tgl_ijin_akhir"=>"$tgl_update"
+                );
+}
+/**
+ * Opent tbs command
+ */
+$TBS->MergeBlock('t2', $data_opentbs);
+$TBS->Show(OPENTBS_FILE, $newFilePath);
+/**
+ * spout command
+ */
+/*
+$reader->close();
+$writer->close();
+*/
 //echo "</tbody></table></body></html>";
-$tgl_update=date("Y-m-d");
+/*$tgl_update=date("Y-m-d");
 $objPHPExcel->getActiveSheet()->removeRow( $baseRow, 1 );
 $objWriter = PHPExcel_IOFactory::createWriter( $objPHPExcel, 'Excel5' );
 $objWriter->save( "berkas/$tgl_update-rekapitulasi-ijin-belajar.xls" );
-$UTILITY->location_goto("berkas/$tgl_update-rekapitulasi-ijin-belajar.xls");
+$UTILITY->location_goto("berkas/$tgl_update-rekapitulasi-ijin-belajar.xls");*/
+//header("location:http://google.com");
+$UTILITY->location_goto($newFilePath);
+//echo "selesai";
 ?>
 
