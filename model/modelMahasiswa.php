@@ -190,7 +190,7 @@ class modelmahasiswa extends mysql_db {
                     $query=$query_mode3;
                     break;
           }
-          echo $query;
+     //     echo $query;
              $result = $this->query($query);
              return $result;
           

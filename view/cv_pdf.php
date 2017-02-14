@@ -37,7 +37,7 @@ $sql="select SQL_CALC_FOUND_ROWS M.*,I.*,U.*,S.*,J.*,M.tgl_update as tgl_ubah,Je
                
                 left join jenjangstudi Je on Je.idjenjangstudi=M.jenjangstudi_idjenjangstudi 
                where M.kode='$KODE' ";
-echo $sql;
+//echo $sql;
 //exit;
 
 $html = '<html>
@@ -308,8 +308,8 @@ $html.="</td>
 $html.="<div></div>";
 $html.="</body>
 </html>";
-echo $html;
-exit;
+//echo $html;
+//exit;
 define("_JPGRAPH_PATH", "$PATH/library/mpdf/jpgraph/src/"); // must define this before including mpdf.php file
 $JpgUseSVGFormat = true;
 define('_MPDF_URI',"$url_rewrite/library/mpdf/"); 

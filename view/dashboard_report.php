@@ -103,7 +103,7 @@ if ($level == 1||$level == 4) {
 }
 
 if ($status != "") {
-     $sWhere = "Where idstatus ='$status' ";
+     $sWhere = "Where S.idstatus ='$status' ";
 }
 if ($universitas != "") {
      if ($sWhere != "")
@@ -533,6 +533,23 @@ while ($data = $DB->fetch_array($rResult)) {
    "$no_skld", 
    "$tgl_update"]);
    */
+  
+  $no=addslashes(trim($no));
+  $namamahasiswa=addslashes(trim($namamahasiswa));
+  $namamahasiswa2=addslashes(trim($namamahasiswa2));
+  $jl=addslashes(trim($jl));
+  $tempatlahir=addslashes(trim($tempatlahir));
+  $tanggallahir=addslashes(trim($tanggallahir));
+  $country=addslashes(trim($country));
+  $alamat=addslashes(trim($alamat));
+  $alamatind=addslashes(trim($alamatind));
+  $penyelenggara_program=addslashes(trim($penyelenggara_program));
+  $keterangan_jenjang=addslashes(trim($keterangan_jenjang));
+  $nmrpaspor=addslashes(trim($nmrpaspor));
+  $jenispembiayaan=addslashes(trim($jenispembiayaan)); 
+  $sumber_pembiayaan=addslashes(trim($sumber_pembiayaan)); 
+  $no_kitas=addslashes(trim($no_kitas)); 
+
   $data_opentbs[]=array("no"=>"$no",
                 "nama"=>"$namamahasiswa $namamahasiswa2",
                 "kelamin"=>"$jl", 
