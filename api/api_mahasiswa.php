@@ -100,6 +100,13 @@ if ($periode_belajar_end != "") {
 }
 
 
+
+    if ($sWhere != "")
+        $sWhere .= " and M.universitas_iduniversitas in()";
+    else
+        $sWhere = "Where I.tgl_update <= '$periode_belajar_end' ";
+
+}
 //echo $sWhere;
 /*
   if($document!=""){

@@ -48,6 +48,7 @@ if ( isSet($id)) {
                $password= $hasil->password;
                $level_idlevel= $hasil->level_idlevel;
                $email= $hasil->email;
+               $kode_wilayah= $hasil->kode_wilayah;
                $universitas_iduniversitas= $hasil->universitas_iduniversitas;
               
           }
@@ -74,6 +75,7 @@ if ( isSet($id)) {
                $_SESSION['user_id'] = $user_id;
                $_SESSION['email'] = $email;
                $_SESSION["user_name$ID"] = $userlogin;
+               $_SESSION['kode_wilayah'] = $kode_wilayah;
                $_SESSION['unversitas']=trim($universitas_iduniversitas);
                $qry = $DB->query("select namauniversitas from universitas where kodeUniversitas='{$_SESSION['unversitas']}' ");
                                                                  while ($row = $DB->fetch_object($qry)) {

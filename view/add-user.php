@@ -19,6 +19,7 @@
                     $level_idlevel = $data->level_idlevel;
                     $universitas= $data->universitas_iduniversitas;
                     $email=$data->email;
+                    $kode_wilayah_user=$data->kode_wilayah;
                     $cek_eksist=1;
                } else {
                     $cek_eksist=0;
@@ -27,6 +28,7 @@
                     $password = "";
                     $level_idlevel ="";
                     $universitas= "";
+                    $kode_wilayah_user="";
                }
                if($status_edit==1){
     
@@ -189,7 +191,25 @@ $(document).ready(function() { $("#inputUniversity").select2({
                                                   </select>
                                              </div>
                                         </div>
-
+                                        <div class="form-group">
+                                             <label for="inputLevel" class="col-md-3 control-label">Kode Wilayah</label>
+                                             <div class="col-md-9">
+                                                  <select class="form-control" id="kode_wilayah" name="kode_wilayah">
+                                                       <option value="">All</option>
+                                                       <?php
+                                                       $qry = $DB->query("select id_wilayah,kode_wilayah from kode_wilayah");
+                                                       while ($row = $DB->fetch_object($qry)) {
+                                                            $id_wilayah = $row->id_wilayah;
+                                                            $kode_wilayah = $row->kode_wilayah;
+                                                            if ($kode_wilayah == $kode_wilayah_user)
+                                                                 echo "<option value=\"$kode_wilayah\" selected>$kode_wilayah</option>";
+                                                            else
+                                                                 echo "<option value=\"$kode_wilayah\" >$kode_wilayah</option>";
+                                                       }
+                                                       ?>
+                                                  </select>
+                                             </div>
+                                        </div>
                                         
                                         <div class="form-group">
                                              <div class="col-md-offset-3 col-md-9">

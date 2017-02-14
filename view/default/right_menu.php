@@ -62,7 +62,7 @@
         if ($level == "4") {
            ?>
                <p class="list-group-item active te-menu-title">Main Menu <br/>
-                   <small>Welcome Team CH</small>
+                   <small>Welcome  <?=$_SESSION["user_name$ID"]?></small>
             </p>
             <a href="<?= $url_rewrite ?>ch/view" class="list-group-item">Home</a>
             <a href="<?= $url_rewrite ?>ch/report" class="list-group-item">Rekapitulasi Data Mahasiswa</a>

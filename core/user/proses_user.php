@@ -13,11 +13,13 @@ $universitas= $purifier->purify($_POST[universitas]);
 $email= $purifier->purify($_POST[email]);
 //$hapuspengguna = $purifier->purify($_GET['hpengguna']);
 $kondisi = $purifier->purify($_POST['kondisi']);
+$kode_wilayah = $purifier->purify($_POST[kode_wilayah]);
 
 $data_pengguna = array("userlogin" => $username,
     "password" => $password,
     "level_idlevel" => $level,
     "email" => $email,
+    "kode_wilayah" => $kode_wilayah,
     "universitas_iduniversitas" => $universitas,
     "iduser" => $user_id);
 

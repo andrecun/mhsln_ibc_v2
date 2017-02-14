@@ -19,12 +19,14 @@ require_once __DIR__ . "/../utility/database/mysql_db.php";
           $password= $data['password'];
           $level_idlevel=$data['level_idlevel'];
           $email=$data['email'];
+          $kode_wilayah=$data['kode_wilayah'];
           $universitas_iduniversitas=$data['universitas_iduniversitas'];
           $query = "Insert into user
                          set userlogin='$userlogin',"
                   . "     password='$password',"
                   . "    level_idlevel ='$level_idlevel',  "
                   . "email ='$email', "
+                  . "kode_wilayah ='$kode_wilayah', "
                   . " universitas_iduniversitas=' $universitas_iduniversitas' ";
 
           //Execute query
@@ -38,6 +40,7 @@ require_once __DIR__ . "/../utility/database/mysql_db.php";
          $userlogin= $data['userlogin'];
           $password= $data['password'];
           $level_idlevel=$data['level_idlevel'];
+         $kode_wilayah=$data['kode_wilayah'];
               $email=$data['email'];
           $universitas_iduniversitas=$data['universitas_iduniversitas'];
          
@@ -45,6 +48,7 @@ require_once __DIR__ . "/../utility/database/mysql_db.php";
                          set  userlogin='$userlogin',"
                   . "     password='$password',"
                   . "    level_idlevel ='$level_idlevel',"
+                    . "kode_wilayah ='$kode_wilayah', "
                   . "email ='$email', "    . "universitas_iduniversitas=' $universitas_iduniversitas'  where iduser='$iduser' ";
            
 

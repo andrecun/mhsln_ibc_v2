@@ -129,6 +129,28 @@ if (isset($_GET['iSortCol_0'])) {
      }
 }
 
+$kode_wilayah = $_SESSION["kode_wilayah"];
+if ($kode_wilayah != "" and $level == 4) {
+    $sQuery = "SELECT DISTINCT(trim(kodeUniversitas))as wilayah FROM `universitas` where kodewilayah='$kode_wilayah' ";
+    $kodewil = "";
+    $result = $DB->query($sQuery);
+    $i = 0;
+    while ($row_kode = $DB->fetch_array($result)) {
+        $wilayah = $row_kode["wilayah"];
+        if ($i == 0)
+            $kodewil = " '{$wilayah}'";
+        else
+            $kodewil .= " ,'{$wilayah}'";
+        $i++;
+    }
+    if ($sWhere != "")
+        $sWhere.=" and U.kodeUniversitas in ($kodewil) ";
+    else
+        $sWhere = "Where U.kodeUniversitas in ($kodewil) ";
+}
+
+
+
 
 /*
  * Filtering
@@ -138,7 +160,10 @@ if (isset($_GET['iSortCol_0'])) {
  */
 //$sWhere = "";
 if (isset($_GET['sSearch']) && $_GET['sSearch'] != "") {
-     $sWhere = "WHERE (";
+    if ($sWhere == "")
+        $sWhere = "WHERE (";
+    else
+        $sWhere .= " and (";
      for ($i = 0; $i < count($aColumns); $i++) {
           if (isset($_GET['bSearchable_' . $i]) && $_GET['bSearchable_' . $i] == "true") {
                $sWhere .= "`" . $aColumns[$i] . "` LIKE '%" . mysql_real_escape_string($_GET['sSearch']) . "%' OR ";
