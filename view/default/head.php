@@ -54,5 +54,14 @@ function confirm_delete(go_url)
 	       location=go_url;
 	}
 }
+function confirm_ekstension(go_url,nama)
+{
+    var answer = confirm("Apakah anda ingin melakukan perpnajngan atas nama [ " +nama+" ]?");
+    if (answer)
+    {
+
+        location=go_url;
+    }
+}
 </script>
   </head>

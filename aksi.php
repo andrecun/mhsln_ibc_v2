@@ -22,7 +22,6 @@ if ($level == "4") {
     $UTILITY->location_goto("ch/view/");
     exit();
 }
-
 $elements = explode('/', $temp_path[1]);                // Split path on slashes
 $data = array_filter($elements);
 //$UTILITY->show_data($data);
@@ -181,6 +180,12 @@ else {
             break;
         case 'ekstension':
             switch ($data[2]) {
+                case "perpanjang":
+                    $kode=$data[3];
+                    $kode_baru=$MHS->prosesEkstension($kode);
+                    $UTILITY->location_goto("content/ekstension/edit/$kode_baru/1");
+                    exit;
+                    break;
                 case "hstudent":
                     $hapusmahasiswa = $purifier->purify($data[3]);
                     include "./core/mahasiswa/proses_mahasiswa_perpanjangan.php";
@@ -253,6 +258,15 @@ else {
                     unlink($file_upload_foto);
                     $DB->query("update mahasiswa set loa='' where kode='$kode'");
                     $UTILITY->location_goto("content/ekstension/edit/$kode/3");
+                    exit;
+                    break;
+                case "rmou":
+                    $kode = $purifier->purify($data[3]);
+                    $file = $purifier->purify($data[4]);
+                    $file_upload_foto = "$path_upload" . "$kode" . "/$file";
+                    unlink($file_upload_foto);
+                    $DB->query("update mahasiswa set dok_mou='' where kode='$kode'");
+                    $UTILITY->location_goto("content/ekstension/edit/$kode/2");
                     exit;
                     break;
                 case "rkitas":

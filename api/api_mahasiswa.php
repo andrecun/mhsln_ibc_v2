@@ -18,7 +18,7 @@ $id = $_SESSION['user_id']; //Nanti diganti
 /* Array of database columns which should be read and sent back to DataTables. Use a space where
  * you want to insert a non-database field (for example a counter or static image)
  */
-$aColumns = array('namamahasiswa', 'universitas_iduniversitas', 'status_idstatus', 'ekstension', 'alamat',);
+$aColumns = array('namamahasiswa', 'universitas_iduniversitas', 'status_idstatus', 'ekstension', 'M.tgl_update');
 
 /* Indexed column (used for fast and accurate table cardinality) */
 $sIndexColumn = "kode";
@@ -121,7 +121,7 @@ if (isset($_GET['iDisplayStart']) && $_GET['iDisplayLength'] != '-1') {
 /*
  * Ordering
  */
-$sOrder = "";
+$sOrder = "order by tgl_update asc";
 if (isset($_GET['iSortCol_0'])) {
     $sOrder = "ORDER BY  ";
     for ($i = 0; $i < intval($_GET['iSortingCols']); $i++) {
@@ -199,6 +199,8 @@ $sQuery = "select SQL_CALC_FOUND_ROWS M.idmahasiswa,M.kunci,M.ekstension,S.idsta
                 $sWhere
 	$sOrder
 	$sLimit";
+//echo $sQuery;
+
 $rResult = $DB->query($sQuery);
 
 /* Data set length after filtering */
@@ -271,7 +273,7 @@ while ($aRow = $DB->fetch_array($rResult)) {
     }
     $download = "<a href=\"$url_rewrite" . "zip/download/$id \" class=\"btn btn-success btn-xs\" title=\"Download\">Download Berkas</a>";
 
-    //$ekstension = "<a href=\"$url_rewrite" . "content/ekstension/edit/$id \" class=\"btn btn-danger btn-xs\" title=\"Edit\">Ekstension</a>";
+    $ekstension = "<a onClick=\"confirm_ekstension('$url_rewrite" . "proses/ekstension/perpanjang/$id','$namamahasiswa')\" class=\"btn btn-danger btn-xs\" title=\"Edit\">Perpanjang IB</a>";
     if ($id_status != 0)
         $permit = "<a href=\"$url_rewrite" . "content/student/permit/$idmhs \" class=\"btn btn-info btn-xs\" title=\"Verifcation\">Surat Permohonan</a>";
     else $permit = "";
