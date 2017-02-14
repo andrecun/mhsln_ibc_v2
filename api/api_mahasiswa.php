@@ -273,7 +273,7 @@ while ($aRow = $DB->fetch_array($rResult)) {
 
     //$ekstension = "<a href=\"$url_rewrite" . "content/ekstension/edit/$id \" class=\"btn btn-danger btn-xs\" title=\"Edit\">Ekstension</a>";
     if ($id_status != 0)
-        $permit = "<a href=\"$url_rewrite" . "content/student/permit/$idmhs \" class=\"btn btn-info btn-xs\" title=\"Verifcation\">Surat Permohona</a>";
+        $permit = "<a href=\"$url_rewrite" . "content/student/permit/$idmhs \" class=\"btn btn-info btn-xs\" title=\"Verifcation\">Surat Permohonan</a>";
     else $permit = "";
     $verification = "<a href=\"$url_rewrite" . "content/permit/$id \" class=\"btn btn-warning btn-xs\" title=\"Verifcation\">Verification</a>";
 
