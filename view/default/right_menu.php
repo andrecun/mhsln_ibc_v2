@@ -65,6 +65,7 @@
                    <small>Welcome Team CH</small>
             </p>
             <a href="<?= $url_rewrite ?>ch/view" class="list-group-item">Home</a>
+            <a href="<?= $url_rewrite ?>ch/report" class="list-group-item">Rekapitulasi Data Mahasiswa</a>
             <a href="<?= $url_rewrite ?>quit" class="list-group-item">Log Out</a>
            
         <?php } ?>

@@ -32,6 +32,22 @@ else
                $id = $purifier->purify($data[2]);
                include "view/detail_ch.php";
                break;
+          case 'report':
+               $KODE = $data[3];
+             if ($data[2] == "dashboard_report") {
+                    $keyword = $purifier->purify($data[3]);
+                    $status = $purifier->purify($data[4]);
+                    $universitas = $purifier->purify($data[5]);
+                    $country = $purifier->purify($data[6]);
+                    $periode_belajar_start = $purifier->purify($data[7]);
+                    $periode_belajar_end = $purifier->purify($data[8]);
+                    include "./view/dashboard_report.php";
+               } else {
+                    include "./view/report-view-ch.php";
+               }
+
+
+               break;
           default:
                header('HTTP/1.1 404 Not Found');
                include "view/404.php";
