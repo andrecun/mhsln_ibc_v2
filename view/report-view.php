@@ -165,8 +165,37 @@ placeholder: "Pilih Prodi",
                   <div class="form-group">
                     <div class="row">
                       <div class="col-md-4 te-padding-top">
-                          <input class="form-control" type="hidden" id="inputUniversity" name="university"/>
-                 
+
+                          <?php
+                          if ($_SESSION["level$ID"]=='1' &&$_SESSION["level$ID"]=='4') {
+                              ?>
+                              <input class="form-control" type="hidden" id="inputUniversity" name="university"/>
+                              <?php
+                          }else{
+                          ?>
+                          <select onchange="tampilkanProdi();" class="form-control" name="universitas_iduniversitas" id="universitas_iduniversitas">
+                              <?php
+                              $ses_uni=trim($_SESSION[unversitas]);
+                              if ($_SESSION["level$ID"]!='1')
+                                  $where=" where kodeUniversitas='{$ses_uni}' ";
+                              else {
+                                  $where = '';
+                                  echo "<option value=\"\" >All</option>";
+                              }
+                              $qry = $DB->query("select kodeUniversitas,namauniversitas from universitas $where");
+                              while ($row = $DB->fetch_object($qry)) {
+                                  $kodeUniversitas = trim($row->kodeUniversitas);
+                                  $nama_universitas2 = $row->namauniversitas;
+                                  if ($kodeUniversitas == $universitas_iduniversitas)
+                                      echo "<option value=\"$kodeUniversitas\" selected>$nama_universitas2</option>";
+                                  else
+                                      echo "<option value=\"$kodeUniversitas\" >$nama_universitas2</option>";
+                              }
+                              ?>
+                          </select>
+                        <?php
+                          }
+                          ?>
                       </div>
 
                       <!--<div class="col-md-4 te-padding-top">
@@ -228,6 +257,7 @@ placeholder: "Pilih Prodi",
                                              }
                                                if ($universitas==""){
                                                   $universitas="All";
+                                                  echo "masuk";
                                              }else{
                                                     $qry = $DB->query("select kodeUniversitas,namauniversitas from universitas where kodeUniversitas='$universitas'");
                                                                  while ($row = $DB->fetch_object($qry)) {
@@ -237,8 +267,9 @@ placeholder: "Pilih Prodi",
                                              }
                                                if ($country==""){
                                                   $country="All";
+                                                  $par_country="";
                                              }
-                                             else $par_country="";
+                                             else $par_country="$country";
                                                if ($periode_belajar_start==""){
                                                   $text_periode_start="-";
                                              }  else {

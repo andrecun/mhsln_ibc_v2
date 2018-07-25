@@ -112,6 +112,13 @@ if ($universitas != "") {
           $sWhere = "Where U.kodeUniversitas= '$universitas' ";
 }
 
+if ($country != "") {
+    if ($sWhere != "")
+        $sWhere.=" and M.country='$country' ";
+    else
+        $sWhere = "Where M.country= '$country   ' ";
+}
+
 if ($keyword != "") {
      if ($sWhere != "")
           $sWhere.=" and namamahasiswa like '%$keyword%' ";
@@ -242,7 +249,6 @@ $sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,S.*,M.tgl_update as tgl_ubah,M.jml
 	$sOrder
 	$sLimit";
 //echo $sQuery;
-//exit;
 $rResult = $DB->query($sQuery);
 
 /* Data set length after filtering */

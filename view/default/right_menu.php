@@ -20,6 +20,8 @@
                 Welcome <?= $_SESSION["user_name$ID"] ?> from <?= $_SESSION['nama_unversitas'] ?>
             </p>
             <a href="<?= $url_rewrite ?>content/" class="list-group-item">Home</a>
+             <a href="<?= $url_rewrite ?>content/live_dashboard" class="list-group-item">Dashboard</a>
+           
             <a href="<?= $url_rewrite ?>content/user" class="list-group-item">User Admin</a>
             <a href="<?= $url_rewrite ?>content/student" class="list-group-item">Data Perizinan</a>
             <!--<a href="<?= $url_rewrite ?>content/" class="list-group-item">Guest Book</a>-->

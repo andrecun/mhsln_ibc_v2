@@ -30,6 +30,9 @@ else
         case 'home':
             include "view/student-admin.php";
             break;
+        case 'live_dashboard':
+            include "view/live_dashboard.php";
+            break;
         case 'password':
             include "view/change_password.php";
             break;
@@ -50,7 +53,12 @@ else
                 $periode_belajar_start = $purifier->purify($data[7]);
                 $periode_belajar_end = $purifier->purify($data[8]);
                 include "./view/dashboard_report.php";
-            } else {
+            }else if(($data[2] == "dashboard_report_program")){
+                $tgl_awal = $purifier->purify($data[3]);
+                $tgl_akhir = $purifier->purify($data[4]);
+                include "./view/dashboard_report_program.php";
+            }
+            else {
                 include "./view/report-view.php";
             }
 
