@@ -173,7 +173,7 @@ placeholder: "Pilih Prodi",
                               <?php
                           }else{
                           ?>
-                          <select onchange="tampilkanProdi();" class="form-control" name="universitas_iduniversitas" id="universitas_iduniversitas">
+                          <select onchange="tampilkanProdi();" class="form-control" name="university" id="universitas_iduniversitas">
                               <?php
                               $ses_uni=trim($_SESSION[unversitas]);
                               if ($_SESSION["level$ID"]!='1')
@@ -257,11 +257,11 @@ placeholder: "Pilih Prodi",
                                              }
                                                if ($universitas==""){
                                                   $universitas="All";
-                                                  echo "masuk";
+                                                 // echo "masuk";
                                              }else{
                                                     $qry = $DB->query("select kodeUniversitas,namauniversitas from universitas where kodeUniversitas='$universitas'");
                                                                  while ($row = $DB->fetch_object($qry)) {
-                                                                      $kodeUniversitas = trim($row->kodeUniversitas);
+                                                                      $kodeUniversitas_fix = trim($row->kodeUniversitas);
                                                                       $nama_universitas = $row->namauniversitas;
                                                                  }
                                              }
@@ -287,7 +287,7 @@ placeholder: "Pilih Prodi",
                              . "<br/> Tanggal Awal: $text_periode_start <br/> Tanggal Akhir : $text_periode_end</p>";
                     
                      ?>
-                <a href="<?= $url_rewrite ?>content/report/dashboard_report/<?= $par_keyword?>/<?= $par_status ?>/<?= $kodeUniversitas ?>/<?= $par_country ?>/<?=trim($periode_belajar_start)?>/<?=trim($periode_belajar_end)?>" class="btn btn-primary ">Download Excel</a>
+                <a href="<?= $url_rewrite ?>content/report/dashboard_report/<?= $par_keyword?>/<?= $par_status ?>/<?= $kodeUniversitas_fix ?>/<?= $par_country ?>/<?=trim($periode_belajar_start)?>/<?=trim($periode_belajar_end)?>" class="btn btn-primary ">Download Excel</a>
 
                    <!--<a href="<?= $url_rewrite ?>content/ekstension/add " class="btn btn-primary ">PDF</a>-->
 

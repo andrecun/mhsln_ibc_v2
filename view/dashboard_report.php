@@ -97,7 +97,7 @@ $username_session = $_SESSION["user_name$ID"];
 if ($level == 1||$level == 4) {
      $sWhere = "";
 } else if ($level == 2) {
-     $sWhere = "Where U.kodeUniversitas='$universitas_session' ";
+     $sWhere = "Where M.universitas_iduniversitas='$universitas_session' ";
 } else if ($level == 3) {
      $sWhere = "Where idmahasiswa='$username_session' ";
 }
@@ -107,9 +107,9 @@ if ($status != "") {
 }
 if ($universitas != "") {
      if ($sWhere != "")
-          $sWhere.=" and U.kodeUniversitas='$universitas' ";
+          $sWhere.=" and M.universitas_iduniversitas='$universitas' ";
      else
-          $sWhere = "Where U.kodeUniversitas= '$universitas' ";
+          $sWhere = "Where M.universitas_iduniversitas= '$universitas' ";
 }
 
 if ($country != "") {
@@ -248,7 +248,8 @@ $sQuery = "select SQL_CALC_FOUND_ROWS M.*,I.*,S.*,M.tgl_update as tgl_ubah,M.jml
                 $sWhere
 	$sOrder
 	$sLimit";
-//echo $sQuery;
+/*echo $sQuery;
+exit();*/
 $rResult = $DB->query($sQuery);
 
 /* Data set length after filtering */
